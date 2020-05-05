@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lumeire-angular"
+    }
+  },
+  "defaultProject": "lumeire-angular",
+  "cli": {
+    "analytics": false
+  }
 }
