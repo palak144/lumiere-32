@@ -1,24 +1,37 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from './core/layouts/auth-layout/auth-layout.component';
-import { AuthModule } from './core/auth/auth.module';
-//import { LoginComponent } from './core/auth/login/login.component';
+
+
 const routes: Routes = [
   
-  {
-    path: '**',
-    redirectTo: 'auth'
-  },
+  // {
+  //   path: 'auth',
+  //  // redirectTo: 'auth',
+  //   component: AuthLayoutComponent
+  // },
+  // {
+  //   path: '',
+  //   loadChildren: './core/auth/auth.module#AuthModule',
+  //    //component: AuthLayoutComponent
+  // },
+
   {
     path: 'auth',
     loadChildren: './core/auth/auth.module#AuthModule',
-     component: AuthLayoutComponent
+    component: AuthLayoutComponent
   },
+  {
+    path: '**',
+    redirectTo: 'auth'
+  }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes,{ scrollPositionRestoration: 'enabled' })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
