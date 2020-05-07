@@ -1,1 +1,29 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+* {
+    margin: 0;
+}
+
+.login-signup-text {
+    a {
+        font-weight: 600;
+        font-size: 18px;
+        padding-bottom: 7px;
+        color: #CBD3DD;
+        &:not(:last-child) {
+            margin-right: 40px;
+        }
+    }
+    .active {
+        color: #63C7DB;
+        border-bottom: 3px solid;
+    }
+}
+
+
 /* You can add global styles to this file, and also import other style files */
