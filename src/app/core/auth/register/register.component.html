@@ -1,8 +1,46 @@
 <div class="register-wrapper">
     <form action="">
         <div class="form-wrapper">
-            <p>Email</p>
             <input type="text" placeholder="enter your email here" />
+        </div>
+        <div>
+            <div>
+
+            </div>
+            <div>
+                <div>
+
+                    <div class="nav-item dropdown-wrapper display-mobile-drodown-none" ngbDropdown>
+                        <a class="nav-link padding-top-0 padding-bottom-0" ngbDropdownToggle>
+                            <!-- <img [src]="($profilePic | async)?.profilePic || 'assets/images/default-user-final.svg'" alt="career-user-home" class="career-user-img" /> -->
+                            join
+                        </a>
+                        <div ngbDropdownMenu class="dropdown-list-wrapper animated fadeIn">
+                            <ul class="dropdown-list-block">
+                                <li ngbDropdownItem class="nav-item-list">
+
+                                    <a class="nav-list" routerLinkActive="dropdown-active">Profile</a>
+                                </li>
+                                <li ngbDropdownItem class="nav-item-list">
+                                    <a class="nav-list">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <input type="text" name="first name" />
+                </div>
+                <div>
+                    <input type="text" placeholder="last name" />
+                </div>
+            </div>
+            <div>
+                <div>
+                    <input type="text" placeholder="clinic name">
+                </div>
+                <div>
+                    <input type="number" placeholder="number">
+                </div>
+            </div>
         </div>
         <div>
             <button type="submit" class="custom-button">Continue</button>
