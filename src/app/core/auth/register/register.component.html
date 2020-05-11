@@ -1,49 +1,44 @@
 <div class="register-wrapper">
-    <form action="">
+    <form [formGroup]="registerForm">
         <div class="form-wrapper">
-            <input type="text" placeholder="enter your email here" />
-        </div>
-        <div>
             <div>
-
+                <input type="text" placeholder="Email" />
             </div>
-            <div>
-                <div>
-
-                    <div class="nav-item dropdown-wrapper display-mobile-drodown-none" ngbDropdown>
-                        <a class="nav-link padding-top-0 padding-bottom-0" ngbDropdownToggle>
-                            <!-- <img [src]="($profilePic | async)?.profilePic || 'assets/images/default-user-final.svg'" alt="career-user-home" class="career-user-img" /> -->
-                            join
-                        </a>
-                        <div ngbDropdownMenu class="dropdown-list-wrapper animated fadeIn">
-                            <ul class="dropdown-list-block">
-                                <li ngbDropdownItem class="nav-item-list">
-
-                                    <a class="nav-list" routerLinkActive="dropdown-active">Profile</a>
-                                </li>
-                                <li ngbDropdownItem class="nav-item-list">
-                                    <a class="nav-list">Logout</a>
-                                </li>
-                            </ul>
+            <div class="padding-top-20">
+                <div class="d-flex justify-content-between ">
+                    <div class="d-flex">
+                        <div class="dropdown-wrapper">
+                            <p-dropdown [options]="title" placeholder="Title" [showClear]="true" styleClass="prime-small-dropdown-wrapper" formControlName="title">
+                            </p-dropdown>
+                        </div>
+                        <div class="last-name-wrapper">
+                            <input type="text" name="first name" placeholder="last name" />
                         </div>
                     </div>
-                    <input type="text" name="first name" />
+                    <div class="last-name-wrapper">
+                        <input type="text" placeholder="last name" />
+                    </div>
                 </div>
-                <div>
-                    <input type="text" placeholder="last name" />
+                <div class="d-flex justify-content-between padding-top-20">
+                    <div class="full-width form-control-field">
+                        <input type="text" placeholder="clinic name" />
+                    </div>
+                    <div class="full-width form-width-wrapper">
+                        <input type="number" placeholder="number" />
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between padding-top-20">
+                    <div class="full-width form-control-field">
+                        <input type="password" placeholder="Password" />
+                    </div>
+                    <div class="full-width form-width-wrapper">
+                        <input type="password" placeholder="Repeat Password" />
+                    </div>
                 </div>
             </div>
-            <div>
-                <div>
-                    <input type="text" placeholder="clinic name">
-                </div>
-                <div>
-                    <input type="number" placeholder="number">
-                </div>
+            <div class="text-center">
+                <button type="submit" class="custom-button">Sign up</button>
             </div>
-        </div>
-        <div>
-            <button type="submit" class="custom-button">Continue</button>
         </div>
     </form>
 </div>

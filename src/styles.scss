@@ -25,5 +25,56 @@ p,
     }
 }
 
+input::-webkit-input-placeholder {
+    color: #CBD3DD;
+}
+
+.custom-button {
+    min-width: 15em;
+    padding: 8px 10px;
+    background-color: #63C7DB;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+}
+
+// custom small dropdown styling starts
+.prime-small-dropdown-wrapper.ui-dropdown {
+    min-width: 5em;
+}
+
+.prime-small-dropdown-wrapper.ui-dropdown .ui-dropdown-label {
+    padding-right: 0 !important;
+}
+
+.prime-small-dropdown-wrapper.ui-dropdown .ui-inputtext {
+    color: #AAB7C9 !important;
+}
+
+.prime-small-dropdown-wrapper.ui-dropdown {
+    border: 1px solid #a6a6a6 !important;
+}
+
+.prime-small-dropdown-wrapper.ui-dropdown .ui-dropdown-trigger {
+    color: #AAB7C9 !important;
+}
+
+.prime-small-dropdown-wrapper.ui-dropdown .ui-dropdown-trigger-icon {
+    font-size: 14px;
+}
+
+.padding-top-20 {
+    padding-top: 20px;
+}
+
+.dropdown-wrapper {
+    margin-right: 8px;
+}
+
+// custom small dropdown styling ends
 
 /* You can add global styles to this file, and also import other style files */
+
+.full-width {
+    width: 100%;
+}
