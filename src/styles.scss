@@ -156,3 +156,13 @@ input[type=password] {
 .font-weight-600 {
     font-weight: 600;
 }
+
+.login-signup-text:hover {
+    color: #63C7DB;
+    border-bottom: 3px solid;
+    text-decoration: none;
+}
+
+input:focus {
+    outline: none;
+}

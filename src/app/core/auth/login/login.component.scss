@@ -28,6 +28,15 @@
 }
 
 .login-form-wrapper {
-    max-width: 75%;
+    max-width: 70%;
     padding-top: 50px;
+    .button-wrapper {
+        button {
+            width: 100%;
+        }
+    }
+}
+
+.forgot-wrapper {
+    padding-top: 12px;
 }
