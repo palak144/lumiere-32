@@ -45,7 +45,8 @@ input::-webkit-input-placeholder {
 }
 
 .prime-small-dropdown-wrapper.ui-dropdown .ui-dropdown-label {
-    padding-right: 0 !important;
+    // padding-right: 0 !important;
+    padding: 4px 0 !important;
 }
 
 .prime-small-dropdown-wrapper.ui-dropdown .ui-inputtext {
