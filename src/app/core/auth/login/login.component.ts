@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-
+import { Component, OnInit  } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,14 +10,31 @@ export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
   selectedValues:string[] = [];
-  constructor() { }
+  submitted: boolean = false;
+  constructor(
+    private formBuilder:FormBuilder
+  ) { }
 
   ngOnInit(): void {
-    this.loginForm = new FormGroup({
+   
+  this.loginForm = this.formBuilder.group({
+    userId: ['', Validators.required],
+    password: ['', Validators.required],
 
-    })
+  });
   }
-
+get f() {
   
+  return this.loginForm.controls;
+}
+onSubmit(){
+  
+  this.submitted = true;
+  
+  if (this.loginForm.invalid) {
+    return;
+  }
+  console.log(this.loginForm.value)
+}
 
 }
