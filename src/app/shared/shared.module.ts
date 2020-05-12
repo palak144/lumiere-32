@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import {DropdownModule} from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from "../modules/material-ui.module"
+
 // import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
@@ -13,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    DropdownModule
+    DropdownModule,
+    MaterialModule
     // NgbModule.forRoot()
   ],
   exports: [

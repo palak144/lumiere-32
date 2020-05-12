@@ -8,6 +8,8 @@ import { AuthModule } from './core/auth/auth.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { MaterialModule } from "./modules/material-ui.module"
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     AuthModule,
     SharedModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    MaterialModule
   
   ],
   exports: [
