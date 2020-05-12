@@ -6,14 +6,20 @@
         <a [routerLink]="['/auth/register']" routerLinkActive="active">Sign Up</a>
     </div>
     <div class="login-form-wrapper">
-        <form [formGroup]="loginForm">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div>
-                <input type="text" placeholder="Email/Mobile No" />
+                <input type="text" formControlName="userId" placeholder="Email/Mobile No." class="form-control form-control-override" [ngClass]="{ 'is-invalid': submitted && f.userId.errors }">
+                <div *ngIf="submitted && f.userId.errors" class="invalid-feedback">
+                    <div *ngIf="f.userId.errors.required">Email/Mobile No. is required</div>
+                </div>
             </div>
             <div class="padding-top-20">
-                <input type="text" placeholder="Password" />
+                <input type="password" formControlName="password" placeholder="Password" class="form-control form-control-override" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
             </div>
-            <div class="d-flex justify-content-between forgot-wrapper">
+            <div class="d-flex justify-content-between">
                 <div>
                     <p-checkbox name="groupname" value="val1" label="Remember me" [(ngModel)]="selectedValues" [ngModelOptions]="{standalone: true}"></p-checkbox>
                 </div>
@@ -21,7 +27,7 @@
                     <p>Forgot Password?</p>
                 </div>
             </div>
-            <div class="button-wrapper">
+            <div class="text-center button-wrapper">
                 <button type="submit" class="custom-button">Login</button>
             </div>
         </form>
