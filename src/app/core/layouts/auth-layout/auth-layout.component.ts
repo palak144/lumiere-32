@@ -8,9 +8,50 @@ import { Router } from '@angular/router';
 })
 export class AuthLayoutComponent implements OnInit {
 
-  constructor() { }
+
+  slides = [
+    {
+      img: "assets/images/slider-image.svg",
+      name: "Join Lumiere32",
+      text: " we envision it to bridge the distribution gap between dealers"
+    },
+    {
+      img: "assets/images/slider-image.svg",
+      name: "Join Lumiere32",
+      text: " we envision it to bridge the distribution gap between dealers"
+    },
+    {
+      img: "assets/images/slider-image.svg",
+      name: "Join Lumiere32",
+      text: " we envision it to bridge the distribution gap between dealers"
+    },
+    {
+      img: "assets/images/slider-image.svg",
+      name: "Join Lumiere32",
+      text: " we envision it to bridge the distribution gap between dealers"
+    }
+  ];
+  slideConfig = {
+    "slidesToShow": 1, 
+    "slidesToScroll": 1,
+    "dots": true  
+  };
+
+  routerUrl: string;
+  
+  constructor(
+    public router: Router
+  ) {
+    this.routerUrl = this.router.url;
+    console.log('router url::', this.routerUrl);
+   }
 
   ngOnInit(): void {
+  
+  }
+
+  slickInit(e) {
+    console.log(e);
   }
 
 }

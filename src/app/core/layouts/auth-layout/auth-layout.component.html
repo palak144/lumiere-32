@@ -87,14 +87,17 @@
             <div class="card auth-layout-card">
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
-
+                        <ngx-slick-carousel class="carousel custom-slick-carousel" [config]="slideConfig" #slickModal="slick-carousel" (init)="slickInit($event)">
+                            <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                                <img src="{{ slide.img }}" alt="" width="100%">
+                                <p class="carousel-text-wrapper">
+                                    <span class="text-blue">{{slide.name}}</span>
+                                    <span>{{slide.text}}</span>
+                                </p>
+                            </div>
+                        </ngx-slick-carousel>
                     </div>
                     <div class="col-lg-6 col-sm-12">
-                        <div class="login-signup-text">
-                            <a [routerLink]="['/auth/login']" routerLinkActive="active">
-                            Login</a>
-                            <a [routerLink]="['/auth/register']" routerLinkActive="active">Sign Up</a>
-                        </div>
                         <router-outlet></router-outlet>
                     </div>
                 </div>

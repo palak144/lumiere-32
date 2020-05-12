@@ -30,7 +30,8 @@ input::-webkit-input-placeholder {
 }
 
 .custom-button {
-    min-width: 15em;
+    // min-width: 15em;
+    min-width: 22em;
     padding: 8px 10px;
     background-color: #63C7DB;
     border: none;
@@ -77,4 +78,81 @@ input::-webkit-input-placeholder {
 
 .full-width {
     width: 100%;
+}
+
+.p-0 {
+    padding: 0 !important;
+}
+
+// slick carousel
+.custom-slick-carousel {
+    .slick-slide img {
+        width: 329px;
+        margin: 0 auto;
+    }
+    .slick-dots {
+        bottom: -66px;
+        left: 0;
+    }
+    .slick-dots {
+        // display: flex;
+        // justify-content: center;
+        // margin: 0;
+        padding: 1rem 0;
+        list-style-type: none;
+        li {
+            margin: 0 0 12px !important;
+        }
+        button {
+            display: block;
+            width: 11px;
+            height: 11px;
+            padding: 0;
+            border: none;
+            border-radius: 100%;
+            background-color: #E6E7E8;
+            text-indent: -9999px;
+        }
+        li.slick-active button {
+            background-color: #63C7DB;
+        }
+    }
+    .carousel-text-wrapper {
+        max-width: 70%;
+        margin: 30px auto 10px;
+        text-align: center;
+    }
+}
+
+.text-blue {
+    color: #63C7DB;
+}
+
+// Styling the default Slick dots
+// form styling
+.form-wrapper {
+    margin: 39px 20px 0 0;
+    // .form-width-wrapper {
+    //     flex-basis: 77%;
+    // }
+    .form-control-field {
+        padding-right: 20px;
+    }
+}
+
+input[type=text],
+input[type=number],
+input[type=password] {
+    width: 100%;
+    border: 1px solid #AAB7C9;
+    border-radius: 4px;
+    padding: 8px 10px;
+}
+
+.button-wrapper {
+    padding-top: 40px;
+}
+
+.font-weight-600 {
+    font-weight: 600;
 }

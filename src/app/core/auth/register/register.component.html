@@ -1,44 +1,82 @@
 <div class="register-wrapper">
-    <form [formGroup]="registerForm">
-        <div class="form-wrapper">
-            <div>
-                <input type="text" placeholder="Email" />
+    <div class="login-signup-text">
+        <a [routerLink]="['/auth/login']" routerLinkActive="active">
+                    Login</a>
+        <a [routerLink]="['/auth/register']" routerLinkActive="active">Sign Up</a>
+    </div>
+    <ng-container *ngIf="!registerFormFlag">
+        <form [formGroup]="emailForm" class="email-wrapper">
+            <div class="form-wrapper form-email-wrapper">
+                <div class="padding-top-20">
+                    <div>
+                        <input type="text" name="first name" placeholder="Email" />
+                    </div>
+                    <div class="register-button-wrapper" (click)="registerFormData()">
+                        <button type="submit" class="custom-button">Continue</button>
+                    </div>
+                </div>
             </div>
-            <div class="padding-top-20">
-                <div class="d-flex justify-content-between ">
-                    <div class="d-flex">
-                        <div class="dropdown-wrapper">
-                            <p-dropdown [options]="title" placeholder="Title" [showClear]="true" styleClass="prime-small-dropdown-wrapper" formControlName="title">
-                            </p-dropdown>
+        </form>
+    </ng-container>
+
+    <ng-container *ngIf="registerFormFlag">
+        <form [formGroup]="registerForm">
+            <div class="form-wrapper">
+                <div class="col-sm-12 p-0">
+                    <input type="text" placeholder="Email" />
+                </div>
+                <div class="padding-top-20">
+                    <div class="d-flex justify-content-between ">
+                        <div class="col-lg-6 col-sm-6 p-0">
+                            <div class="d-flex padding-right-20">
+                                <div class="dropdown-wrapper">
+                                    <p-dropdown [options]="title" placeholder="Title" [showClear]="true" styleClass="prime-small-dropdown-wrapper" formControlName="title">
+                                    </p-dropdown>
+                                </div>
+                                <div>
+                                    <input type="text" name="first name" placeholder="last name" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="last-name-wrapper">
-                            <input type="text" name="first name" placeholder="last name" />
+                        <div class="col-lg-6 col-sm-6 p-0">
+                            <input type="text" placeholder="last name" />
                         </div>
                     </div>
-                    <div class="last-name-wrapper">
-                        <input type="text" placeholder="last name" />
+                    <div class="d-flex justify-content-between padding-top-20">
+                        <div class="col-lg-6 p-0">
+                            <div class="padding-right-20">
+                                <input type="text" placeholder="clinic name" />
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6 p-0">
+                            <div class="d-flex ">
+                                <div class="dropdown-wrapper">
+                                    <p-dropdown [options]="title" placeholder="Title" [showClear]="true" styleClass="prime-small-dropdown-wrapper" formControlName="title">
+                                    </p-dropdown>
+                                </div>
+                                <div>
+                                    <input type="number" placeholder="number" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-between padding-top-20">
+                        <div class="col-lg-6 p-0">
+                            <div class="padding-right-20">
+                                <input type="password" placeholder="Password" />
+                            </div>
+                        </div>
+                        <div class="full-width form-width-wrapper">
+                            <input type="password" placeholder="Repeat Password" />
+                        </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between padding-top-20">
-                    <div class="full-width form-control-field">
-                        <input type="text" placeholder="clinic name" />
-                    </div>
-                    <div class="full-width form-width-wrapper">
-                        <input type="number" placeholder="number" />
-                    </div>
-                </div>
-                <div class="d-flex justify-content-between padding-top-20">
-                    <div class="full-width form-control-field">
-                        <input type="password" placeholder="Password" />
-                    </div>
-                    <div class="full-width form-width-wrapper">
-                        <input type="password" placeholder="Repeat Password" />
-                    </div>
+                <div class="text-center button-wrapper" [routerLink]="['/auth/verify-email']">
+                    <button type="submit" class="custom-button">Sign up</button>
                 </div>
             </div>
-            <div class="text-center">
-                <button type="submit" class="custom-button">Sign up</button>
-            </div>
-        </div>
-    </form>
+        </form>
+    </ng-container>
 </div>

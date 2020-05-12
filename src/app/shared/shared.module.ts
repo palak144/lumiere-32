@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import {DropdownModule} from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {CheckboxModule} from 'primeng/checkbox';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 // import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
@@ -13,14 +15,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    DropdownModule
+    DropdownModule,
+    CheckboxModule,
+    SlickCarouselModule
     // NgbModule.forRoot()
   ],
   exports: [
     HeaderComponent,
     ReactiveFormsModule,
     FormsModule,
-    DropdownModule
+    DropdownModule,
+    CheckboxModule,
+    SlickCarouselModule
   ]
 })
 export class SharedModule { }
