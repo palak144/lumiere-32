@@ -1,0 +1,31 @@
+<div class="verify-email-wrapper">
+    <div class="heading-wrapper">
+        <h3>
+            Verifying Email
+        </h3>
+    </div>
+    <form [formGroup]="verifyForm" class="verify-email-form">
+        <div>
+            <p>We have sent 6 digit OTP on your Email</p>
+        </div>
+        <div class="verify-mobile-input-wrapper">
+            <input type="text" (keypress)="numberOnly($event)" maxlength="1" />
+            <input type="text" (keypress)="numberOnly($event)" maxlength="1" />
+            <input type="text" (keypress)="numberOnly($event)" maxlength="1" />
+            <input type="text" (keypress)="numberOnly($event)" maxlength="1" />
+            <input type="text" (keypress)="numberOnly($event)" maxlength="1" />
+            <input type="text" (keypress)="numberOnly($event)" maxlength="1" />
+        </div>
+        <div class="d-flex justify-content-between verify-email-text">
+            <div class="text-blue font-weight-600">
+                Change Email
+            </div>
+            <div>
+                Resend OTP in 30 sec
+            </div>
+        </div>
+        <div class="text-center button-wrapper">
+            <button type="submit" class="custom-button">Verify</button>
+        </div>
+    </form>
+</div>

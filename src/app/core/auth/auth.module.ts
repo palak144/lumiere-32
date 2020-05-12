@@ -6,11 +6,12 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SharedModule } from '../../shared/shared.module';
 import { MaterialModule } from "../../modules/material-ui.module"
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent,RegisterComponent],
+  declarations: [LoginComponent,RegisterComponent, VerifyEmailComponent],
   imports: [
     CommonModule,
     SharedModule,

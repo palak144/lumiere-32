@@ -1,0 +1,29 @@
+<div class="login-wrapper">
+    <!-- login wrapper -->
+    <div class="login-signup-text">
+        <a [routerLink]="['/auth/login']" routerLinkActive="active">
+                    Login</a>
+        <a [routerLink]="['/auth/register']" routerLinkActive="active">Sign Up</a>
+    </div>
+    <div class="login-form-wrapper">
+        <form [formGroup]="loginForm">
+            <div>
+                <input type="text" placeholder="Email/Mobile No" />
+            </div>
+            <div class="padding-top-20">
+                <input type="text" placeholder="Password" />
+            </div>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <p-checkbox name="groupname" value="val1" label="Remember me" [(ngModel)]="selectedValues" [ngModelOptions]="{standalone: true}"></p-checkbox>
+                </div>
+                <div>
+                    <p>Forgot Password?</p>
+                </div>
+            </div>
+            <div class="text-center button-wrapper">
+                <button type="submit" class="custom-button">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

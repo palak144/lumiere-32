@@ -16,7 +16,10 @@ export class RegisterComponent implements OnInit {
   title:Title[];
   titleListFromAPI: string[];
 
+  registerFormFlag:boolean = false;
+
   registerForm:FormGroup;
+  emailForm:FormGroup;
 
   constructor(
     private utilityService: UtilityService
@@ -24,12 +27,21 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
 
+    
     this.registerForm = new FormGroup({
       title: new FormControl(null,[Validators.required])
     })
 
+    this.emailForm = new FormGroup({
+    
+    })
+
     this.titleListFromAPI = ['Mr.', 'Mrs.'];
     this.title = this.utilityService.arrayOfStringsToArrayOfObjects(this.titleListFromAPI);
+  }
+
+  registerFormData() {
+    this.registerFormFlag = true;
   }
 
 }

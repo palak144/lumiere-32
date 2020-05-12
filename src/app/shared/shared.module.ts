@@ -5,6 +5,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from "../modules/material-ui.module"
 
+import {CheckboxModule} from 'primeng/checkbox';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 // import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
@@ -16,14 +18,18 @@ import { MaterialModule } from "../modules/material-ui.module"
     ReactiveFormsModule,
     FormsModule,
     DropdownModule,
-    MaterialModule
+    MaterialModule,
+    CheckboxModule,
+    SlickCarouselModule
     // NgbModule.forRoot()
   ],
   exports: [
     HeaderComponent,
     ReactiveFormsModule,
     FormsModule,
-    DropdownModule
+    DropdownModule,
+    CheckboxModule,
+    SlickCarouselModule
   ]
 })
 export class SharedModule { }
