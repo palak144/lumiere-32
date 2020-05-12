@@ -5,6 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SharedModule } from '../../shared/shared.module';
+import { MaterialModule } from "../../modules/material-ui.module"
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 
@@ -14,7 +15,8 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
   imports: [
     CommonModule,
     SharedModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    MaterialModule
   ]
 })
 export class AuthModule { }

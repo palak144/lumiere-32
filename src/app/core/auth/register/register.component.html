@@ -9,7 +9,12 @@
             <div class="form-wrapper form-email-wrapper">
                 <div class="padding-top-20">
                     <div>
-                        <input type="text" name="first name" placeholder="Email" />
+                        <input type="text" name="first name" placeholder="Email" formControlName="" />
+                        <!-- <div *ngIf="(signUpForm.email.invalid && (signUpForm.email.dirty || signUpForm.email.touched) && isCommonSignUpSimitted)" class="error">
+                                <p *ngIf="(signUpForm.email.hasError('required') || signUpForm.email.hasError('whitespace') || signUpForm.email.errors)">
+                                    Please enter valid email (xyz@abc.com)
+                                </p>
+                            </div> -->
                     </div>
                     <div class="register-button-wrapper" (click)="registerFormData()">
                         <button type="submit" class="custom-button">Continue</button>

@@ -3,8 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import {DropdownModule} from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from "../modules/material-ui.module"
+
 import {CheckboxModule} from 'primeng/checkbox';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+
 // import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
@@ -16,6 +19,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     ReactiveFormsModule,
     FormsModule,
     DropdownModule,
+    MaterialModule,
     CheckboxModule,
     SlickCarouselModule
     // NgbModule.forRoot()
@@ -26,7 +30,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     FormsModule,
     DropdownModule,
     CheckboxModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    MaterialModule
   ]
 })
 export class SharedModule { }
