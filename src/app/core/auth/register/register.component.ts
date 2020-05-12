@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
     })
 
     this.emailForm = new FormGroup({
-    
+      email: new FormControl('',[Validators.required])
     })
 
     this.titleListFromAPI = ['Mr.', 'Mrs.'];

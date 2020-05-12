@@ -1,6 +1,6 @@
 <div class="register-wrapper">
     <div class="login-signup-text">
-        <a [routerLink]="['/auth/login']" routerLinkActive="active">
+        <a [routerLink]="['/auth/login']">
                     Login</a>
         <a [routerLink]="['/auth/register']" routerLinkActive="active">Sign Up</a>
     </div>
@@ -9,12 +9,12 @@
             <div class="form-wrapper form-email-wrapper">
                 <div class="padding-top-20">
                     <div>
-                        <input type="text" name="first name" placeholder="Email" formControlName="" />
-                        <!-- <div *ngIf="(signUpForm.email.invalid && (signUpForm.email.dirty || signUpForm.email.touched) && isCommonSignUpSimitted)" class="error">
-                                <p *ngIf="(signUpForm.email.hasError('required') || signUpForm.email.hasError('whitespace') || signUpForm.email.errors)">
-                                    Please enter valid email (xyz@abc.com)
-                                </p>
-                            </div> -->
+                        <input type="text" name="first name" placeholder="Email" formControlName="email" />
+                        <div *ngIf="(emailForm.controls.email.invalid && (emailForm.controls.email.invalid || emailForm.controls.email.invalid))" class="error">
+                            <p *ngIf="(emailForm.controls.email.hasError('required') || emailForm.controls.email.hasError('whitespace') || emailForm.controls.email.errors)">
+                                Please enter valid email (xyz@abc.com)
+                            </p>
+                        </div>
                     </div>
                     <div class="register-button-wrapper" (click)="registerFormData()">
                         <button type="submit" class="custom-button">Continue</button>
