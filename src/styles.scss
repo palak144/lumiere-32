@@ -45,7 +45,8 @@ input::-webkit-input-placeholder {
 }
 
 .prime-small-dropdown-wrapper.ui-dropdown .ui-dropdown-label {
-    padding-right: 0 !important;
+    // padding-right: 0 !important;
+    padding: 4px 0 !important;
 }
 
 .prime-small-dropdown-wrapper.ui-dropdown .ui-inputtext {
@@ -79,8 +80,16 @@ input::-webkit-input-placeholder {
 .full-width {
     width: 100%;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .p-0 {
     padding: 0 !important;
