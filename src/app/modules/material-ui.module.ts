@@ -19,6 +19,7 @@
     import { MatCardModule } from '@angular/material/card';
     import { MatMenuModule } from '@angular/material/menu';
     import {MatCheckboxModule} from '@angular/material/checkbox';
+    import {MatDividerModule} from '@angular/material/divider';
 
 const modules = [
     MatButtonModule,
@@ -41,6 +42,7 @@ const modules = [
     MatCardModule,
     MatMenuModule,
     MatCheckboxModule,
+    MatDividerModule,
 ];
 
 @NgModule({

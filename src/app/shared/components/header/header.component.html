@@ -1,5 +1,4 @@
 
-
 <mat-toolbar>  
     <mat-toolbar-row class="header1">
         <span class="container row">
@@ -9,13 +8,15 @@
             </span>  
             <div fxLayout="row" fxShow="false" fxShow.gt-sm>
             <button mat-button>Sell On Lumiere32</button>
+            <mat-divider class="style-fix" [vertical]="true"></mat-divider>
             <button mat-button>About Us</button>
+            <mat-divider class="style-fix" [vertical]="true"></mat-divider>
             <button mat-button>Help Center</button>
+            <mat-divider class="style-fix" [vertical]="true"></mat-divider>
             <button mat-button>Wish List</button>
+            <mat-divider class="style-fix" [vertical]="true"></mat-divider>
             <button mat-button>Contact Us</button>
             <mat-menu #appMenu="matMenu">
-                <button mat-menu-item><mat-icon>save</mat-icon>Save Data</button>
-                <button mat-menu-item><mat-icon>save_alt</mat-icon>Fetch Data</button>
               </mat-menu>
               <button mat-button class="border1" [matMenuTriggerFor]="appMenu">	<mat-icon class="iconDisplay">flag</mat-icon>
                 Singapore   <mat-icon class="iconDisplay">expand_more</mat-icon>
@@ -27,7 +28,10 @@
     <mat-toolbar-row class="header2">  <button mat-button><mat-icon class="iconDisplay">menu</mat-icon>Categories</button>
         <mat-card class="box"><form><mat-card-content> <input 
             matInput
-            placeholder="Search for products and categories" /></mat-card-content></form></mat-card>
+            placeholder="Search for products and categories" />
+            <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                <mat-icon class="iconSearch">search</mat-icon>
+              </button></mat-card-content></form></mat-card>
         <button mat-button><mat-icon >account_box</mat-icon>Profile</button>
     <button mat-button><mat-icon matBadgeColor="accent">shopping_cart</mat-icon>Cart</button>
     <button mat-button><mat-icon >card_giftcard</mat-icon>My Rewards</button>
