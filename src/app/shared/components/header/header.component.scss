@@ -25,4 +25,29 @@ mat-icon.mat-icon.notranslate.iconDisplay.material-icons.mat-icon-no-color {
     padding-block-end: inherit;
     padding-block-start: inherit;
     width: 50%;
+    padding: 0;
 }
+  
+  mat-divider.style-fix {
+    height: 50px;
+    display: initial;
+    border-right-width: 1.5px;
+    margin-left: 4px; 
+    margin-right: 4px;
+  }
+  button.border1 {
+    border: 2px solid #63C7DB;
+  }
+  input#mat-input-0 {
+    width: 90%;
+    border: none;
+  }
+  .mat-fab{
+    border-radius: 4px;
+    width: 45px;
+    height: 45px;
+  }
+  .mat-card-content {
+      margin-bottom: 0px;
+  }
+  
