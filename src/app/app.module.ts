@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 import { SharedModule } from './shared/shared.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BackendInterceptor } from './core/services/intercepter.service';
 
 
 @NgModule({
@@ -25,14 +27,16 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     BrowserAnimationsModule,
     NgbModule
-   
-  
   ],
   exports: [
     NgbModule
   ],
   
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: BackendInterceptor, multi: true 
+  },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
