@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
 
   title:Title[];
   titleListFromAPI: string[];
+  isSubmitted:boolean = false;
 
   registerFormFlag:boolean = false;
 
@@ -29,11 +30,18 @@ export class RegisterComponent implements OnInit {
 
     
     this.registerForm = new FormGroup({
-      title: new FormControl(null,[Validators.required])
+      Email: new FormControl('',[
+        Validators.required,
+        Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
+      ]),
+      
     })
 
     this.emailForm = new FormGroup({
-      email: new FormControl('',[Validators.required])
+      email: new FormControl('',[
+        Validators.required,
+        Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
+      ])
     })
 
     this.titleListFromAPI = ['Mr.', 'Mrs.'];
@@ -42,6 +50,17 @@ export class RegisterComponent implements OnInit {
 
   registerFormData() {
     this.registerFormFlag = true;
+  }
+
+  onSubmit() {
+    this.isSubmitted = true;
+    if(this.emailForm.valid) {
+      this.registerFormFlag = true;
+    }
+  }
+
+  get emailControls() {
+    return this.emailForm.controls;
   }
 
 }

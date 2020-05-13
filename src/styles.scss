@@ -9,6 +9,10 @@ p,
     margin: 0;
 }
 
+body {
+    font-family: "Poppins";
+}
+
 .login-signup-text {
     a {
         font-weight: 600;
@@ -17,6 +21,11 @@ p,
         color: #CBD3DD;
         &:not(:last-child) {
             margin-right: 40px;
+        }
+        &:hover {
+            color: #63C7DB;
+            border-bottom: 3px solid;
+            text-decoration: none;
         }
     }
     .active {
@@ -55,6 +64,7 @@ input::-webkit-input-placeholder {
 
 .prime-small-dropdown-wrapper.ui-dropdown {
     border: 1px solid #a6a6a6 !important;
+    padding: 6px 4px !important;
 }
 
 .prime-small-dropdown-wrapper.ui-dropdown .ui-dropdown-trigger {
@@ -88,7 +98,6 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .p-0 {
@@ -170,10 +179,31 @@ input[type=password] {
 
 .login-signup-text:hover {
     color: #63C7DB;
-    border-bottom: 3px solid;
     text-decoration: none;
 }
 
 input:focus {
     outline: none;
+}
+
+.errors {
+    display: block;
+    width: 100%;
+    font-size: 80%;
+    color: #dc3545;
+    margin-top: 0px;
+    padding-top: 3px;
+}
+
+.is-invalid {
+    border-color: #FF586B !important;
+}
+
+.custom-slick-carousel:focus,
+.custom-slick-carousel:active {
+    outline: none !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
