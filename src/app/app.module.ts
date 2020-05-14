@@ -12,18 +12,22 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BackendInterceptor } from './core/services/intercepter.service';
+import { ContentLayoutComponent } from './core/content-pages/content-layout/content-layout.component';
+import { ContentPagesModule } from './core/content-pages/content-pages.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthLayoutComponent
-    
+    AuthLayoutComponent,
+    ContentLayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    ContentPagesModule,
     SharedModule,
     BrowserAnimationsModule,
     NgbModule

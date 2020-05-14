@@ -1,0 +1,62 @@
+<div>
+    <app-header></app-header>
+    <div class="landing-wrapper">
+        <!-- half circle wrapper -->
+        <!-- <div class="circle-absolute-wrapper">
+            <img src="assets/images/circle.svg" alt="circle image wrapper" />
+        </div> -->
+        <div class="container card-absolute-wrapper">
+            <div class="row d-flex">
+                <div class="col-lg-4 col-sm-12">
+                    <div class="card card-blue">
+                        <!-- images wrapper -->
+                        <div class="circle-image-wrapper">
+                            <img src="assets/images/landing-image1.svg" alt="landing image" class="img-fluid" />
+                        </div>
+                        <div class="header-absolute-wrapper">
+                            <div class="d-flex align-items-center">
+                                <span class="header-card-icon">
+                                            <img src="assets/images/truck.svg" alt="truck image" class="img-fluid" />
+                                        </span>
+                                <span class="text-white header-text">
+                                            Free Shipping
+                                        </span>
+                            </div>
+                            <div class="d-flex align-items-center padding-top-20">
+                                <span class="header-card-icon">
+                                            <img src="assets/images/return.svg" alt="return image" class="img-fluid" />
+                                        </span>
+                                <span class="text-white header-text">
+                                                7 Days Return
+                                        </span>
+                            </div>
+                            <div class="d-flex align-items-center padding-top-20">
+                                <span class="header-card-icon">
+                                            <img src="assets/images/Shape.svg" alt="shape image" class="img-fluid" />
+                                        </span>
+                                <span class="text-white header-text">
+                                        24/7 Support
+                                </span>
+                            </div>
+                            <div class="header-button-wrapper">
+                                <button type="button" class="custom-button">
+                                    Explore Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-sm-12">
+                    <ngx-slick-carousel class="carousel custom-slick-carousel" [config]="slideConfig" #slickModal="slick-carousel" (init)="slickInit($event)">
+                        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                            <img src="{{ slide.img }}" alt="" width="100%">
+                            <!-- <p class="carousel-text-wrapper">
+                                        <span class="text-blue">{{slide.name}}</span>
+                                        <span>{{slide.text}}</span>
+                                    </p> -->
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
