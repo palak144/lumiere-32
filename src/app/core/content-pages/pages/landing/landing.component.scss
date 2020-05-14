@@ -1,0 +1,35 @@
+.landing-wrapper {
+    background-color: #63C7DB;
+    min-height: 270px;
+    position: relative;
+    .card-absolute-wrapper {
+        bottom: -50%;
+        position: absolute;
+        min-height: 200px;
+        left: 8%;
+        width: 1140px;
+        .card-blue {
+            background-color: #1B4791;
+            min-height: 373px;
+            padding: 60px 40px 0;
+        }
+    }
+}
+
+.header-absolute-wrapper {
+    position: absolute;
+    .header-card-icon {
+        padding-right: 28px;
+    }
+    .header-text {
+        font-size: 25px;
+    }
+}
+
+.header-button-wrapper {
+    text-align: center;
+    padding-top: 48px;
+    .custom-button {
+        min-width: auto;
+    }
+}

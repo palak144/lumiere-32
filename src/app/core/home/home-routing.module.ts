@@ -5,16 +5,16 @@ import { MainHomeComponent } from './pages/main-home/main-home.component';
 
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: HomeLayoutComponent,
-  //   children: [
-  //     {
-  //       path: 'home',
-  //       component: MainHomeComponent
-  //     }
-  //   ]
-  // }
+  {
+    path: '',
+    component: HomeLayoutComponent,
+    children: [
+      {
+        path: 'home',
+        component: MainHomeComponent
+      }
+    ]
+  }
  
 ];
 
