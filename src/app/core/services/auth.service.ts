@@ -10,7 +10,7 @@ export class AuthService {
   constructor(
     private baseService: BaseService
   ) {
-    this.base_url = this.baseService.base_url;
+    this.base_url = this.baseService.baseUrl;
    }
 
    

@@ -8,6 +8,8 @@ import { MaterialModule } from "../modules/material-ui.module"
 import {CheckboxModule} from 'primeng/checkbox';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
+
+
 // import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
@@ -21,7 +23,9 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     DropdownModule,
     MaterialModule,
     CheckboxModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+
+
     // NgbModule.forRoot()
   ],
   exports: [
@@ -31,7 +35,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     DropdownModule,
     CheckboxModule,
     SlickCarouselModule,
-    MaterialModule
+    MaterialModule,
   ]
 })
 export class SharedModule { }

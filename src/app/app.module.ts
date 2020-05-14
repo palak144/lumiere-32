@@ -13,6 +13,9 @@ import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BackendInterceptor } from './core/services/intercepter.service';
 
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -26,15 +29,19 @@ import { BackendInterceptor } from './core/services/intercepter.service';
     AuthModule,
     SharedModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    NgxLoadingModule.forRoot({}),
   ],
   exports: [
     NgbModule
   ],
   
   providers: [
+    
     {
-      provide: HTTP_INTERCEPTORS, useClass: BackendInterceptor, multi: true 
+       provide: HTTP_INTERCEPTORS, useClass: BackendInterceptor, multi: true 
   },
   ],
   bootstrap: [AppComponent]

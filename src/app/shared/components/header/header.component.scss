@@ -12,13 +12,13 @@ mat-toolbar-row.mat-toolbar-row.header2 {
     padding-left: 7%;
     padding-right: 7%;
 }
-.mat-icon{
+.mat-icon.icon{
     display: flow-root;
     fill: currentColor;
     height: 17px;
     width: 76px;
 }
-mat-icon.mat-icon.notranslate.iconDisplay.material-icons.mat-icon-no-color {
+mat-icon.iconDisplay {
     display: unset;
 }
 .mat-card{
@@ -46,8 +46,20 @@ mat-icon.mat-icon.notranslate.iconDisplay.material-icons.mat-icon-no-color {
     border-radius: 4px;
     width: 45px;
     height: 45px;
+    box-shadow: none;
+    background-color: #11227d;
   }
+  span.mat-button-wrapper {
+    padding:10px 0;
+}
   .mat-card-content {
       margin-bottom: 0px;
   }
-  
+  button:focus {
+    outline: none;
+  }
+  .iconSearch{
+    height: 0;
+    width: 0;
+    display: contents;
+  }
