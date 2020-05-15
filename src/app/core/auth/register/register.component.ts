@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators , FormBuilder} from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { MustMatch } from '../../../_helpers/must-watch.validator';
 import { Router } from '@angular/router';
-import { RegisterService } from '../../services/registerService';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -16,26 +16,31 @@ export class RegisterComponent implements OnInit {
 
   selectedValues:string[] = [];
   selectedValues2:string[] = [];
-  titles:any[];
+  titles:string[];
   titleListFromAPI: string[];
   isSubmittedEmailForm:boolean = false;
   isSubmittedRegisterForm:boolean = false;
   public loading = false;
-  registerFormFlag:boolean = false;
   registerForm:FormGroup;
   emailForm:FormGroup;
-  registerFormDetails: any;
+  registerFormDetails: {};
   countrycodeListFromAPI: string[];
-  codes: any[];
+  codes: string[];
   hide = true;
-
+  emailFormDetails: {};
+  otp: string;
+  registerFormFlag:boolean = false;
+otpFlag:boolean=false;
+emailFormFlag:boolean=true;
+  registerSecreen1Data: any;
+  isDisabled: boolean = false;
 
   constructor(
     private utilityService: UtilityService,
     private formBuilder:FormBuilder,
     private router:Router,
-    private registerService:RegisterService,
-    private toastr:ToastrService
+    private toastr:ToastrService,
+    private authService:AuthService
   ) { }
 
   ngOnInit(): void {
@@ -60,6 +65,7 @@ export class RegisterComponent implements OnInit {
         Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'),
       Validators.maxLength(20)]],
       rePassword: ['', Validators.required],
+      recaptcha: ['', ]
     }, {
       validator: MustMatch('password', 'rePassword')
   
@@ -83,15 +89,32 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  registerFormData() {
-    this.registerFormFlag = true;
-  }
 
   onSubmitEmailForm() {
+    this.loading = true;
     this.isSubmittedEmailForm = true;
-    if(this.emailForm.valid) {
-      this.registerFormFlag = true;
+    if(this.emailForm.invalid) {
+      this.loading = false;
+      this.registerFormFlag = false;
+      return
     }
+    this.authService.onRegisterScreen1(this.emailForm.get('email').value).subscribe(
+      data => {      
+        debugger
+        this.registerSecreen1Data = data.data        
+        this.loading = false;
+        this.emailFormFlag = false;
+        this.registerFormFlag = true;
+        this.isSubmittedEmailForm = false;
+        this.emailForm.reset();
+
+      },
+      error => {
+        debugger
+        this.registerFormFlag = false;
+        this.loading = false;
+        this.toastr.error(error.error.message);
+      });
   }
   onSubmitRegisterForm(){
     this.loading = true;
@@ -113,20 +136,58 @@ export class RegisterComponent implements OnInit {
       "speciality": this.registerForm.get('speciality').value
      }
      
-    this.registerService.onRegister(this.registerFormDetails).subscribe(
+    this.authService.onRegisterScreen2(this.registerFormDetails).subscribe(
       data => {                
         this.loading = false;
         this.toastr.success('Registration Successful');
         this.isSubmittedRegisterForm = false;
         this.registerForm.reset();
-        this.router.navigate(['/auth/verify-email']);
-      },
+        this.emailFormFlag = false;
+        this.registerFormFlag = false;
+        this.otpFlag=true;   
+         },
       error => {
+        this.otpFlag=false;   
         this.loading = false;
         this.toastr.error(error.error.message);
         ;
       });
   }
 
+  onOtpChange(otp) {
+    this.otp = otp;
+  }
 
+  onSubmitOTP(){
+    debugger
+this.authService.onVerifyOTP(this.registerSecreen1Data,this.otp).subscribe(
+  data => {                
+    this.toastr.success(data.success.message)
+  },
+  error => {
+    this.toastr.error(error.error.message);
+    ;
+  } 
+)
+  }
+  handleSuccess(data) {
+    console.log(data);
+  }
+  onResendOtp(){
+    debugger
+    this.isDisabled = true;
+    setTimeout (() =>{
+      this.isDisabled = false;
+    },30000);
+    this.authService.onResendOtp(this.registerSecreen1Data).subscribe(
+      data => {   
+        debugger             
+        this.toastr.success(data.success.message)
+      },
+      error => {
+        debugger
+        this.toastr.error(error.error.message);
+        ;
+      }     )
+}
 }

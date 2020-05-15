@@ -4,7 +4,7 @@
                     Login</a>
         <a [routerLink]="['/auth/register']" routerLinkActive="active">Sign Up</a>
     </div>
-    <ng-container *ngIf="!registerFormFlag">
+    <ng-container *ngIf="emailFormFlag">
         <form [formGroup]="emailForm" class="email-wrapper" (ngSubmit)="onSubmitEmailForm()">
             <div class="form-wrapper form-email-wrapper">
                 <div class="padding-top-20">
@@ -25,7 +25,7 @@
     </ng-container>
     
 
-    <ng-container *ngIf="registerFormFlag" #customRegisterForm>
+    <ng-container *ngIf="registerFormFlag" >
         <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegisterForm()">
             <div class="form-wrapper">
                 <div class="col-sm-12 p-0">
@@ -41,14 +41,14 @@
                         <div class="col-lg-6 col-sm-6 p-0">
                             <div class="d-flex padding-right-20">
                                 <div class="dropdown-wrapper">
-                                    <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.code.errors }">
+                                    <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.title.errors }">
                                         <option value="" >Title</option>
                                         <option value={{title}} *ngFor="let title of titles">{{title}}
                                         </option>
                                         </select>
                                 </div>
                                 <div>
-                                    <input type="text" formControlName="fname" placeholder="First Name"  [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.fname.errors }">
+                                    <input type="text" formControlName="fname" class="form-control" placeholder="First Name"  [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.fname.errors }">
                                     <div *ngIf="isSubmittedRegisterForm && signUpControls.fname.errors" class="invalid-feedback">
                                         <div *ngIf="signUpControls.fname.errors.required">First Name is required</div>
                                     </div>                                </div>
@@ -118,9 +118,13 @@
 
                                 </div>                                 </div>
                         </div>
+                      
                         <div class="full-width form-width-wrapper">
-                            <input type="password" formControlName="rePassword" placeholder="Repeat Password" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.rePassword.errors }"
-                           >
+                            <input type="password" formControlName="rePassword" placeholder="Repeat Password" class="form-control inp" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.rePassword.errors }"
+                           [type]="hide ? 'password':'text'">
+                            <mat-icon class="eye" matSuffix (click)="hide = !hide">
+                              {{hide ? 'visibility_off' : 'visibility'}}
+                            </mat-icon>
            
             
                             <div *ngIf="isSubmittedRegisterForm && signUpControls.rePassword.errors" class="invalid-feedback">
@@ -129,6 +133,7 @@
                             </div>                                        </div>
                             
                     </div>
+                  
                 </div>
                 <div class="d-flex justify-content-between forgot-wrapper">
                     <div>
@@ -144,5 +149,32 @@
             </div>
         </form>
     </ng-container>
-    <ngx-loading [show]="loading" [template]="customRegisterForm"></ngx-loading>
+    <ng-container *ngIf="otpFlag" >
+        <div class="verify-email-wrapper">
+            <div class="heading-wrapper">
+                <h3>
+                    Verifying Email
+                </h3>
+            </div>
+                <div>
+                    <p>We have sent 6 digit OTP on your Email</p>
+                </div>
+                <div class="verify-mobile-input-wrapper">
+                    <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:6}"></ng-otp-input>
+                </div>
+                <span class="o-t-p">Entered otp :-{{otp}}</span>
+                    <div class="d-flex verify-email-text">
+                    <div class="text-blue paddingRight font-weight-600 cursor-pointer">
+                        Change Email
+                    </div>
+                    <div class="cursor-pointer">
+                        <button mat-button (click)="onResendOtp()" id="resendOtp" [disabled]="isDisabled">Resend OTP in 30 sec</button>
+                    </div>
+                </div>
+                <div class="text-center button-wrapper">
+                    <button type="submit" class="custom-button verifyBtn" (click)="onSubmitOTP()">Verify</button>
+                </div>
+        </div>
+</ng-container>
+    <ngx-loading [show]="loading" ></ngx-loading>
 </div>

@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder:FormBuilder,
     private router:Router,
-    private toastr:ToastrService  ) { }
+    private toastr:ToastrService,
+    private authService:AuthService  ) { }
 
   ngOnInit(): void {
    
@@ -38,29 +40,30 @@ onSubmit(){
     this.loading = false;
     return;
   }
-  // this.authenticateLogIn();
+   this.authenticateLogIn();
 }
 
 get f(){
   return this.loginForm.controls;
 }
 
-// authenticateLogIn(){
-//   if(navigator.onLine)
-//   {
-//    this.loginservice.userloginService(this.loginForm.value.username ,this.loginForm.value.password).subscribe(
-//     data => {                
-//       this.loading = false;
-//       this.loginResponseObj = data;
-//       localStorage.setItem('UserData',JSON.stringify(this.loginResponseObj))
-//     },
-//     error => {
-//       this.loading = false;
-//       this.toastr.error(error.error.message);
-//       ;
-//     });
-// }else{
-// this.toastr.error("Check your Internet Connection")
-// }
-// }
+authenticateLogIn(){
+  if(navigator.onLine)
+  {
+   this.authService.onLogin(this.loginForm.value.userId ,this.loginForm.value.password).subscribe(
+    data => {                
+      this.loading = false;
+      this.loginResponseObj = data;
+      this.toastr.success("Login Successful")
+    },
+    error => {
+      debugger
+      this.loading = false;
+      this.toastr.error(error.error.message);
+      ;
+    });
+}else{
+this.toastr.error("Check your Internet Connection")
+}
+}
 }
