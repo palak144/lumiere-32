@@ -24,7 +24,7 @@
                     <p-checkbox name="groupname" value="val1" label="Remember me" [(ngModel)]="selectedValues" [ngModelOptions]="{standalone: true}"></p-checkbox>
                 </div>
                 <div>
-                    <p>Forgot Password?</p>
+                    <p (click)="openDialog()" class="cursor-pointer">Forgot Password?</p>
                 </div>
             </div>
             <div class="text-center button-wrapper">
