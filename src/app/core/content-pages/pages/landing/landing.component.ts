@@ -10,21 +10,23 @@ export class LandingComponent implements OnInit {
 
   slides = [
     {
-      img: "assets/images/home-slider-image.svg",
+      img: "assets/images/home-slider-image.png",
     },
     {
-      img: "assets/images/home-slider-image.svg",
+      img: "assets/images/home-slider-image.png",
     },
     {
-      img: "assets/images/home-slider-image.svg",
+      img: "assets/images/home-slider-image.png",
     },
     {
-      img: "assets/images/home-slider-image.svg",
+      img: "assets/images/home-slider-image.png",
     }
   ];
   slideConfig = {
     "slidesToShow": 1, 
     "slidesToScroll": 1,
+    "nextArrow": '<i class="fa fa-chevron-right"></i>',
+    "prevArrow": '<i class="fa fa-chevron-left"></i>',
   };
   constructor() { }
 

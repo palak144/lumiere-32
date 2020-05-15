@@ -4,6 +4,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ForgotPasswordDialogComponent } from '../../../shared/components/forgot-password-dialog/forgot-password-dialog.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,15 +13,19 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   public loading = false;
-  loginForm:FormGroup;
+  loginForm:FormGroup; 
   selectedValues:string[] = [];
   submitted: boolean = false;
-  loginResponseObj: any[];
+  dialogFlag:boolean = false;
+  loginResponseObj: any;
+
   constructor(
     private formBuilder:FormBuilder,
-    private router:Router,
-    private toastr:ToastrService,
-    private authService:AuthService  ) { }
+    private authService : AuthService,
+    private dialog : MatDialog,
+    private toastr:ToastrService
+    
+  ) { }
 
   ngOnInit(): void {
    
@@ -30,6 +36,16 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required],
 
   });
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ForgotPasswordDialogComponent, {
+      width: '666px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 onSubmit(){

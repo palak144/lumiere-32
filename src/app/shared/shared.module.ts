@@ -7,6 +7,7 @@ import { MaterialModule } from "../modules/material-ui.module"
 
 import {CheckboxModule} from 'primeng/checkbox';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ForgotPasswordDialogComponent } from './components/forgot-password-dialog/forgot-password-dialog.component';
 
 
 
@@ -15,7 +16,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent, ForgotPasswordDialogComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

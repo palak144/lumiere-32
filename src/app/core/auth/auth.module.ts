@@ -8,9 +8,10 @@ import { SharedModule } from '../../shared/shared.module';
 import { NgxLoadingModule } from 'ngx-loading';
 import { NgOtpInputModule } from  'ng-otp-input';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
-  declarations: [LoginComponent,RegisterComponent],
+  declarations: [LoginComponent,RegisterComponent, ResetPasswordComponent],
   imports: [
     CommonModule,
     SharedModule,

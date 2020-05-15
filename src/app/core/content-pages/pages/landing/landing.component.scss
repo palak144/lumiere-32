@@ -3,11 +3,12 @@
     min-height: 270px;
     position: relative;
     .card-absolute-wrapper {
-        bottom: -50%;
+        bottom: -55%;
         position: absolute;
         min-height: 200px;
-        left: 8%;
-        width: 1140px;
+        left: 13%;
+        max-width: 1094px;
+        margin: 0 auto;
         .card-blue {
             background-color: #1B4791;
             min-height: 373px;
@@ -31,5 +32,98 @@
     padding-top: 48px;
     .custom-button {
         min-width: auto;
+    }
+}
+
+::ng-deep .custom-home-carousel {
+    .slick-slide {
+        img {
+            width: 100%;
+            height: 373px;
+            object-fit: cover;
+        }
+    }
+    .fa-chevron-left {
+        transform: translate(0, 0);
+        bottom: 1px;
+        left: 0px;
+        position: absolute;
+        z-index: 1;
+        top: inherit !important;
+        background: #1b4791;
+        color: #fff;
+        padding: 8px 12px;
+    }
+    .fa-chevron-right {
+        left: 35px;
+        bottom: 1px;
+        top: inherit !important;
+        position: absolute;
+        z-index: 1;
+        background: #63C7DB;
+        color: #fff;
+        padding: 8px 12px;
+    }
+}
+
+.slider-relative-wrapper {
+    .dot-absolute-wrapper {
+        top: -7%;
+        position: absolute;
+        right: -11%;
+        z-index: 0;
+    }
+}
+
+.deliver-wrapper {
+    padding-top: 14em;
+    padding-bottom: 3em;
+}
+
+.deliver-para-text,
+.deliver-button-wrapper {
+    padding-top: 33px;
+}
+
+.deliver-para-text {
+    max-width: 60%;
+}
+
+.deliver-button-wrapper button {
+    min-width: 8em;
+}
+
+.deliver-card {
+    text-align: center;
+    border: none;
+    box-shadow: -1px 13px 20px #F0F2F4;
+    padding: 34px 16px;
+    .deliver-image-wrapper {
+        padding-bottom: 14px;
+    }
+    .deliver-card-text {
+        .sub-heading-wrapper {
+            padding-bottom: 18px;
+        }
+    }
+    &:not(:first-child) {
+        margin-top: 20px;
+    }
+}
+
+.deliver-card-spacing {
+    padding-top: 7em;
+}
+
+.supplier-card {
+    // height: 263px;
+    background-color: #63C7DB;
+    text-align: center;
+    border-radius: 8px;
+    padding: 7px 10px 10px;
+    .supplier-heading-wrapper {
+        h3 {
+            font-size: 25px;
+        }
     }
 }

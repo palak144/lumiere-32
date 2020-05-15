@@ -7,7 +7,7 @@
         </div> -->
         <div class="container card-absolute-wrapper">
             <div class="row d-flex">
-                <div class="col-lg-4 col-sm-12">
+                <div class="col-lg-4 col-sm-12 p-0">
                     <div class="card card-blue">
                         <!-- images wrapper -->
                         <div class="circle-image-wrapper">
@@ -46,17 +46,136 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8 col-sm-12">
-                    <ngx-slick-carousel class="carousel custom-slick-carousel" [config]="slideConfig" #slickModal="slick-carousel" (init)="slickInit($event)">
-                        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-                            <img src="{{ slide.img }}" alt="" width="100%">
-                            <!-- <p class="carousel-text-wrapper">
-                                        <span class="text-blue">{{slide.name}}</span>
-                                        <span>{{slide.text}}</span>
-                                    </p> -->
+                <div class="col-lg-8 col-sm-12 p-0">
+                    <div class="slider-relative-wrapper">
+                        <div class="dot-absolute-wrapper">
+                            <img src="assets/images/home-dot-image.svg" alt="dot image wrapper" />
                         </div>
-                    </ngx-slick-carousel>
+                        <ngx-slick-carousel class="carousel custom-home-carousel" [config]="slideConfig" #slickModal="slick-carousel" (init)="slickInit($event)">
+                            <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                                <img src="{{ slide.img }}" alt="" width="100%">
+                            </div>
+                        </ngx-slick-carousel>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+    <section class="deliver-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div>
+                        <div class="heading-wrapper">
+                            <h3 class="underline-text-wrapper">We Deliver</h3>
+                        </div>
+                        <div class="deliver-para-text">
+                            <p class="text-grey">
+                                At Lumiere32 we envision it to bridge the distribution gap between dealers and clinicians, through its robust online platform and become a single touch point to connect Manufacturers, Dealers, Medical & Dental Professionals across Singapore.
+                            </p>
+                        </div>
+                        <div class="deliver-button-wrapper">
+                            <button type="button" class="custom-btn btn-blue">
+                                        Know More
+                                    </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    <!-- card starts -->
+                    <div class="card deliver-card">
+                        <div class="deliver-image-wrapper">
+                            <img src="assets/images/deliver-image-1.svg" alt="deliver image 1" />
+                        </div>
+                        <div class="deliver-card-text">
+                            <p class="font-weight-600 sub-heading-wrapper">200+ Brands</p>
+                            <p class="text-grey font-size-14">
+                                At Lumiere32 we envision it to bridge the distribution At Lumiere32 we envision it
+                            </p>
+                        </div>
+                    </div>
+                    <!-- card ends -->
+                    <!-- card starts -->
+                    <div class="card deliver-card">
+                        <div class="deliver-image-wrapper">
+                            <img src="assets/images/deliver-image-2.svg" alt="deliver image 2" />
+                        </div>
+                        <div class="deliver-card-text">
+                            <p class="font-weight-600 sub-heading-wrapper">Conveience 24/7</p>
+                            <p class="text-grey font-size-14">
+                                At Lumiere32 we envision it to bridge the distribution At Lumiere32 we envision it
+                            </p>
+                        </div>
+                    </div>
+                    <!-- card ends -->
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 deliver-card-spacing">
+                    <!-- card starts -->
+                    <div class="card deliver-card">
+                        <div class="deliver-image-wrapper">
+                            <img src="assets/images/deliver-image-1.svg" alt="deliver image 1" />
+                        </div>
+                        <div class="deliver-card-text">
+                            <p class="font-weight-600 sub-heading-wrapper">200+ Brands</p>
+                            <p class="text-grey font-size-14">
+                                At Lumiere32 we envision it to bridge the distribution At Lumiere32 we envision it
+                            </p>
+                        </div>
+                    </div>
+                    <!-- card ends -->
+                    <!-- card starts -->
+                    <div class="card deliver-card">
+                        <div class="deliver-image-wrapper">
+                            <img src="assets/images/deliver-image-2.svg" alt="deliver image 2" />
+                        </div>
+                        <div class="deliver-card-text">
+                            <p class="font-weight-600 sub-heading-wrapper">Conveience 24/7</p>
+                            <p class="text-grey font-size-14">
+                                At Lumiere32 we envision it to bridge the distribution At Lumiere32 we envision it
+                            </p>
+                        </div>
+                    </div>
+                    <!-- card ends -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="supplier-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <div class="heading-wrapper">
+                        <h3 class="underline-text-wrapper">
+                            <span class="display-block">
+                                    Hi, Looking for Supplies?
+                            </span>
+                            <span class="display-block">
+                                    We can Help!
+                            </span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-sm-12">
+                    <div class="card supplier-card">
+                        <div class="supplier-heading-wrapper">
+                            <h3 class="text-uppercase text-white">Dental Supplies</h3>
+                        </div>
+                        <div>
+                            <img src="assets/images/supplier-image.svg" alt="supplier image" />
+                        </div>
+                        <div>
+                            <a class="text-uppercase text-center text-underline text-white cursor-pointer">
+                                Shop Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
