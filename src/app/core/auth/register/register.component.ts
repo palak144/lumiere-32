@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilityService } from '../../services/utility.service';
-import { FormGroup, FormControl, Validators , FormBuilder} from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { MustMatch } from '../../../_helpers/must-watch.validator';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 
@@ -14,38 +14,37 @@ import { AuthService } from '../../services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  selectedValues:string[] = [];
-  selectedValues2:string[] = [];
-  titles:string[];
+  titles: string[];
   titleListFromAPI: string[];
-  isSubmittedEmailForm:boolean = false;
-  isSubmittedRegisterForm:boolean = false;
+  isSubmittedEmailForm: boolean = false;
+  isSubmittedRegisterForm: boolean = false;
   public loading = false;
-  registerForm:FormGroup;
-  emailForm:FormGroup;
+  registerForm: FormGroup;
+  emailForm: FormGroup;
   registerFormDetails: {};
   countrycodeListFromAPI: string[];
   codes: string[];
   hide = true;
   emailFormDetails: {};
   otp: string;
-  registerFormFlag:boolean = false;
-otpFlag:boolean=false;
-emailFormFlag:boolean=true;
+  registerFormFlag: boolean = false;
+  otpFlag: boolean = false;
+  emailFormFlag: boolean = true;
   registerSecreen1Data: any;
   isDisabled: boolean = false;
 
   constructor(
     private utilityService: UtilityService,
-    private formBuilder:FormBuilder,
-    private router:Router,
-    private toastr:ToastrService,
-    private authService:AuthService
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private toastr: ToastrService,
+    private authService: AuthService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
 
-    
+
     this.registerForm = this.formBuilder.group({
       email: new FormControl('', [
         Validators.required,
@@ -53,31 +52,30 @@ emailFormFlag:boolean=true;
       fname: ['', Validators.required],
       lname: ['', Validators.required],
       clinicName: ['', Validators.required],
-      code:['',Validators.required],
-      title:['',Validators.required],
+      code: ['', Validators.required],
+      title: ['', Validators.required],
       contactNo: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[0-9]{10}$')]),   
-       practiceType: ['', Validators.required],
+        Validators.pattern('^[0-9]{10}$')]),
+      practiceType: ['', Validators.required],
       speciality: ['', Validators.required],
-      password: ['', [Validators.required, 
-        Validators.minLength(8),
-        Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'),
+      password: ['', [Validators.required,
+      Validators.minLength(8),
+      Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'),
       Validators.maxLength(20)]],
       rePassword: ['', Validators.required],
-      recaptcha: ['', ]
     }, {
       validator: MustMatch('password', 'rePassword')
-  
+
     });
     this.emailForm = this.formBuilder.group({
       email: new FormControl('', [
         Validators.required,
         Validators.pattern('^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}$')])
-  
+
     });
 
-    this.titles = ['Mr.', 'Miss.','Mrs'];
+    this.titles = ['Mr.', 'Miss.', 'Mrs'];
     this.codes = ['+91', '+92'];
   }
 
@@ -91,35 +89,38 @@ emailFormFlag:boolean=true;
 
 
   onSubmitEmailForm() {
+
     this.loading = true;
     this.isSubmittedEmailForm = true;
-    if(this.emailForm.invalid) {
+    if (this.emailForm.invalid) {
       this.loading = false;
       this.registerFormFlag = false;
       return
     }
     this.authService.onRegisterScreen1(this.emailForm.get('email').value).subscribe(
-      data => {      
-        debugger
-        this.registerSecreen1Data = data.data        
+      data => {
+
+        this.registerSecreen1Data = data.data
         this.loading = false;
+        this.toastr.success(data.message)
         this.emailFormFlag = false;
         this.registerFormFlag = true;
         this.isSubmittedEmailForm = false;
         this.emailForm.reset();
-
+    
       },
       error => {
-        debugger
+
         this.registerFormFlag = false;
         this.loading = false;
         this.toastr.error(error.error.message);
       });
   }
-  onSubmitRegisterForm(){
+  onSubmitRegisterForm() {
+
     this.loading = true;
     this.isSubmittedRegisterForm = true;
-    if(this.registerForm.invalid){
+    if (this.registerForm.invalid) {
       this.loading = false;
       return
     }
@@ -128,26 +129,26 @@ emailFormFlag:boolean=true;
       "password": this.registerForm.get('password').value,
       "firstName": this.registerForm.get('fname').value,
       "lastName": this.registerForm.get('lname').value,
-      "title":this.registerForm.get('title').value,
+      "title": this.registerForm.get('title').value,
       "clinicName": this.registerForm.get('clinicName').value,
       "countryCode": this.registerForm.get('code').value,
       "teleNumber": this.registerForm.get('contactNo').value,
       "practiceType": this.registerForm.get('practiceType').value,
       "speciality": this.registerForm.get('speciality').value
-     }
-     
+    }
+
     this.authService.onRegisterScreen2(this.registerFormDetails).subscribe(
-      data => {                
+      data => {
         this.loading = false;
         this.toastr.success('Registration Successful');
         this.isSubmittedRegisterForm = false;
         this.registerForm.reset();
         this.emailFormFlag = false;
         this.registerFormFlag = false;
-        this.otpFlag=true;   
-         },
+        this.otpFlag = true;
+      },
       error => {
-        this.otpFlag=false;   
+        this.otpFlag = false;
         this.loading = false;
         this.toastr.error(error.error.message);
         ;
@@ -158,36 +159,41 @@ emailFormFlag:boolean=true;
     this.otp = otp;
   }
 
-  onSubmitOTP(){
-    debugger
-this.authService.onVerifyOTP(this.registerSecreen1Data,this.otp).subscribe(
-  data => {                
-    this.toastr.success(data.success.message)
-  },
-  error => {
-    this.toastr.error(error.error.message);
-    ;
-  } 
-)
+  onSubmitOTP() {
+    this.loading = true;
+    this.authService.onVerifyOtpSignUp(this.otp).subscribe(
+      data => {
+        this.loading = false;
+        this.toastr.success(data.data)
+      },
+      error => {
+        this.loading = false;
+        this.toastr.error(error.error.message);
+        ;
+      }
+    )
   }
   handleSuccess(data) {
     console.log(data);
   }
-  onResendOtp(){
-    debugger
+  onChangeEmail(){
+    this.router.navigate(["auth/register"],{relativeTo:this.route})
+  }
+  onResendOtp() {
+    this.loading = true;
     this.isDisabled = true;
-    setTimeout (() =>{
+    setTimeout(() => {
       this.isDisabled = false;
-    },30000);
-    this.authService.onResendOtp(this.registerSecreen1Data).subscribe(
-      data => {   
-        debugger             
-        this.toastr.success(data.success.message)
+    }, 30000);
+    this.authService.onResendOtpSignUp().subscribe(
+      data => {
+        this.loading = false;
+        this.toastr.success(data.data)
       },
       error => {
-        debugger
+        this.loading = false;
         this.toastr.error(error.error.message);
         ;
-      }     )
-}
+      })
+  }
 }

@@ -7,11 +7,6 @@ import { ContentLayoutComponent } from './core/content-pages/content-layout/cont
 
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'auth',
-  //   pathMatch: 'full'
-  // },
   {
     path: '',
     loadChildren: './core/content-pages/content-pages.module#ContentPagesModule',
@@ -23,15 +18,6 @@ const routes: Routes = [
     component: AuthLayoutComponent
     
   }
-
-  // {
-  //   path:'**',
-  //   redirectTo: 'auth'
-  // }
-  // {
-  //   path:'login',
-  //   component:LoginComponent
-  // }
  
 ];
 

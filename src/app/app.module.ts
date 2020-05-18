@@ -17,15 +17,12 @@ import { ContentPagesModule } from './core/content-pages/content-pages.module';
 
 
 import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
-import { NgxLoadingModule } from 'ngx-loading';
-import { NgOtpInputModule } from  'ng-otp-input';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthLayoutComponent,
-    ContentLayoutComponent
+    ContentLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,9 +33,7 @@ import { NgOtpInputModule } from  'ng-otp-input';
     BrowserAnimationsModule,
     NgbModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
-    NgxLoadingModule.forRoot({}),
-    NgOtpInputModule ],
+   ],
   exports: [
     NgbModule
   ],

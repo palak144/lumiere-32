@@ -17,7 +17,7 @@
     }
 }
 .custom-button{
-            width: 100%;
+            width: 70%;
 }
 .eye{
     position: relative;
@@ -81,10 +81,26 @@ button.verifyBtn{
     width: 65% !important;
     float: left !important;
 }
-div.paddingRight{
-    padding-right: 20%;;
+button[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed !important;
+} 
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #63C7DB !important;
+  }
+  .paragraph-wrapper{
+    padding-top: 7%;
 }
 button[disabled] {
     opacity: 0.4;
     cursor: not-allowed !important;
+} 
+button.paddingLeft{
+    padding-left: 20%;
+}
+.paragraph-wrapper{
+    padding-top: 7%;
+}
+.dis{
+    display: contents;
 }

@@ -4,16 +4,15 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 
 
 const authroutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'reset', component: ResetPasswordComponent },
-  // {
-  //   path: '**',
-  //   redirectTo: 'login'
-  // }
+  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'verify-otp', component: VerifyOtpComponent },
+
 ];
 
 @NgModule({
