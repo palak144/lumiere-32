@@ -8,13 +8,14 @@ import { MaterialModule } from "../modules/material-ui.module"
 import {CheckboxModule} from 'primeng/checkbox';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ForgotPasswordDialogComponent } from './components/forgot-password-dialog/forgot-password-dialog.component';
+import { FooterComponent } from './footer/footer.component';
 
 // import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, ForgotPasswordDialogComponent],
+  declarations: [HeaderComponent, ForgotPasswordDialogComponent, FooterComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -32,7 +33,8 @@ import { ForgotPasswordDialogComponent } from './components/forgot-password-dial
     DropdownModule,
     CheckboxModule,
     SlickCarouselModule,
-    MaterialModule
+    MaterialModule,
+    FooterComponent
   ]
 })
 export class SharedModule { }
