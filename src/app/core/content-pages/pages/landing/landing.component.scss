@@ -312,8 +312,44 @@
 .yellow-text {
     color: #FFCA01;
 }
-@media only screen and (max-width: 600px){
-    .landing-wrapper .card-absolute-wrapper{
+
+@media only screen and (max-width: 600px) {
+    .landing-wrapper .card-absolute-wrapper {
         position: relative;
+    }
+    .deliver-para-text {
+        max-width: 100%;
+    }
+    .heading-wrapper h3 span {
+        font-size: 20px;
+    }
+    .supplier-row-wrapper {
+        padding-top: 0;
+    }
+    .supplier-triangle-card {
+        margin-top: 10px;
+    }
+    .dot-absolute-wrapper {
+        display: none;
+    }
+    .card-absolute-wrapper {
+        bottom: auto;
+        left: auto !important;
+    }
+    .card-absolute-wrapper .p-0 {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    .medical-wrapper h3 {
+        font-size: 30px;
+    }
+    .trending-absolute-wrapper {
+        position: absolute;
+        top: 33%;
+        left: 50% !important;
+        transform: translate(-50%, 0%);
+    }
+    .deliver-wrapper {
+        padding-top: 4em;
     }
 }

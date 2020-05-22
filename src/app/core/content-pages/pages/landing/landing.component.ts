@@ -56,6 +56,27 @@ export class LandingComponent implements OnInit {
     "slidesToScroll": 1,
     "margin": 10,
     // "nextArrow": '<i class="fa fa-chevron-right"></i>'
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 1008,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: "unslick"
+      }
+
+    ]
   };
 
   constructor() { }
