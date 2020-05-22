@@ -251,3 +251,21 @@ input:focus {
 .text-underline {
     text-decoration: underline !important;
 }
+
+.text-line-through {
+    text-decoration: line-through;
+}
+
+.font-size-14 {
+    font-size: 14px;
+}
+
+.view-link-wrapper {
+    .view-link {
+        color: #000 !important;
+    }
+}
+
+.padding-top-15 {
+    padding-top: 15px;
+}

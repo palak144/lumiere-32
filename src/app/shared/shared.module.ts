@@ -11,9 +11,14 @@ import { ForgotPasswordDialogComponent } from './components/forgot-password-dial
 import { ToastrModule } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
 import { NgOtpInputModule } from  'ng-otp-input';
+import { FooterComponent } from './footer/footer.component';
+
+// import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+
+
 
 @NgModule({
-  declarations: [HeaderComponent, ForgotPasswordDialogComponent],
+  declarations: [HeaderComponent, ForgotPasswordDialogComponent, FooterComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -37,6 +42,7 @@ import { NgOtpInputModule } from  'ng-otp-input';
     ToastrModule,
     NgxLoadingModule,
     NgOtpInputModule,
+    FooterComponent
   ]
 })
 export class SharedModule { }
