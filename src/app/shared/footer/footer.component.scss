@@ -63,3 +63,9 @@
     bottom: 0;
     left: -3%;
 }
+
+@media only screen and (max-width: 600px) {
+    .footer-copyright {
+        display: block !important;
+    }
+}
