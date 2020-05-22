@@ -312,3 +312,8 @@
 .yellow-text {
     color: #FFCA01;
 }
+@media only screen and (max-width: 600px){
+    .landing-wrapper .card-absolute-wrapper{
+        position: relative;
+    }
+}

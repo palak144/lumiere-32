@@ -114,7 +114,7 @@ export class RegisterComponent implements OnInit {
 
         this.registerSecreen1Data = data.data
         this.loading = false;
-        this.toastr.success(data.message)
+        this.toastr.success("Successful")
         this.emailFormFlag = false;
         this.registerFormFlag = true;
         this.isSubmittedEmailForm = false;
@@ -176,7 +176,7 @@ export class RegisterComponent implements OnInit {
     this.authService.onVerifyOtpSignUp(this.otp).subscribe(
       data => {
         this.loading = false;
-        this.toastr.success(data.data)
+        this.toastr.success("OTP Verified")
       },
       error => {
         this.loading = false;
@@ -201,7 +201,7 @@ export class RegisterComponent implements OnInit {
     this.authService.onResendOtpSignUp().subscribe(
       data => {
         this.loading = false;
-        this.toastr.success(data.data)
+        this.toastr.success("OTP resent")
       },
       error => {
         this.loading = false;

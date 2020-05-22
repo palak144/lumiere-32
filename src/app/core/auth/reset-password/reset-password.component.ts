@@ -54,7 +54,7 @@ export class ResetPasswordComponent implements OnInit {
       data => {
         this.loading = false;
         this.isSubmittedResetForm = false;
-        this.toastr.success(data.data)
+        this.toastr.success("Password Changed")
         this.router.navigate(["/auth/login"])
       },
       error => {
