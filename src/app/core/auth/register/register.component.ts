@@ -3,7 +3,7 @@ import { UtilityService } from '../../services/utility.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { MustMatch } from '../../../_helpers/must-watch.validator';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 
@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
   emailFormFlag: boolean = true;
   registerSecreen1Data: any;
   isDisabled: boolean = false;
+  mySubscription: any;
 
   constructor(
     private utilityService: UtilityService,
@@ -40,7 +41,18 @@ export class RegisterComponent implements OnInit {
     private toastr: ToastrService,
     private authService: AuthService,
     private route: ActivatedRoute,
-  ) { }
+  ) {
+    // this.router.routeReuseStrategy.shouldReuseRoute = function () {
+    //   return false;
+    // };
+
+    // this.mySubscription = this.router.events.subscribe((event) => {
+    //   if (event instanceof NavigationEnd) {
+    //     // Trick the Router into believing it's last link wasn't previously loaded
+    //     this.router.navigated = false;
+    //   }
+    // });
+  }
 
   ngOnInit(): void {
 
@@ -107,7 +119,7 @@ export class RegisterComponent implements OnInit {
         this.registerFormFlag = true;
         this.isSubmittedEmailForm = false;
         this.emailForm.reset();
-    
+
       },
       error => {
 
@@ -176,8 +188,9 @@ export class RegisterComponent implements OnInit {
   handleSuccess(data) {
     console.log(data);
   }
-  onChangeEmail(){
-    this.router.navigate(["auth/register"],{relativeTo:this.route})
+  onChangeEmail() {
+    window.location.reload()
+    // this.router.navigate(['/auth/register'])
   }
   onResendOtp() {
     this.loading = true;
@@ -195,5 +208,9 @@ export class RegisterComponent implements OnInit {
         this.toastr.error(error.error.message);
         ;
       })
+  } ngOnDestroy() {
+    if (this.mySubscription) {
+      this.mySubscription.unsubscribe();
+    }
   }
 }

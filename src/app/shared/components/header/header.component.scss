@@ -18,7 +18,7 @@ mat-toolbar-row.mat-toolbar-row.header2 {
     height: 17px;
     width: 76px;
 }
-mat-icon.iconDisplay {
+.iconDisplay {
     display: unset;
 }
 .mat-card{
@@ -41,6 +41,7 @@ mat-icon.iconDisplay {
   input#mat-input-0 {
     width: 90%;
     border: none;
+    margin: 0px 0px 5px 5px;
   }
   .mat-fab{
     border-radius: 4px;
@@ -49,8 +50,8 @@ mat-icon.iconDisplay {
     box-shadow: none;
     background-color: #11227d;
   }
-  span.mat-button-wrapper {
-    padding:10px 0;
+span.mat-button-wrapper {
+  padding:10px 0 !important;
 }
   .mat-card-content {
       margin-bottom: 0px;

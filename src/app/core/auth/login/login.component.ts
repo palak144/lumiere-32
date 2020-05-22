@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.loading = true;
     this.submitted = true;
-     debugger
     if (this.loginForm.invalid) {
       this.loading = false;
       return;
@@ -67,14 +66,12 @@ export class LoginComponent implements OnInit {
     if (navigator.onLine) {
       this.authService.onLogin(this.loginForm.value.userId, this.loginForm.value.password).subscribe(
         data => {
-          debugger
           this.loading = false;
           this.loginResponseObj = data;
           this.toastr.success("Login Successful")
           this.router.navigate([""])
         },
         error => {
-          debugger
           this.loading = false;
           this.toastr.error(error.error.message);
           ;
