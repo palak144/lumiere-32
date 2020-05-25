@@ -26,23 +26,36 @@ export class LandingComponent implements OnInit {
   trendingSlides = [
     {
       img: "assets/images/dentist.svg",
+      text: 'Dental Devices',
+      class: 'trending-card-blue'
+    },
+    {
+      img: "assets/images/medical-aids.svg",
+      text: 'Medical Aids',
+      class: 'trending-card-yellow'
+    },
+    {
+      img: "assets/images/hospital.svg",
+      text: 'Hospital Establishment',
+      class: 'trending-card-pink'
+    },
+    {
+      img: "assets/images/medical-devices.svg",
+      text: 'Medical Devices',
+      class: 'trending-card-green'
     },
     {
       img: "assets/images/dentist.svg",
+      text: 'Dental Devices',
+      class: 'trending-card-blue'
     },
     {
-      img: "assets/images/dentist.svg",
-    },
-    {
-      img: "assets/images/dentist.svg",
-    },
-    {
-      img: "assets/images/dentist.svg",
-    },
-    {
-      img: "assets/images/dentist.svg",
+      img: "assets/images/medical-aids.svg",
+      text: 'Medical Aids',
+      class: 'trending-card-yellow'
     }
   ];
+
 
   slideConfig = {
     "slidesToShow": 1, 
