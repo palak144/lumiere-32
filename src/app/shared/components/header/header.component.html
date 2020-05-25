@@ -24,17 +24,19 @@
         </div>
         
     </mat-toolbar-row>
-  
-    <mat-toolbar-row class="header2">  <button mat-button><mat-icon class="iconDisplay">menu</mat-icon>Categories</button>
-        <mat-card class="box"><form><mat-card-content> <input 
+    </mat-toolbar>
+    <mat-toolbar-row class="header2">  <button mat-button><mat-icon class="iconDisplay">menu</mat-icon><h4 class="iconDisplay">Categories
+
+    </h4></button>
+        <mat-card class="box"><input 
             matInput
             placeholder="Search for products and categories" />
-            <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-                <mat-icon class="iconSearch">search</mat-icon>
-              </button></mat-card-content></form></mat-card>
-        <button mat-button><mat-icon >account_box</mat-icon>Profile</button>
-        <button mat-button><mat-icon matBadgeColor="accent">shopping_cart</mat-icon>Cart</button>
-        <button mat-button><mat-icon >card_giftcard</mat-icon>My Rewards</button>
-        <button mat-button><mat-icon >account_balance_wallet</mat-icon>Pay 32
-        </button> </mat-toolbar-row>
-  </mat-toolbar>
+            <button mat-fab color="primary" style="margin-top: 3px;margin-bottom: 3px;">
+              <mat-icon class="spanPad">search</mat-icon>
+              </button></mat-card>
+        <button mat-button (click)="login()"><mat-icon class="icon">account_box</mat-icon>Profile</button>
+    <button mat-button><mat-icon class="icon"matBadgeColor="accent">shopping_cart</mat-icon>Cart</button>
+    <button mat-button><mat-icon class="icon">card_giftcard</mat-icon>My Rewards</button>
+    <button mat-button><mat-icon class="icon">account_balance_wallet</mat-icon>Pay 32
+    </button> </mat-toolbar-row>
+  

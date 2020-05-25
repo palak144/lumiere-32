@@ -42,4 +42,11 @@
     padding-top: 14px;
 }
 
+.mat-dialog-container {
+    padding: 0 !important;
+    border-radius: 8px !important;
+}
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #63C7DB !important;
+  }
 

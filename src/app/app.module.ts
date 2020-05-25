@@ -16,12 +16,13 @@ import { ContentLayoutComponent } from './core/content-pages/content-layout/cont
 import { ContentPagesModule } from './core/content-pages/content-pages.module';
 
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthLayoutComponent,
-    ContentLayoutComponent
+    ContentLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,15 +31,17 @@ import { ContentPagesModule } from './core/content-pages/content-pages.module';
     ContentPagesModule,
     SharedModule,
     BrowserAnimationsModule,
-    NgbModule
-  ],
+    NgbModule,
+    HttpClientModule,
+   ],
   exports: [
     NgbModule
   ],
   
   providers: [
+    
     {
-      provide: HTTP_INTERCEPTORS, useClass: BackendInterceptor, multi: true 
+       provide: HTTP_INTERCEPTORS, useClass: BackendInterceptor, multi: true 
   },
   ],
   bootstrap: [AppComponent]
