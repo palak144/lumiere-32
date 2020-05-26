@@ -58,9 +58,9 @@ export class RegisterComponent implements OnInit {
 
 
     this.registerForm = this.formBuilder.group({
-      email: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}$')]),
+      // email: new FormControl('', [
+      //   Validators.required,
+      //   Validators.pattern('^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}$')]),
       fname: ['', Validators.required],
       lname: ['', Validators.required],
       clinicName: ['', Validators.required],
@@ -137,7 +137,7 @@ export class RegisterComponent implements OnInit {
       return
     }
     this.registerFormDetails = {
-      "Email": this.registerForm.get('email').value,
+      "Email": this.registerSecreen1Data,
       "password": this.registerForm.get('password').value,
       "firstName": this.registerForm.get('fname').value,
       "lastName": this.registerForm.get('lname').value,

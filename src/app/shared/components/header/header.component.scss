@@ -4,13 +4,12 @@ mat-toolbar-row.mat-toolbar-row.header1 {
     padding-left: 8%;
     padding-right: 8%;
 }
-mat-toolbar-row.mat-toolbar-row.header2 {
+mat-toolbar-row.header2 {
     background-color: #63C7DB;
-    height: 85px;
     color: white;
-    align-items: center;
     padding-left: 7%;
     padding-right: 7%;
+    height: 64px;
 }
 .mat-icon.icon{
     display: flow-root;
@@ -20,6 +19,12 @@ mat-toolbar-row.mat-toolbar-row.header2 {
 }
 .iconDisplay {
     display: unset;
+}
+.iconCategory{
+  display: unset;
+  padding: 2px;
+  letter-spacing: 1px;
+
 }
 .mat-card{
     padding-block-end: inherit;
@@ -43,12 +48,12 @@ mat-toolbar-row.mat-toolbar-row.header2 {
     border: none;
     margin: 0px 0px 5px 5px;
   }
-  .mat-fab{
-    border-radius: 4px;
-    width: 45px;
-    height: 45px;
+   .mat-fab{
+    border-radius: 8px;
     box-shadow: none;
     background-color: #11227d;
+    width: 45px;
+    height: 42px;
   }
 span.mat-button-wrapper {
   padding:10px 0 !important;
@@ -63,4 +68,38 @@ span.mat-button-wrapper {
     height: 0;
     width: 0;
     display: contents;
+  }
+  .inputSearch{
+    border-radius: 8px;
+    position: relative;
+    width: 48%;
+    padding: 12px;
+  }
+  .searchBtn{
+    padding-right: 22px;
+    position: absolute;
+    margin-left: 52%;
+  }
+  .iconShopping{
+    padding-right: 18px;
+  }
+  .cartButton{
+    padding: 0;
+  }
+  @media only screen and (max-width: 600px) {
+    mat-toolbar-row.mat-toolbar-row.header1 {
+      padding-left: 10px !important;
+      padding-right: 6% !important;
+
+  }
+  mat-toolbar-row.mat-toolbar-row.header2{
+    padding-left: 0px !important;
+    padding-right: 4% !important;
+}
+.inputSearch{
+  width: 100%;
+}
+.searchBtn{
+  margin-left: 83%;
+}
   }

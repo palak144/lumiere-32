@@ -32,8 +32,8 @@
         <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegisterForm()">
             <div class="form-wrapper">
                 <div class="col-sm-12 p-0">
-                    <input type="email" formControlName="email" placeholder="Email" class="form-control"
-                        [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.email.errors }">
+                    <input type="email" placeholder="Email" class="form-control"
+                        [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.email.errors }" value= {{registerSecreen1Data}} disabled>
                     <div *ngIf="isSubmittedRegisterForm && signUpControls.email.errors" class="invalid-feedback">
                         <div *ngIf="signUpControls.email.errors.required">Email is required</div>
                         <div *ngIf="signUpControls.email.errors.pattern">Please enter valid email (xyz@abc.com)</div>
