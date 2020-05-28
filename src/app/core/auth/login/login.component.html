@@ -9,8 +9,7 @@
     <div class="login-form-wrapper">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div>
-                <input type="email" formControlName="userId" placeholder="Email" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.userId.errors }">
+                <input type="email" formControlName="userId" placeholder="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userId.errors }">
                 <div *ngIf="submitted && f.userId.errors" class="invalid-feedback">
                     <div *ngIf="f.userId.errors.required">Email is required</div>
                     <div *ngIf="f.userId.errors.pattern">Please enter valid email (xyz@abc.com)</div>

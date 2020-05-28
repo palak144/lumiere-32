@@ -177,6 +177,7 @@ export class RegisterComponent implements OnInit {
       data => {
         this.loading = false;
         this.toastr.success("OTP Verified")
+        this.router.navigate(['/login'])
       },
       error => {
         this.loading = false;

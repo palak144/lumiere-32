@@ -17,6 +17,9 @@ export class AuthService {
   private emailIdLogIn : string;
   private emailIdSignUp : string;
 
+  loggedInCustomerName = "Login / Signup";
+  loginFlag: boolean =false;
+
   constructor(
     private baseService: BaseService
   ) {   }
@@ -56,6 +59,8 @@ export class AuthService {
   }
 
   onLogin(email:string,password:string){
+    debugger
+    this.loggedInCustomerName = email;
      return this.baseService.post(this.loginUrl,{"Email":email,"password":password});
   }
 

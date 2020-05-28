@@ -42,13 +42,13 @@
       <mat-divider class="style-fix" [vertical]="true"></mat-divider>
       <button mat-button>Contact Us</button>
       <mat-menu #appMenu="matMenu">
+        <button mat-menu-item><mat-icon>save</mat-icon>Save Data</button>
+        <button mat-menu-item><mat-icon>save_alt</mat-icon>Fetch Data</button>
       </mat-menu>
       <button mat-button class="border1" [matMenuTriggerFor]="appMenu">
         <mat-icon class="iconDisplay">flag</mat-icon>
         Singapore <mat-icon class="iconDisplay">expand_more</mat-icon>
       </button>
-      <mat-menu #appMenu="matMenu">
-      </mat-menu>
     </div>
 
   </mat-toolbar-row>
@@ -81,10 +81,18 @@
   </button>
   </div>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-  <button mat-button (click)="login()" class="pr-0">
+      <mat-menu #profileMenu="matMenu" >
+        <button mat-menu-item>User Dashboard</button>
+        <button mat-menu-item>Rewards</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+  <button mat-button class="pr-0 " [matMenuTriggerFor]="profileMenu" (click)="loginUser()" >
+    <mat-icon class="icon">account_box</mat-icon>{{authService.loggedInCustomerName}}
+  </button>
+  <button mat-button class="pr-0 " (click)="loginPage()" >
     <mat-icon class="icon">account_box</mat-icon>Login / Signup
   </button>
-  <button mat-button class="pr-0">
+  <button mat-button class="pr-0" >
     <mat-icon class="icon" matBadgeColor="accent">shopping_cart</mat-icon>Cart
   </button>
   <button mat-button class="pr-0">
