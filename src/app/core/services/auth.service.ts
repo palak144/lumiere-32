@@ -59,8 +59,7 @@ export class AuthService {
   }
 
   onLogin(email:string,password:string){
-    debugger
-    this.loggedInCustomerName = email;
+    
      return this.baseService.post(this.loginUrl,{"Email":email,"password":password});
   }
 

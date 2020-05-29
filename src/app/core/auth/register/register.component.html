@@ -32,13 +32,9 @@
         <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegisterForm()">
             <div class="form-wrapper">
                 <div class="col-sm-12 p-0">
-                    <input type="email" placeholder="Email" class="form-control"
-                        [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.email.errors }" value= {{registerSecreen1Data}} disabled>
-                    <div *ngIf="isSubmittedRegisterForm && signUpControls.email.errors" class="invalid-feedback">
-                        <div *ngIf="signUpControls.email.errors.required">Email is required</div>
-                        <div *ngIf="signUpControls.email.errors.pattern">Please enter valid email (xyz@abc.com)</div>
+                    <input type="email" placeholder="Email" class="form-control" value={{registerSecreen1Data}}
+                        disabled>
 
-                    </div>
                 </div>
                 <div class="padding-top-20">
                     <div class="d-flex justify-content-between">
@@ -50,8 +46,12 @@
                                         <option value="" >Title</option>
                                         <option value={{title}} *ngFor="let title of titles">{{title}}
                                         </option>
+                                        
                                     </select>
                                 </div>
+                                <div *ngIf="isSubmittedRegisterForm && signUpControls.title.errors" class="invalid-feedback">
+                                    <div *ngIf="signUpControls.title.errors.required">Title is required</div>
+                                  </div> 
                                 <div>
                                     <input type="text" formControlName="fname" class="form-control"
                                         placeholder="First Name"
@@ -177,8 +177,8 @@
 
                 </div>
                 <div class="d-flex justify-content-between padding-top-20">
-                <mat-checkbox class="text-blue">I accept Terms of use</mat-checkbox>
-                <mat-checkbox >Sign Up to the Newsletter</mat-checkbox>
+                    <mat-checkbox class="text-blue">I accept Terms of use</mat-checkbox>
+                    <mat-checkbox>Sign Up to the Newsletter</mat-checkbox>
                 </div>
                 <div class="text-center button-wrapper">
                     <button type="submit" class="custom-button">Sign up</button>
@@ -201,9 +201,10 @@
             </div>
             <div class="padding-top-20 paddingRight cursor-pointer">
                 <p (click)="onChangeEmail()" class="text-blue dis">Change Email</p>
-                <button mat-button (click)="onResendOtp()" id="resendOtp" class="paddingLeft" [disabled]="isDisabled">Resend OTP in 30
+                <button mat-button (click)="onResendOtp()" id="resendOtp" class="paddingLeft"
+                    [disabled]="isDisabled">Resend OTP in 30
                     sec</button>
-        
+
             </div>
             <div class="text-center button-wrapper padding-top-20">
                 <button type="submit" class="custom-button verifyBtn" (click)="onSubmitOTP()">Verify</button>

@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
           this.loading = false;
           this.loginResponseObj = data;
           this.authService.loginFlag = true;
-          debugger
+          
           this.authService.loggedInCustomerName = data.firstName
           this.toastr.success("Login Successful")
           localStorage.setItem('UserData', JSON.stringify(data));

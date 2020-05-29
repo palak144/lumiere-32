@@ -86,10 +86,10 @@
         <button mat-menu-item>Rewards</button>
         <button mat-menu-item (click)="logout()">Logout</button>
       </mat-menu>
-  <button mat-button class="pr-0 " [matMenuTriggerFor]="profileMenu" (click)="loginUser()" >
-    <mat-icon class="icon">account_box</mat-icon>{{authService.loggedInCustomerName}}
+  <button mat-button class="pr-0 " [matMenuTriggerFor]="profileMenu" *ngIf="authService.loginFlag" >
+    <mat-icon class="icon">account_box</mat-icon>{{authService.loggedInCustomerName}}  
   </button>
-  <button mat-button class="pr-0 " (click)="loginPage()" >
+  <button mat-button class="pr-0 " (click)="loginPage()" *ngIf="!authService.loginFlag">
     <mat-icon class="icon">account_box</mat-icon>Login / Signup
   </button>
   <button mat-button class="pr-0" >

@@ -21,20 +21,17 @@ export class HeaderComponent implements OnInit {
     }
   }
   loginPage(){
-      debugger
+      
       //this.loginFlag = true
       this.router.navigate(['/auth/login'])
     
   }
-  loginUser(){
-    debugger
-  
-}
   logout(){
-    debugger
+    
       localStorage.clear();
-    this.authService.loggedInCustomerName = "Login / Signup"
-     this.router.navigate([''])
+    this.authService.loggedInCustomerName = "Login / Signup";
+    this.authService.loginFlag = false;
+     this.router.navigate(['/auth/login'])
     
   }
 }

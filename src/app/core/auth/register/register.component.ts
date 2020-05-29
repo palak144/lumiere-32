@@ -151,6 +151,7 @@ export class RegisterComponent implements OnInit {
 
     this.authService.onRegisterScreen2(this.registerFormDetails).subscribe(
       data => {
+        this.registerSecreen1Data = data
         this.loading = false;
         this.toastr.success('Registration Successful');
         this.isSubmittedRegisterForm = false;
@@ -177,7 +178,12 @@ export class RegisterComponent implements OnInit {
       data => {
         this.loading = false;
         this.toastr.success("OTP Verified")
-        this.router.navigate(['/login'])
+          this.authService.loginFlag = true;
+          debugger
+          this.authService.loggedInCustomerName = this.registerSecreen1Data.data.firstName
+          this.toastr.success("Login Successful")
+          localStorage.setItem('UserData', JSON.stringify(this.registerSecreen1Data.data));
+        this.router.navigate([''])
       },
       error => {
         this.loading = false;
