@@ -221,7 +221,7 @@ input:focus {
 
 .underline-text-wrapper {
     color: #4b4b4b;
-    font-size: 32px;
+    font-size: 40px;
     position: relative;
     font-weight: 600
 }
@@ -269,3 +269,13 @@ input:focus {
 .padding-top-15 {
     padding-top: 15px;
 }
+
+@media only screen and (max-width:660px) {
+    .custom-button {
+        width: 100%;
+        min-width: 100%;
+    }
+}
+
+
+
