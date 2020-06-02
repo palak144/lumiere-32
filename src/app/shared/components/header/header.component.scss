@@ -4,63 +4,122 @@ mat-toolbar-row.mat-toolbar-row.header1 {
     padding-left: 8%;
     padding-right: 8%;
 }
-mat-toolbar-row.mat-toolbar-row.header2 {
+
+mat-toolbar-row.header2 {
     background-color: #63C7DB;
-    height: 85px;
     color: white;
-    align-items: center;
     padding-left: 7%;
     padding-right: 7%;
+    height: 64px;
 }
-.mat-icon.icon{
+
+.mat-icon.icon {
     display: flow-root;
     fill: currentColor;
     height: 17px;
     width: 76px;
 }
+
 .iconDisplay {
     display: unset;
 }
-.mat-card{
+
+.iconCategory {
+    display: unset;
+    padding: 2px;
+    letter-spacing: 1px;
+}
+
+.mat-card {
     padding-block-end: inherit;
     padding-block-start: inherit;
     width: 50%;
     padding: 0;
 }
-  
-  mat-divider.style-fix {
+
+mat-divider.style-fix {
     height: 50px;
     display: initial;
     border-right-width: 1.5px;
-    margin-left: 4px; 
+    margin-left: 4px;
     margin-right: 4px;
-  }
-  button.border1 {
+}
+
+button.border1 {
     border: 2px solid #63C7DB;
-  }
-  input#mat-input-0 {
+}
+
+input#mat-input-0 {
     width: 90%;
     border: none;
     margin: 0px 0px 5px 5px;
-  }
-  .mat-fab{
-    border-radius: 4px;
-    width: 45px;
-    height: 45px;
+}
+
+.mat-fab {
+    border-radius: 8px;
     box-shadow: none;
     background-color: #11227d;
-  }
-span.mat-button-wrapper {
-  padding:10px 0 !important;
+    width: 45px;
+    height: 42px;
 }
-  .mat-card-content {
-      margin-bottom: 0px;
-  }
-  button:focus {
+
+span.mat-button-wrapper {
+    padding: 10px 0 !important;
+}
+
+.mat-card-content {
+    margin-bottom: 0px;
+}
+
+button:focus {
     outline: none;
-  }
-  .iconSearch{
+}
+
+.iconSearch {
     height: 0;
     width: 0;
     display: contents;
-  }
+}
+
+.inputSearch {
+    border-radius: 8px;
+    position: relative;
+    width: 48%;
+    padding: 12px;
+}
+
+.searchBtn {
+    padding-right: 22px;
+    position: absolute;
+    margin-left: 50%;
+}
+
+::ng-deep .searchBtn .search-icon .mat-button-wrapper {
+    padding: 8px 0 !important;
+}
+
+.iconShopping {
+    padding-right: 18px;
+}
+
+.cartButton {
+    padding: 0;
+}
+
+@media only screen and (max-width: 660px) {
+    mat-toolbar-row.mat-toolbar-row.header1 {
+        padding-left: 10px !important;
+        padding-right: 6% !important;
+    }
+    mat-toolbar-row.mat-toolbar-row.header2 {
+        padding-left: 0px !important;
+        padding-right: 4% !important;
+    }
+    .inputSearch {
+        width: 100%;
+    }
+    .searchBtn {
+        margin-left: 83%;
+    }
+ 
+}

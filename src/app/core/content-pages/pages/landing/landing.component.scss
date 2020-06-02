@@ -76,8 +76,14 @@
 }
 
 .deliver-wrapper {
-    padding-top: 14em;
+    padding-top: 16em;
     padding-bottom: 3em;
+    position: relative;
+    .dot-absolute-wrapper {
+        position: absolute;
+        left: 7%;
+        top: 21%;
+    }
 }
 
 .deliver-para-text,
@@ -104,6 +110,7 @@
     .deliver-card-text {
         .sub-heading-wrapper {
             padding-bottom: 18px;
+            font-size: 18px;
         }
     }
     &:not(:first-child) {

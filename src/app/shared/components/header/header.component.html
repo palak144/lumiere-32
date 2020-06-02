@@ -1,12 +1,21 @@
-
-<mat-toolbar>  
+<mat-toolbar>
     <mat-toolbar-row class="header1">
+        <!-- <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button> -->
         <span class="container row">
-            <a  href="">
-                <img class="paddingLeft" src="assets/images/Lumiere-Logo.svg" alt="Rxagile logo svg">
-            </a>  
-            </span>  
-            <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+      <a href="">
+        <img class="paddingLeft" src="assets/images/Lumiere-Logo.svg" alt="Rxagile logo svg">
+      </a>
+    </span>
+        <button mat-button fxShow="true" fxHide.gt-sm class="cartButton">
+      <mat-icon class="iconShopping" matBadgeColor="accent">add_shopping_cart</mat-icon>Cart
+    </button>
+        <button mat-button [matMenuTriggerFor]="appMenu" fxShow="true" fxHide.gt-sm>
+      <mat-icon class="iconDisplay">flag</mat-icon>
+      Sin<mat-icon class="iconDisplay">expand_more</mat-icon>
+    </button>
+        <div fxLayout="row" fxShow="false" fxShow.gt-sm>
             <button mat-button>Sell On Lumiere32</button>
             <mat-divider class="style-fix" [vertical]="true"></mat-divider>
             <button mat-button>About Us</button>
@@ -17,26 +26,90 @@
             <mat-divider class="style-fix" [vertical]="true"></mat-divider>
             <button mat-button>Contact Us</button>
             <mat-menu #appMenu="matMenu">
-              </mat-menu>
-              <button mat-button class="border1" [matMenuTriggerFor]="appMenu">	<mat-icon class="iconDisplay">flag</mat-icon>
-                Singapore   <mat-icon class="iconDisplay">expand_more</mat-icon>
-              </button>
+                <button mat-menu-item><mat-icon>save</mat-icon>Save Data</button>
+                <button mat-menu-item><mat-icon>save_alt</mat-icon>Fetch Data</button>
+            </mat-menu>
+            <button mat-button class="border1" [matMenuTriggerFor]="appMenu">
+        <mat-icon class="iconDisplay">flag</mat-icon>
+        Singapore <mat-icon class="iconDisplay">expand_more</mat-icon>
+      </button>
         </div>
-        
-    </mat-toolbar-row>
-    </mat-toolbar>
-    <mat-toolbar-row class="header2">  <button mat-button><mat-icon class="iconDisplay">menu</mat-icon><h4 class="iconDisplay">Categories
 
-    </h4></button>
-        <mat-card class="box"><input 
-            matInput
-            placeholder="Search for products and categories" />
-            <button mat-fab color="primary" style="margin-top: 3px;margin-bottom: 3px;">
-              <mat-icon class="spanPad">search</mat-icon>
-              </button></mat-card>
-        <button mat-button (click)="login()"><mat-icon class="icon">account_box</mat-icon>Profile</button>
-    <button mat-button><mat-icon class="icon"matBadgeColor="accent">shopping_cart</mat-icon>Cart</button>
-    <button mat-button><mat-icon class="icon">card_giftcard</mat-icon>My Rewards</button>
-    <button mat-button><mat-icon class="icon">account_balance_wallet</mat-icon>Pay 32
-    </button> </mat-toolbar-row>
-  
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- <mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+      <a href="#" mat-list-item>Menu Item 1</a>
+      <a href="#" mat-list-item>Menu Item 2</a>
+      <a href="#" mat-list-item>Menu Item 3</a>
+      <a href="#" mat-list-item>Menu Item 4</a>
+      <a href="#" mat-list-item>Menu Item 5</a>
+      <a href="#"mat-list-item>Menu Item 6</a>
+    </mat-nav-list>
+  </mat-sidenav>
+ <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content> 
+</mat-sidenav-container> -->
+
+<mat-toolbar-row class="header2">
+    <button mat-button>
+    <mat-icon class="iconCategory">menu</mat-icon>
+    <h4 class="iconCategory" fxShow="false" fxShow.gt-sm>Categories</h4>
+  </button>
+    <input type="text" class="inputSearch" placeholder="Search for products and Categories">
+    <div class="searchBtn">
+        <button mat-fab color="primary" class="search-icon">
+    <mat-icon class="searchIcon">search</mat-icon>
+  </button>
+    </div>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+        <mat-menu #profileMenu="matMenu">
+            <button mat-menu-item>User Dashboard</button>
+            <button mat-menu-item>Rewards</button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+        <button mat-button class="pr-0 " [matMenuTriggerFor]="profileMenu" *ngIf="authService.loginFlag">
+    <mat-icon class="icon">account_box</mat-icon>{{authService.loggedInCustomerName}}  
+  </button>
+        <button mat-button class="pr-0 " (click)="loginPage()" *ngIf="!authService.loginFlag">
+    <mat-icon class="icon">account_box</mat-icon>Login / Signup
+  </button>
+        <button mat-button class="pr-0">
+    <mat-icon class="icon" matBadgeColor="accent">shopping_cart</mat-icon>Cart
+  </button>
+        <button mat-button class="pr-0">
+    <mat-icon class="icon">card_giftcard</mat-icon>My Rewards
+  </button>
+        <button mat-button class="pr-0">
+    <mat-icon class="icon">account_balance_wallet</mat-icon>Pay 32
+  </button>
+    </div>
+</mat-toolbar-row>
+
+<!-- 
+<mat-toolbar-row class="header2"> 
+  <button mat-button>
+    <mat-icon class="iconCategory">menu</mat-icon>
+    <h4 class="iconCategory" fxShow="false" fxShow.gt-sm>Categories</h4>
+  </button>
+  <mat-card class="box"><input matInput placeholder="Search for products and categories" />
+    <button mat-fab color="primary" style="margin-top: 3px;margin-bottom: 3px;">
+      <mat-icon class="spanPad">search</mat-icon>
+    </button></mat-card>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+  <button mat-button (click)="login()">
+    <mat-icon class="icon">account_box</mat-icon>Profile
+  </button>
+  <button mat-button>
+    <mat-icon class="icon" matBadgeColor="accent">shopping_cart</mat-icon>Cart
+  </button>
+  <button mat-button>
+    <mat-icon class="icon">card_giftcard</mat-icon>My Rewards
+  </button>
+  <button mat-button>
+    <mat-icon class="icon">account_balance_wallet</mat-icon>Pay 32
+  </button>
+</div>
+</mat-toolbar-row>  -->

@@ -20,11 +20,10 @@ export class BaseService {
   constructor(private httpClient : HttpClient ) {}
   
   //Api Calls
-
   get(parameters:string): Observable<any>{ 
-    return this.httpClient.get(this.baseUrl+parameters);
-    
+    return this.httpClient.get(this.baseUrl+parameters);  
  }
+
   post (parameters:string,data:any): Observable<any> {
     return this.httpClient.post(this.baseUrl+parameters,data);
   }
@@ -36,5 +35,6 @@ export class BaseService {
   delete (parameters:string,id:any): Observable<any> {
     return this.httpClient.delete<any>( this.baseUrl+parameters + id);
   }
+  
 }
 

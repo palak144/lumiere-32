@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 
 @Component({
@@ -10,11 +11,27 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(    private router:Router,
+    public authService :AuthService
     ) { }
 
   ngOnInit(): void {
+    if (localStorage.UserData) {
+      var json = JSON.parse(localStorage.UserData);
+      this.authService.loggedInCustomerName = json.data.firstName
+    }
   }
-  login(){
-    this.router.navigate(['/auth/login'])
+  loginPage(){
+      
+      //this.loginFlag = true
+      this.router.navigate(['/auth/login'])
+    
+  }
+  logout(){
+    
+      localStorage.clear();
+    this.authService.loggedInCustomerName = "Login / Signup";
+    this.authService.loginFlag = false;
+     this.router.navigate(['/auth/login'])
+    
   }
 }
