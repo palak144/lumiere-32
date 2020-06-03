@@ -17,6 +17,8 @@ import { ContentPagesModule } from './core/content-pages/content-pages.module';
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from './core/home/home.module';
+import { HomeLayoutComponent } from './core/home/home-layout/home-layout.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    HomeModule,
     ContentPagesModule,
     SharedModule,
     BrowserAnimationsModule,

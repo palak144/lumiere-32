@@ -12,13 +12,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
 import { NgOtpInputModule } from  'ng-otp-input';
 import { FooterComponent } from './footer/footer.component';
+import { PostLoginHeaderComponent } from './components/post-login-header/post-login-header.component';
 
 // import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, ForgotPasswordDialogComponent, FooterComponent],
+  declarations: [HeaderComponent, ForgotPasswordDialogComponent, FooterComponent, PostLoginHeaderComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
