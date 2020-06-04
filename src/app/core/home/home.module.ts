@@ -5,10 +5,11 @@ import { HomeRoutingModule } from './home-routing.module';
 import { MainHomeComponent } from './pages/main-home/main-home.component';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { SharedModule } from '../../shared/shared.module';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 @NgModule({
-  declarations: [MainHomeComponent, HomeLayoutComponent],
+  declarations: [MainHomeComponent, HomeLayoutComponent, ProfileComponent],
   imports: [
     CommonModule,
     SharedModule,
