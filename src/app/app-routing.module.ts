@@ -21,7 +21,7 @@ const routes: Routes = [
     
   },
   {
-    path: 'home',
+    path: 'user',
     loadChildren: './core/home/home.module#HomeModule',
     component: HomeLayoutComponent
     
