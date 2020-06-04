@@ -13,13 +13,15 @@ import { NgxLoadingModule } from 'ngx-loading';
 import { NgOtpInputModule } from  'ng-otp-input';
 import { FooterComponent } from './footer/footer.component';
 import { PostLoginHeaderComponent } from './components/post-login-header/post-login-header.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { SavedPaymentDetailsComponent } from './components/saved-payment-details/saved-payment-details.component';
 
 // import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, ForgotPasswordDialogComponent, FooterComponent, PostLoginHeaderComponent],
+  declarations: [HeaderComponent, ForgotPasswordDialogComponent, FooterComponent, PostLoginHeaderComponent, ChangePasswordComponent, SavedPaymentDetailsComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

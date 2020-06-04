@@ -2,15 +2,9 @@
     padding: 0 !important;
     border-radius: 8px !important;
     position: relative;
-    .forgot-password-image {
-        position: absolute;
-        left: -10%;
-        top: -18%;
-    }
-    .forgot-dialog-wrapper {
-        max-width: 70%;
-        margin: 0 auto;
-        padding: 80px 60px 80px;
+    .saved-dialog-wrapper {
+        padding: 30px 23px 35px;
+
         .heading-wrapper {
             padding-bottom: 30px;
             h3 {
