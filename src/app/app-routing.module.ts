@@ -5,6 +5,7 @@ import { MainHomeComponent } from './core/home/pages/main-home/main-home.compone
 import { LoginComponent } from './core/auth/login/login.component';
 import { ContentLayoutComponent } from './core/content-pages/content-layout/content-layout.component';
 import { HomeLayoutComponent } from './core/home/home-layout/home-layout.component';
+import { ProjectLayoutComponent } from './core/layouts/project-layout/project-layout.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,7 @@ const routes: Routes = [
     path: '',
     loadChildren: './core/content-pages/content-pages.module#ContentPagesModule',
     component: ContentLayoutComponent
-},
+  },
   {
     path: 'auth',
     loadChildren: './core/auth/auth.module#AuthModule',
@@ -25,6 +26,7 @@ const routes: Routes = [
     component: HomeLayoutComponent
     
   }
+
  
 ];
 
