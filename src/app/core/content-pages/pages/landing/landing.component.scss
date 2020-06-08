@@ -217,18 +217,30 @@
         margin-top: 60px;
         border-color: none !important;
         box-shadow: -1px 13px 20px #F0F2F4;
-        .trending-card-blue {
+        .trending-card-small {
             border-bottom-left-radius: 15px;
-            background: #E0EAFF;
             border-bottom-right-radius: 15px;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
             min-height: 132px;
         }
+        .trending-card-blue {
+            background: #E0EAFF;
+        }
+        .trending-card-yellow {
+            background: rgba(255, 202, 1, 0.09);
+        }
+        .trending-card-pink {
+            background: #FEE6DC;
+        }
+        .trending-card-green {
+            background: #DFF7EA;
+        }
         .trending-absolute-wrapper {
             position: absolute;
             top: 33%;
-            left: 29%;
+            transform: translate(-50%, 0);
+            left: 46%;
         }
         .trending-para-text {
             text-align: center;
@@ -248,6 +260,10 @@
     padding: 2em 0 2em;
     .medical-para-text {
         padding-top: 12px;
+        h4 {
+            font-size: 40px;
+            font-weight: 600;
+        }
     }
     .medical-tick-icon {
         color: #fff;
@@ -294,6 +310,9 @@
     }
     .digital-solution-text {
         padding-top: 15px;
+        h5 {
+            font-weight: 600;
+        }
     }
     .digital-icon {
         padding-left: 5px;

@@ -25,7 +25,7 @@ export class AuthService {
   ) {   }
     
   onRegisterScreen1(email:string){
-    this.emailIdSignUp = email
+    this.emailIdSignUp = email;
      return this.baseService.post(this.checkByEmailUrl,{"Email":email})
   }
 
