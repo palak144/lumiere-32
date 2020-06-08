@@ -203,7 +203,7 @@ export class RegisterComponent implements OnInit {
     this.loading = true;
     this.isDisabled = true;
     setTimeout(() => {
-      this.isDisabled = false;
+      this.isDisabled = false; 
     }, 30000);
     this.authService.onResendOtpSignUp().subscribe(
       data => {
