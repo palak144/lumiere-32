@@ -144,7 +144,7 @@ export class RegisterComponent implements OnInit {
       "title": this.registerForm.get('title').value,
       "clinicName": this.registerForm.get('clinicName').value,
       "countryCode": this.registerForm.get('code').value,
-      "teleNumber": this.registerForm.get('contactNo').value,
+      "mobileNumber": this.registerForm.get('contactNo').value,
       "practiceType": this.registerForm.get('practiceType').value,
       "speciality": this.registerForm.get('speciality').value
     }

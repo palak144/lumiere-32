@@ -14,6 +14,6 @@ export class SavedPaymentDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  }
+  } 
 
 }
