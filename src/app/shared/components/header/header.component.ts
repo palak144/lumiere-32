@@ -34,6 +34,10 @@ export class HeaderComponent implements OnInit {
      this.router.navigate(['/auth/login'])
     
   }
+  dashboard(){
+    this.router.navigate(['/user/dashboard'])
+
+  }
   // userDashboard(){
   //   this.router.navigate(['/auth/login'])
   // }
