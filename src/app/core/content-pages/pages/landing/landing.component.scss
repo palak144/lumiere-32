@@ -260,6 +260,10 @@
     padding: 2em 0 2em;
     .medical-para-text {
         padding-top: 12px;
+        h4 {
+            font-size: 40px;
+            font-weight: 600;
+        }
     }
     .medical-tick-icon {
         color: #fff;
@@ -306,6 +310,9 @@
     }
     .digital-solution-text {
         padding-top: 15px;
+        h5 {
+            font-weight: 600;
+        }
     }
     .digital-icon {
         padding-left: 5px;
