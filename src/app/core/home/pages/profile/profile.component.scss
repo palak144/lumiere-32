@@ -42,3 +42,15 @@
     padding-bottom: 2px;
     font-size: 23px;
 }
+@media only screen and (max-width: 660px) {
+    .pl{
+        padding-bottom: 10px !important;
+        margin-left: 0px;
+    }
+    .mright{
+        padding-right: 0px;
+    }
+    .pt{
+        padding-top: 20px;
+    }
+}
