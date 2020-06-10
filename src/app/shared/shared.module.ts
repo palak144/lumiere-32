@@ -14,9 +14,10 @@ import { NgOtpInputModule } from  'ng-otp-input';
 import { FooterComponent } from './footer/footer.component';
 import { PostLoginHeaderComponent } from './components/post-login-header/post-login-header.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { SavedPaymentDetailsComponent } from './components/saved-payment-details/saved-payment-details.component';
+
 
 // import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { SavedPaymentDetailsComponent } from 'src/app/shared/components/saved-payment-details/saved-payment-details.component';
 
 
 
@@ -36,6 +37,7 @@ import { SavedPaymentDetailsComponent } from './components/saved-payment-details
   ],
   exports: [
     HeaderComponent,
+    PostLoginHeaderComponent,
     ReactiveFormsModule,
     FormsModule,
     DropdownModule,

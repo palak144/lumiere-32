@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-login-header',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostLoginHeaderComponent implements OnInit {
 
-  constructor() { }
+  routerUrl:string;
+
+  constructor(
+    private router: Router
+  ) { 
+    this.routerUrl = this.router.url;
+    console.log('router url::', this.router.url);
+  }
 
   ngOnInit(): void {
   }
 
 }
+
