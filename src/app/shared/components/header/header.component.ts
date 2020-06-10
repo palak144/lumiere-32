@@ -16,13 +16,13 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.UserData) {
+      this.authService.loginFlag = true;
       var json = JSON.parse(localStorage.UserData);
       this.authService.loggedInCustomerName = json.data.firstName
     }
   }
   loginPage(){
       
-      //this.loginFlag = true
       this.router.navigate(['/auth/login'])
     
   }

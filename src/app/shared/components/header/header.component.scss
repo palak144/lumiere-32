@@ -1,35 +1,35 @@
 mat-toolbar-row.mat-toolbar-row.header1 {
     background-color: white;
-    height: 93px;
-    padding-left: 8%;
-    padding-right: 8%;
+    height: 94px;
 }
 
 mat-toolbar-row.header2 {
     background-color: #63C7DB;
     color: white;
-    padding-left: 7%;
-    padding-right: 7%;
     height: 64px;
 }
 
-.mat-icon.icon {
+.icon {
     display: flow-root;
-    fill: currentColor;
-    height: 17px;
-    width: 76px;
-}
+    margin-left: 6px;
 
+}
+.icons{
+    display: flow-root
+}
 .iconDisplay {
     display: unset;
 }
 
 .iconCategory {
     display: unset;
-    padding: 2px;
-    letter-spacing: 1px;
+    padding: 7px;
+    padding-right: 20px;
 }
-
+.searchDiv{
+    position: relative;
+    justify-content: flex-end;
+}
 .mat-card {
     padding-block-end: inherit;
     padding-block-start: inherit;
@@ -59,8 +59,8 @@ input#mat-input-0 {
 .mat-fab {
     border-radius: 8px;
     box-shadow: none;
-    background-color: #11227d;
-    width: 45px;
+    background-color: #1B4791;
+    width: 48px;
     height: 42px;
 }
 
@@ -84,14 +84,13 @@ button:focus {
 
 .inputSearch {
     border-radius: 8px;
-    position: relative;
-    width: 48%;
+    width: 100%;
     padding: 12px;
 }
 
 .searchBtn {
     position: absolute;
-    margin-left: 50.6%;
+    padding: 4px;
 }
 
 ::ng-deep .searchBtn .search-icon .mat-button-wrapper {
@@ -104,6 +103,35 @@ button:focus {
 
 .cartButton {
     padding: 0;
+}
+.cate{
+    padding-left: 0;
+    cursor: pointer;
+}
+.userDiv{
+padding: 20px;
+cursor: pointer;
+min-width: 8em;
+text-align: center !important;
+}
+.iconUser{
+    display: flow-root;
+    margin-left: 30px;
+}
+.iconDivCart{
+    padding: 20px;
+    padding-top: 24px;
+    cursor: pointer;
+}
+.iconDivOffer{
+    padding: 20px;
+    padding-top: 20px;
+    cursor: pointer;
+}
+.iconDivPay{
+    padding: 20px;
+    padding-top: 21px;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 660px) {
@@ -118,7 +146,7 @@ button:focus {
     .inputSearch {
         width: 100%;
     }
-    .searchBtn {
-        margin-left: 83%;
+    .cate{
+        padding: 10px;
     }
 }
