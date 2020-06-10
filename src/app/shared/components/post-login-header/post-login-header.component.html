@@ -15,26 +15,40 @@
                     </p>
                 </div>
             </div>
+            <!-- <div class="row breadcrum-container">
+                <ul class="col-sm-12">
+                    <li>
+                        <a href="https://www.wipo.int/portal/en/" target="_blank">Home</a>
+                    </li>
+                    <li style="margin : 2px 9px 0 9px" class="fa fa-angle-right">
+                    </li>
+                    <li>
+                        <a href="https://www.wipo.int/cooperation/en/" target="_blank">a</a>
+                    </li>
+                </ul>
+            </div> -->
             <div class="profile-links-wrapper">
                 <ul class="list-unstyled">
                     <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/dashboard'}">
-                        Dashboard
+                        <a (click)="dashboard()" style="cursor: pointer;">Dashboard</a> 
                     </li>
 
                     <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/profile'}">
-                        Profile
+                        <a (click)="profile()" style="cursor: pointer;">Profile</a> 
+
                     </li>
                     <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/orders'}">
-                        Orders
+                        <a (click)="orders()" style="cursor: pointer;">Orders</a> 
+
                     </li>
                     <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/wishlist'}">
-                        Wish List
+                        <a (click)="wishList()" style="cursor: pointer;">Wish List</a> 
                     </li>
                     <li class="profile-text-wrapper">
-                        Quotation
+                        <a style="cursor: pointer;">Quotation</a> 
                     </li>
                     <li class="profile-text-wrapper">
-                        Notification
+                        <a style="cursor: pointer;">Notification</a> 
                     </li>
                 </ul>
             </div>

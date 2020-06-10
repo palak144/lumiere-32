@@ -3,6 +3,17 @@
         background-color: #1B4791 !important;
     }
 }
+::ng-deep app-header {
+    mat-toolbar.mat-toolbar.second.mat-toolbar-multiple-rows {
+    background-color: #1B4791 !important;
+    font: inherit;
+}
+.search-icon.mat-fab.mat-button-base.mat-primary {
+    background-color: #63C7DB;
+}
+}
+
+
 
 .profile-wrapper {
     background-color: #1b4791;
@@ -43,4 +54,25 @@
 
 .profile-links-wrapper {
     padding-top: 54px;
+}
+.breadcrum-container {
+    list-style-type: none;
+    /* margin: 15px 0 15px; */
+    padding-left: 0;
+    font-size: 13px;
+    float: none;
+}
+
+.row.breadcrum-container ul {
+    list-style: none;
+    margin: 16px 0 48px !important;
+}
+
+.row.breadcrum-container ul {
+    list-style: none;
+    margin: 0px;
+}
+
+.row.breadcrum-container ul li {
+    display: inline-block;
 }
