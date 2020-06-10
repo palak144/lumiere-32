@@ -112,6 +112,11 @@
 
 .dashboard-ratings-row {
     padding-top: 40px;
+    .dashboard-ratings-card {
+        padding: 16px;
+        border: none;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    }
 }
 
 .heading-wrapper {
@@ -121,5 +126,19 @@
 }
 
 .dashboard-ratings-wrapper {
-    padding-top: 100px;
+    // padding-top: 100px;
+    padding: 100px 0 50px;
+}
+
+.star-icon-wrapper {
+    padding: 8px 0 12px;
+    span {
+        padding-right: 5px;
+        .yellow-star {
+            color: #FFCA01;
+        }
+        .grey-star {
+            color: #E5E8EE;
+        }
+    }
 }
