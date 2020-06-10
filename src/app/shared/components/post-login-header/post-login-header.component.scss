@@ -1,0 +1,46 @@
+::ng-deep app-header {
+    mat-toolbar-row.header2 {
+        background-color: #1B4791 !important;
+    }
+}
+
+.profile-wrapper {
+    background-color: #1b4791;
+    padding: 2em 0 1em;
+    margin-top: 5px;
+    .profile-text-wrapper {
+        color: #D1D1D1;
+        font-weight: 400;
+        display: inline-block;
+        padding-right: 30px;
+        font-size: 18px;
+    }
+}
+
+.underline-text-wrapper {
+    color: #fff !important;
+    position: relative;
+}
+
+.underline-text-wrapper:before {
+    content: "";
+    position: absolute;
+    width: 51px;
+    height: 1px;
+    bottom: -8px;
+    left: 0;
+    border-bottom: 3px solid #fff;
+}
+
+.profile-user-wrapper {
+    .profile-user-image {
+        padding-right: 22px;
+    }
+    .media-heading {
+        padding-bottom: 5px;
+    }
+}
+
+.profile-links-wrapper {
+    padding-top: 54px;
+}

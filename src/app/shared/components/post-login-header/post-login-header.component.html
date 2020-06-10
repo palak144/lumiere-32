@@ -1,2 +1,43 @@
+<app-header></app-header>
+<div class="profile-wrapper">
+    <div class="container">
+        <div class="profile-user-wrapper">
+            <div class="media align-items-center">
+                <div class="media-left profile-user-image">
+                    <img src="assets/images/post-login-user.svg" alt="post login image wrapper" />
+                </div>
+                <div class="media-body text-white">
+                    <h4 class="media-heading">
+                        Swetank Sisodia
+                    </h4>
+                    <p>
+                        swetanksisodia@gmail.com
+                    </p>
+                </div>
+            </div>
+            <div class="profile-links-wrapper">
+                <ul class="list-unstyled">
+                    <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/dashboard'}">
+                        Dashboard
+                    </li>
 
-<p>post-login-header works!</p>
+                    <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/profile'}">
+                        Profile
+                    </li>
+                    <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/orders'}">
+                        Orders
+                    </li>
+                    <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/wishlist'}">
+                        Wish List
+                    </li>
+                    <li class="profile-text-wrapper">
+                        Quotation
+                    </li>
+                    <li class="profile-text-wrapper">
+                        Notification
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
