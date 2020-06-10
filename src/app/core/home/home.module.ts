@@ -6,10 +6,11 @@ import { MainHomeComponent } from './pages/main-home/main-home.component';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { SharedModule } from '../../shared/shared.module';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';
 
 
 @NgModule({
-  declarations: [MainHomeComponent, HomeLayoutComponent, ProfileComponent],
+  declarations: [MainHomeComponent, HomeLayoutComponent, ProfileComponent, WishlistComponent],
   imports: [
     CommonModule,
     SharedModule,

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { MainHomeComponent } from './pages/main-home/main-home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';
 
 
 const routes: Routes = [{
@@ -25,6 +26,10 @@ const routes: Routes = [{
         {
           path: 'profile',
           component: ProfileComponent,
+        },
+        {
+          path: 'wishlist',
+          component: WishlistComponent,
         },
       ]
     }
