@@ -1,44 +1,46 @@
-<mat-toolbar class="">
-    <mat-toolbar-row class="container header1">
-        <!-- <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+<mat-toolbar class="first">
+  <mat-toolbar-row class="container header1">
+    <!-- <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
       <mat-icon>menu</mat-icon>
     </button> -->
-        <span class="container row">
+    <span class="container row">
       <a href="">
         <img class="paddingLeft" src="assets/images/Lumiere-Logo.svg" alt="Rxagile logo svg">
       </a>
     </span>
-        <button mat-button fxShow="true" fxHide.gt-sm class="cartButton">
+    <button mat-button fxShow="true" fxHide.gt-sm class="cartButton">
       <mat-icon class="iconShopping" matBadgeColor="accent">add_shopping_cart</mat-icon>Cart
     </button>
-        <button mat-button [matMenuTriggerFor]="appMenu" fxShow="true" fxHide.gt-sm>
+    <button mat-button [matMenuTriggerFor]="appMenu" fxShow="true" fxHide.gt-sm>
       <mat-icon class="iconDisplay">flag</mat-icon>
       Sin<mat-icon class="iconDisplay">expand_more</mat-icon>
     </button>
-        <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-            <button mat-button>Sell On Lumiere32</button>
-            <mat-divider class="style-fix" [vertical]="true"></mat-divider>
-            <button mat-button>About Us</button>
-            <mat-divider class="style-fix" [vertical]="true"></mat-divider>
-            <button mat-button>Help Center</button>
-            <mat-divider class="style-fix" [vertical]="true"></mat-divider>
-            <button mat-button>Wish List</button>
-            <mat-divider class="style-fix" [vertical]="true"></mat-divider>
-            <button mat-button>Contact Us</button>
-            <mat-menu #appMenu="matMenu">
-                <button mat-menu-item><img src="assets/images/Malaysia Flag.svg" alt="truck image" class="img-fluid " />Malaysia</button>
-                <button mat-menu-item><img src="assets/images/singapore  flag.svg" alt="truck image" class="img-fluid " />Singapore</button>
-            </mat-menu>
-            <button mat-button class="border1" [matMenuTriggerFor]="appMenu">
-              <img src="assets/images/singapore  flag.svg" alt="truck image" class="img-fluid " />
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+      <button mat-button>Sell On Lumiere32</button>
+      <mat-divider class="style-fix" [vertical]="true"></mat-divider>
+      <button mat-button>About Us</button>
+      <mat-divider class="style-fix" [vertical]="true"></mat-divider>
+      <button mat-button>Help Center</button>
+      <mat-divider class="style-fix" [vertical]="true"></mat-divider>
+      <button mat-button>Wish List</button>
+      <mat-divider class="style-fix" [vertical]="true"></mat-divider>
+      <button mat-button>Contact Us</button>
+      <mat-menu #appMenu="matMenu">
+        <button mat-menu-item><img src="assets/images/Malaysia Flag.svg" alt="truck image"
+            class="img-fluid " />Malaysia</button>
+        <button mat-menu-item><img src="assets/images/singapore  flag.svg" alt="truck image"
+            class="img-fluid " />Singapore</button>
+      </mat-menu>
+      <button mat-button class="border1" [matMenuTriggerFor]="appMenu">
+        <img src="assets/images/singapore  flag.svg" alt="truck image" class="img-fluid " />
 
         Singapore <mat-icon class="iconDisplay">expand_more</mat-icon>
       </button>
-        </div>
+    </div>
 
-    </mat-toolbar-row>
+  </mat-toolbar-row>
 </mat-toolbar>
-
+<mat-toolbar class="second">
 <!-- <mat-sidenav-container fxFlexFill>
   <mat-sidenav #sidenav>
     <mat-nav-list>
@@ -55,34 +57,40 @@
 </mat-sidenav-container> -->
 
 <mat-toolbar-row class="header2 container">
-    <a class="cate">
+  
+  <a class="cate">
     <!-- <mat-icon class="iconCategorys">menu</mat-icon> -->
     <i class="fa fa-bars"></i>
     <h4 class="iconCategory" fxShow="false" fxShow.gt-sm>Categories</h4>
-    </a>
+  </a>
   <div class="row col-md-7 searchDiv">
     <input type="text" class="inputSearch" placeholder="Search for products and Categories">
     <div class="searchBtn">
-        <button mat-fab color="primary" class="search-icon">
-          <img src="assets/images/search.svg" alt="truck image" class="" />
+      <button mat-fab color="primary" class="search-icon">
+        <img src="assets/images/search.svg" alt="truck image" class="" />
 
-  </button>
-</div>
+      </button>
     </div>
-    <div fxLayout="row" fxShow="false" fxShow.gt-sm class="iconsAll">
-         <mat-menu #profileMenu="matMenu">
-            <button mat-menu-item (click)="dashboard()">User Dashboard</button>
-            <button mat-menu-item>Rewards</button>
-            <button mat-menu-item (click)="logout()">Logout</button>
-        </mat-menu>
-        <a class="userDiv" [matMenuTriggerFor]="profileMenu" *ngIf="authService.loginFlag">
-          <img src="assets/images/User.svg" alt="truck image" class="iconUser" />{{authService.loggedInCustomerName}}  
-        </a>
-        <a class="userDiv" (click)="loginPage()" *ngIf="!authService.loginFlag">
-          <img src="assets/images/User.svg" alt="truck image" class="iconUser" />
-          Login / Signup
-        </a> 
-  <!-- <div class="dropdown userDiv">
+  </div>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm class="iconsAll">
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item (click)="dashboard()">User Dashboard</button>
+      <button mat-menu-item>Rewards</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+    <a class="userDiv" [matMenuTriggerFor]="profileMenu" *ngIf="authService.loginFlag">
+      <div class="iconUserDiv">
+        <img src="assets/images/User.svg" alt="truck image" class="iconUser" /></div>
+      {{authService.loggedInCustomerName}}
+
+    </a>
+    <a class="userDiv" (click)="loginPage()" *ngIf="!authService.loginFlag">
+      <div class="iconUserDiv">
+        <img src="assets/images/User.svg" alt="truck image" class="iconUser" /></div>
+      Login / Signup
+
+    </a>
+    <!-- <div class="dropdown userDiv">
       <a  data-toggle="dropdown"><img src="assets/images/User.svg" alt="truck image" class="iconUser" *ngIf="authService.loginFlag" />{{authService.loggedInCustomerName}}
       </a>
     <a  data-toggle="dropdown"><img src="assets/images/User.svg" alt="truck image" class="iconUser" *ngIf="!authService.loginFlag"/>Login / Signup
@@ -93,21 +101,21 @@
       <button mat-menu-item (click)="logout()">Logout</button>
     </ul>
 </div> -->
-  <div class="iconDivCart">
-    <a ><img src="assets/images/Card.svg" alt="truck image" class="icons" />Cart</a>
+    <div class="iconDivCart">
+      <a><img src="assets/images/Card.svg" alt="truck image" class="icons" />Cart</a>
 
-  </div>
-  <div class="iconDivOffer">
-    <a ><img src="assets/images/Offers.svg" alt="truck image" class="icon" />Offer's</a>
-
-  </div>
-  <div class="iconDivPay">
-    <a ><img src="assets/images/Pay32.svg" alt="truck image" class="icon" />Pay32</a>
-
-  </div>
     </div>
-</mat-toolbar-row>
+    <div class="iconDivOffer">
+      <a><img src="assets/images/Offers.svg" alt="truck image" class="icon" />Offer's</a>
 
+    </div>
+    <div class="iconDivPay">
+      <a><img src="assets/images/Pay32.svg" alt="truck image" class="icon" />Pay32</a>
+
+    </div>
+  </div>
+</mat-toolbar-row>
+</mat-toolbar>
 <!-- 
 <mat-toolbar-row class="header2"> 
   <button mat-button>

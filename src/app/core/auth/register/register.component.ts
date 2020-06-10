@@ -96,6 +96,7 @@ export class RegisterComponent implements OnInit {
   }
 
   get signUpControls() {
+    debugger
     return this.registerForm.controls;
   }
 
