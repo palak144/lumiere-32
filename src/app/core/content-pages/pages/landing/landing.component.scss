@@ -17,7 +17,16 @@
         }
     }
 }
-
+::ng-deep app-header {
+    .iconCategory{
+        display: unset;
+        padding: 7px;
+        padding-right: 25px !important;
+    }
+    .iconsAll.col-md-4 {
+        justify-content: space-around !important;
+    }
+}
 .header-absolute-wrapper {
     position: absolute;
     .header-card-icon {

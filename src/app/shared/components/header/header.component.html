@@ -1,5 +1,5 @@
 <mat-toolbar class="first">
-  <mat-toolbar-row class="container header1">
+  <mat-toolbar-row class="container header1" *ngIf="!authService.loginFlag">
     <!-- <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
       <mat-icon>menu</mat-icon>
     </button> -->
@@ -39,8 +39,44 @@
     </div>
 
   </mat-toolbar-row>
+  <mat-toolbar-row class="container header1" *ngIf="authService.loginFlag">
+    <!-- <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button> -->
+    <span class="container row">
+      <a href="">
+        <img class="paddingLeft" src="assets/images/Lumiere-Logo.svg" alt="Rxagile logo svg">
+      </a>
+    </span>
+    <button mat-button fxShow="true" fxHide.gt-sm class="cartButton">
+      <mat-icon class="iconShopping" matBadgeColor="accent">add_shopping_cart</mat-icon>Cart
+    </button>
+    <button mat-button [matMenuTriggerFor]="appMenu" fxShow="true" fxHide.gt-sm>
+      <mat-icon class="iconDisplay">flag</mat-icon>
+      Sin<mat-icon class="iconDisplay">expand_more</mat-icon>
+    </button>
+
+
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm >
+      <!-- <a >Help<i class="fa fa-chevron-down"></i></a>-->
+      <div class="buttonHelp"><button class="btn">Help<i class="fa fa-chevron-down down"></i></button></div>
+      <div class="buttonQ"><button class="btn quotes">Get Quotes</button></div>
+      <mat-menu #appMenu="matMenu">
+        <button mat-menu-item><img src="assets/images/Malaysia Flag.svg" alt="truck image"
+            class="img-fluid " />Malaysia</button>
+        <button mat-menu-item><img src="assets/images/singapore  flag.svg" alt="truck image"
+            class="img-fluid " />Singapore</button>
+      </mat-menu>
+      <button mat-button class="border1" [matMenuTriggerFor]="appMenu">
+        <img src="assets/images/singapore  flag.svg" alt="truck image" class="img-fluid " />
+
+        Singapore <mat-icon class="iconDisplay">expand_more</mat-icon>
+      </button>
+    </div>
+
+  </mat-toolbar-row>
 </mat-toolbar>
-<mat-toolbar class="second">
+<mat-toolbar class="second" id="searchBtnn">
 <!-- <mat-sidenav-container fxFlexFill>
   <mat-sidenav #sidenav>
     <mat-nav-list>
@@ -56,7 +92,7 @@
  <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content> 
 </mat-sidenav-container> -->
 
-<mat-toolbar-row class="header2 container">
+<mat-toolbar-row class="header2 container" id="headerClr">
   
   <a class="cate">
     <!-- <mat-icon class="iconCategorys">menu</mat-icon> -->
@@ -72,11 +108,11 @@
       </button>
     </div>
   </div>
-  <div fxLayout="row" fxShow="false" fxShow.gt-sm class="iconsAll">
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm class="iconsAll col-md-4">
     <mat-menu #profileMenu="matMenu">
       <button mat-menu-item (click)="dashboard()">User Dashboard</button>
       <button mat-menu-item>Rewards</button>
-      <button mat-menu-item (click)="logout()">Logout</button>
+      <button mat-menu-item (click)="logout()" >Logout</button>
     </mat-menu>
     <a class="userDiv" [matMenuTriggerFor]="profileMenu" *ngIf="authService.loginFlag">
       <div class="iconUserDiv">

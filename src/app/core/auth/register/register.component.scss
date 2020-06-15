@@ -81,7 +81,7 @@ button.verifyBtn{
     width: 65% !important;
     float: left !important;
 }
-button[disabled] {
+.disable{
     opacity: 0.4;
     cursor: not-allowed !important;
 } 
@@ -91,16 +91,19 @@ button[disabled] {
   .paragraph-wrapper{
     padding-top: 7%;
 }
-button[disabled] {
-    opacity: 0.4;
-    cursor: not-allowed !important;
-} 
 button.paddingLeft{
-    padding-left: 20%;
+    padding-left: 15%;
+    cursor: pointer;
 }
 .paragraph-wrapper{
     padding-top: 7%;
 }
 .dis{
     display: contents;
+    cursor: pointer;
+}
+.paddingLeft{
+    padding-left: 15%;
+    cursor: pointer;
+
 }

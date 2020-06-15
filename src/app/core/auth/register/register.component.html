@@ -48,10 +48,11 @@
                                         </option>
                                         
                                     </select>
+                                    <div *ngIf="isSubmittedRegisterForm && signUpControls.title.errors" class="invalid-feedback">
+                                        <div *ngIf="signUpControls.title.errors.required">Required</div>
+                                      </div> 
                                 </div>
-                                <div *ngIf="isSubmittedRegisterForm && signUpControls.title.errors" class="invalid-feedback">
-                                    <div *ngIf="signUpControls.title.errors.required">Required</div>
-                                  </div> 
+                                
                                 <div>
                                     <input type="text" formControlName="fname" class="form-control"
                                         placeholder="First Name"
@@ -94,7 +95,10 @@
                                         <option value={{countryCode}} *ngFor="let countryCode of codes">{{countryCode}}
                                         </option>
                                     </select>
-
+                                    <div *ngIf="isSubmittedRegisterForm && signUpControls.code.errors"
+                                    class="invalid-feedback">
+                                    <div *ngIf="signUpControls.code.errors.required">Required</div>
+                                </div>
                                 </div>
                                 <div>
                                     <input type="number" formControlName="contactNo" placeholder="Mobile No."
@@ -162,13 +166,11 @@
                             <mat-icon class="eye" matSuffix (click)="hide = !hide">
                                 {{hide ? 'visibility_off' : 'visibility'}}
                             </mat-icon>
-
-
                             <div *ngIf="isSubmittedRegisterForm && signUpControls.rePassword.errors"
                                 class="invalid-feedback">
-                                <div *ngIf="signUpControls.rePassword.errors.required">Confirm Password is required
+                                <div style="margin-top: 41px;" *ngIf="signUpControls.rePassword.errors.required">Confirm Password is required
                                 </div>
-                                <div *ngIf="signUpControls.rePassword.errors.mustMatch">Passwords must match</div>
+                                <div style="margin-top: 41px;" *ngIf="signUpControls.rePassword.errors.mustMatch">Passwords must match</div>
                             </div>
                         </div>
 
@@ -198,11 +200,11 @@
             <div class="verify-mobile-input-wrapper padding-top-20">
                 <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:6}"></ng-otp-input>
             </div>
-            <div class="padding-top-20 paddingRight cursor-pointer">
+            <div class="padding-top-20 paddingRight">
                 <p (click)="onChangeEmail()" class="text-blue dis">Change Email</p>
-                <button mat-button (click)="onResendOtp()" id="resendOtp" class="paddingLeft"
-                    [disabled]="isDisabled">Resend OTP in 30
-                    sec</button>
+                <a (click)="onResendOtp()" id="resendOtp" class="paddingLeft" ><span
+                    >Resend OTP in 30
+                    sec</span></a>
 
             </div>
             <div class="text-center button-wrapper padding-top-20">

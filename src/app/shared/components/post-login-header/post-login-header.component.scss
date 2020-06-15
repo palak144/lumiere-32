@@ -1,6 +1,15 @@
 ::ng-deep app-header {
     mat-toolbar-row.header2 {
         background-color: #1B4791 !important;
+        height: 92px !important ;
+    }
+    .iconCategory{
+        display: unset;
+        padding: 7px;
+        padding-right: 25px !important;
+    }
+    .iconsAll.col-md-4 {
+        justify-content: space-around !important;
     }
 }
 ::ng-deep app-header {

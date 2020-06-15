@@ -1,12 +1,14 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { BaseService } from './base.service';
+import { retry } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  loginUrl="login";
+  baseUrl: string;
   checkByEmailUrl="checkByEmail";
   registerUrl = "register";
   verifyOtpUrl = "verifyOTP"
@@ -19,10 +21,14 @@ export class AuthService {
 
   loggedInCustomerName = "Login / Signup";
   loginFlag: boolean =false;
+  loginData: string;
 
   constructor(
-    private baseService: BaseService
-  ) {   }
+    private http: HttpClient,
+    private baseService: BaseService,  ) {
+      this.baseUrl = this.baseService.baseUrl;
+
+       }
     
   onRegisterScreen1(email:string){
     this.emailIdSignUp = email;
@@ -34,11 +40,13 @@ export class AuthService {
   }
 
   onVerifyOtpSignUp(otp:string){
+    debugger
     return this.baseService.post(this.verifyOtpUrl,{"Email":this.emailIdSignUp,"otp":otp})
   }
 
   onVerifyOtpLogIn(otp:string){
-    return this.baseService.post(this.verifyOtpUrl,{"Email":this.emailIdLogIn,"otp":otp})
+    debugger
+    return this.baseService.post(this.verifyOtpUrl,{"Email":this.emailIdLogIn ,"otp":otp})
   }
 
   onResendOtpLogIn(){
@@ -59,8 +67,12 @@ export class AuthService {
   }
 
   onLogin(email:string,password:string){
-    
-     return this.baseService.post(this.loginUrl,{"Email":email,"password":password});
+    this.emailIdLogIn = email;
+    return this.http
+      .post(this.baseUrl + 'login',{"Email":email,"password":password}, { observe: 'response' })
+      .pipe(
+        retry(3)
+      );
   }
 
 
