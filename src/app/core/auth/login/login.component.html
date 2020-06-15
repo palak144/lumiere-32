@@ -1,24 +1,32 @@
+<ngx-loading [show]="loading"></ngx-loading>
 <div class="login-wrapper">
     <!-- login wrapper -->
     <div class="login-signup-text">
         <a [routerLink]="['/auth/login']" routerLinkActive="active">
-                    Login</a>
+            Login</a>
         <a [routerLink]="['/auth/register']" routerLinkActive="active">Sign Up</a>
     </div>
     <div class="login-form-wrapper">
-        <form [formGroup]="loginForm">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div>
-                <input type="text" placeholder="Email/Mobile No" />
+                <input type="email" formControlName="userId" placeholder="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userId.errors }">
+                <div *ngIf="submitted && f.userId.errors" class="invalid-feedback">
+                    <div *ngIf="f.userId.errors.required">Email is required</div>
+                    <div *ngIf="f.userId.errors.pattern">Please enter valid email (xyz@abc.com)</div>
+
+                </div>
             </div>
             <div class="padding-top-20">
-                <input type="text" placeholder="Password" />
-            </div>
-            <div class="d-flex justify-content-between">
-                <div>
-                    <p-checkbox name="groupname" value="val1" label="Remember me" [(ngModel)]="selectedValues" [ngModelOptions]="{standalone: true}"></p-checkbox>
+                <input type="password" formControlName="password" placeholder="Password" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
                 </div>
+            </div>
+            <div class="d-flex justify-content-between forgot-wrapper">
+                <mat-checkbox >Remember me</mat-checkbox>
                 <div>
-                    <p>Forgot Password?</p>
+                    <p (click)="openDialog()" class="cursor-pointer">Forgot Password?</p>
                 </div>
             </div>
             <div class="text-center button-wrapper">
@@ -26,4 +34,4 @@
             </div>
         </form>
     </div>
-</div>
+</div>    

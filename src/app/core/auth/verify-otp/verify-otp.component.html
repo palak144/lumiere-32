@@ -1,0 +1,23 @@
+<div class="verify-email-wrapper">
+    <div class="heading-wrapper">
+        <h1>
+            Verifying Email
+        </h1>
+    </div>
+    <div class="paragraph-wrapper">
+        <p>We have sent 6 digit OTP on your Email</p>
+    </div>
+    <div class="verify-mobile-input-wrapper padding-top-20">
+        <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:6}"></ng-otp-input>
+    </div>
+    <div class="padding-top-20 paddingRight cursor-pointer">
+        <p (click)="onChangeEmail()" class="text-blue dis">Change Email</p>
+        
+        <button mat-button (click)="onResendOtp()" id="resendOtp" class="paddingLeft" [disabled]="isDisabled">Resend OTP in 30
+            sec</button>
+
+    </div>
+    <div class="text-center button-wrapper padding-top-20">
+        <button type="submit" class="custom-button verifyBtn" (click)="onSubmitOTP()">Verify</button>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+.pl{
+    padding-left: 0 !important;
+}
+.plb{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+}
+.headingName{
+    background: #63C7DB;
+    color: white;
+    padding: 10px;
+}
+.box{
+    box-shadow: 
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 
+    0 6.5px 5px rgba(0, 0, 0, 0.06), 
+    0 6px 5px rgba(0, 0, 0, 0.034), 
+    0 3px 3px rgba(0, 0, 0, 0.006), 
+    0 6px 5px rgba(0, 0, 0, 0.12);
+}
+.mright{
+    margin-right: 30px;
+
+}
+.ptb{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    cursor: pointer;
+
+}
+.brdr{
+    border: 1px solid
+    !important;
+    font-size: 18px;
+    padding: 0 7px !important;
+    cursor: pointer;
+}
+.addIcon{
+    padding-right: 5px;
+    padding-bottom: 2px;
+    font-size: 23px;
+}
+@media only screen and (max-width: 660px) {
+    .pl{
+        padding-bottom: 10px !important;
+        margin-left: 0px;
+    }
+    .mright{
+        padding-right: 0px;
+    }
+    .pt{
+        padding-top: 20px;
+    }
+}

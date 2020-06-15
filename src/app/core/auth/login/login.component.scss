@@ -28,6 +28,25 @@
 }
 
 .login-form-wrapper {
-    max-width: 75%;
+    max-width: 70%;
     padding-top: 50px;
+    .button-wrapper {
+        button {
+            width: 100%;
+            min-width: 100%;
+        }
+    }
 }
+
+.forgot-wrapper {
+    padding-top: 14px;
+}
+
+.mat-dialog-container {
+    padding: 0 !important;
+    border-radius: 8px !important;
+}
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #63C7DB !important;
+  }
+

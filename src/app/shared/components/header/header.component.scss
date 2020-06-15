@@ -1,28 +1,158 @@
 mat-toolbar-row.mat-toolbar-row.header1 {
     background-color: white;
-    height: 93px;
-    padding-left: 8%;
-    padding-right: 8%;
+    height: 94px;
 }
-mat-toolbar-row.mat-toolbar-row.header2 {
-    background-color: #63C7DB;
-    height: 85px;
+mat-toolbar.first {
+    background: white !important;
+}
+mat-toolbar.second {
+    background: #63C7DB ;
+    font: inherit;
+}
+mat-toolbar-row.header2 {
+    background-color: #63C7DB !important;
     color: white;
-    align-items: center;
-    padding-left: 7%;
-    padding-right: 7%;
+    height: 64px;
 }
-.mat-icon{
+
+.icon {
     display: flow-root;
-    fill: currentColor;
-    height: 17px;
-    width: 76px;
+    margin-left: 6px;
+
 }
-mat-icon.mat-icon.notranslate.iconDisplay.material-icons.mat-icon-no-color {
+.icons{
+    display: flow-root
+}
+.iconDisplay {
     display: unset;
 }
-.mat-card{
+
+.iconCategory {
+    display: unset;
+    padding: 7px;
+    padding-right: 20px;
+}
+.searchDiv{
+    position: relative;
+    justify-content: flex-end;
+}
+.mat-card {
     padding-block-end: inherit;
     padding-block-start: inherit;
     width: 50%;
+    padding: 0;
+}
+
+mat-divider.style-fix {
+    height: 50px;
+    display: initial;
+    border-right-width: 1.5px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+button.border1 {
+    border: 2px solid #63C7DB;
+}
+
+input#mat-input-0 {
+    width: 90%;
+    border: none;
+    margin: 0px 0px 5px 5px;
+}
+
+.mat-fab {
+    border-radius: 8px;
+    box-shadow: none;
+    background-color: #1B4791;
+    width: 48px;
+    height: 42px;
+}
+
+span.mat-button-wrapper {
+    padding: 10px 0 !important;
+}
+
+.mat-card-content {
+    margin-bottom: 0px;
+}
+
+button:focus {
+    outline: none;
+}
+
+.iconSearch {
+    height: 0;
+    width: 0;
+    display: contents;
+}
+
+.inputSearch {
+    border-radius: 8px;
+    width: 100%;
+    padding: 12px;
+}
+
+.searchBtn {
+    position: absolute;
+    padding: 4px;
+}
+
+::ng-deep .searchBtn .search-icon .mat-button-wrapper {
+    padding: 8px 0 !important;
+}
+
+.iconShopping {
+    padding-right: 18px;
+}
+
+.cartButton {
+    padding: 0;
+}
+.cate{
+    padding-left: 0;
+    cursor: pointer;
+}
+.userDiv{
+padding: 20px;
+cursor: pointer;
+text-align: center !important;
+}
+.iconUser{
+    display: flow-root;
+}
+.iconDivCart{
+    padding: 14px;
+    padding-top: 24px;
+    cursor: pointer;
+}
+.iconDivOffer{
+    padding: 20px;
+    padding-top: 20px;
+    cursor: pointer;
+}
+div.iconUserDiv{
+    text-align: -webkit-center;
+}
+.iconDivPay{
+    padding: 20px;
+    padding-top: 21px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 660px) {
+    mat-toolbar-row.mat-toolbar-row.header1 {
+        padding-left: 10px !important;
+        padding-right: 6% !important;
+    }
+    mat-toolbar-row.mat-toolbar-row.header2 {
+        padding-left: 0px !important;
+        padding-right: 4% !important;
+    }
+    .inputSearch {
+        width: 100%;
+    }
+    .cate{
+        padding: 10px;
+    }
 }

@@ -34,7 +34,9 @@ export class AuthLayoutComponent implements OnInit {
   slideConfig = {
     "slidesToShow": 1, 
     "slidesToScroll": 1,
-    "dots": true  
+    "dots": true,
+    "prevArrow": false,
+    "nextArrow": false
   };
 
   routerUrl: string;

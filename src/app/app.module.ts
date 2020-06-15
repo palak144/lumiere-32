@@ -10,29 +10,44 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 import { SharedModule } from './shared/shared.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BackendInterceptor } from './core/services/intercepter.service';
+import { ContentLayoutComponent } from './core/content-pages/content-layout/content-layout.component';
+import { ContentPagesModule } from './core/content-pages/content-pages.module';
 
+
+import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from './core/home/home.module';
+import { HomeLayoutComponent } from './core/home/home-layout/home-layout.component';
+import { ProjectLayoutComponent } from './core/layouts/project-layout/project-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthLayoutComponent
-    
+    AuthLayoutComponent,
+    ContentLayoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    HomeModule,
+    ContentPagesModule,
     SharedModule,
     BrowserAnimationsModule,
-    NgbModule
-   
-  
-  ],
+    NgbModule,
+    HttpClientModule,
+   ],
   exports: [
     NgbModule
   ],
   
-  providers: [],
+  providers: [
+    
+    {
+       provide: HTTP_INTERCEPTORS, useClass: BackendInterceptor, multi: true 
+  },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
