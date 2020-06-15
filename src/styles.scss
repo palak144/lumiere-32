@@ -299,4 +299,20 @@ input:focus {
         width: 100%;
         min-width: 100%;
     }
+    .custom-slick-carousel .slick-slide img {
+        width: 100%;
+    }
+    .login-form-wrapper {
+        max-width: 100% !important;
+    }
+    .auth-card-wrapper {
+        height: auto !important;
+    }
+    .login-wrapper,
+    .register-wrapper {
+        padding: 16px;
+    }
+    .landing-wrapper .card-absolute-wrapper {
+        transform: translate(0%, 0) !important;
+    }
 }
