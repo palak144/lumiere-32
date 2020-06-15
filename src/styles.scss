@@ -63,6 +63,10 @@ input::-webkit-input-placeholder {
     color: #fff;
 }
 
+.flex-basis-100 {
+    flex-basis: 100% !important;
+}
+
 // custom small dropdown styling starts
 .prime-small-dropdown-wrapper.ui-dropdown {
     min-width: 5em;
@@ -97,6 +101,10 @@ input::-webkit-input-placeholder {
     padding-top: 40px;
 
 }
+.padding-top-40 {
+    padding-top: 40px;
+}
+
 .dropdown-wrapper {
     margin-right: 8px;
 }
@@ -293,5 +301,21 @@ input:focus {
     .custom-button {
         width: 100%;
         min-width: 100%;
+    }
+    .custom-slick-carousel .slick-slide img {
+        width: 100%;
+    }
+    .login-form-wrapper {
+        max-width: 100% !important;
+    }
+    .auth-card-wrapper {
+        height: auto !important;
+    }
+    .login-wrapper,
+    .register-wrapper {
+        padding: 16px;
+    }
+    .landing-wrapper .card-absolute-wrapper {
+        transform: translate(0%, 0) !important;
     }
 }
