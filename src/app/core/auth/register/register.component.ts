@@ -73,7 +73,7 @@ export class RegisterComponent implements OnInit {
       speciality: ['', Validators.required],
       password: ['', [Validators.required,
       Validators.minLength(8),
-      Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'),
+      Validators.pattern('^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'),
       Validators.maxLength(20)]],
       rePassword: ['', Validators.required],
     }, {
@@ -96,7 +96,6 @@ export class RegisterComponent implements OnInit {
   }
 
   get signUpControls() {
-    debugger
     return this.registerForm.controls;
   }
 
@@ -180,7 +179,7 @@ export class RegisterComponent implements OnInit {
         this.loading = false;
         this.toastr.success("OTP Verified")
           this.authService.loginFlag = true;
-          debugger
+          
           this.authService.loggedInCustomerName = this.registerSecreen1Data.data.firstName
           this.toastr.success("Login Successful")
           localStorage.setItem('UserData', JSON.stringify(this.registerSecreen1Data.data));
@@ -202,9 +201,9 @@ export class RegisterComponent implements OnInit {
   }
   onResendOtp() {
     this.loading = true;
-    this.isDisabled = true;
+    document.getElementById('resendOtp').classList.add('disable')
     setTimeout(() => {
-      this.isDisabled = false; 
+      document.getElementById('resendOtp').classList.remove('disable')
     }, 30000);
     this.authService.onResendOtpSignUp().subscribe(
       data => {

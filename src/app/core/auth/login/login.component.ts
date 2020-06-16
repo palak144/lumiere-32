@@ -6,6 +6,7 @@ import { AuthService } from '../../services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ForgotPasswordDialogComponent } from '../../../shared/components/forgot-password-dialog/forgot-password-dialog.component';
 import { Router } from '@angular/router';
+import { HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -65,22 +66,31 @@ export class LoginComponent implements OnInit {
   authenticateLogIn() {
     if (navigator.onLine) {
       this.authService.onLogin(this.loginForm.value.userId, this.loginForm.value.password).subscribe(
-        data => {
+        (response: HttpResponse<any>) => {
           this.loading = false;
-          this.loginResponseObj = data;
+          this.loginResponseObj = response;
           this.authService.loginFlag = true;
           
-          this.authService.loggedInCustomerName = data.firstName
+          localStorage.setItem('token', response.headers.get('authtoken'));
+           this.authService.loggedInCustomerName = response.body.data.firstName
           this.toastr.success("Login Successful")
-          localStorage.setItem('UserData', JSON.stringify(data));
+          localStorage.setItem('UserData', JSON.stringify(response));
           this.router.navigate([""])
         },
         error => {
           this.loading = false;
-          this.toastr.error(error.error.message);
+         if(error.error.message == "Email not verify"){
+           debugger
+          this.router.navigate(["/auth/verify-otp"])
+          this.toastr.info("Verify your email");
+          }
+          else{
+            this.toastr.error(error.error.message);
+          }
           ;
         });
     } else {
+      this.loading = false;
       this.toastr.error("Check your Internet Connection")
     }
   }

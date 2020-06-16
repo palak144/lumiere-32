@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
     if (localStorage.UserData) {
       this.authService.loginFlag = true;
       var json = JSON.parse(localStorage.UserData);
-      this.authService.loggedInCustomerName = json.data.firstName
+      this.authService.loggedInCustomerName = json.body.data.firstName
     }
   }
   loginPage(){
@@ -27,7 +27,11 @@ export class HeaderComponent implements OnInit {
     
   }
   logout(){
-    
+    // debugger
+    // // document.getElementById('headerClr').classList.add('header2')
+    // document.getElementById('headerClr').style.backgroundColor = 'black';
+    // document.getElementById('searchBtnn').classList.add('sec')
+
       localStorage.clear();
     this.authService.loggedInCustomerName = "Login / Signup";
     this.authService.loginFlag = false;

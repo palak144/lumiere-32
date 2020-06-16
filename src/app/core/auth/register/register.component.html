@@ -45,141 +45,146 @@
                                         </option>
                                         
                                     </select>
-                                </div>
-                                <div *ngIf="isSubmittedRegisterForm && signUpControls.title.errors" class="invalid-feedback">
-                                    <div *ngIf="signUpControls.title.errors.required">Required</div>
-                                </div>
-                                <div>
-                                    <input type="text" formControlName="fname" class="form-control" placeholder="First Name" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.fname.errors }">
-                                    <div *ngIf="isSubmittedRegisterForm && signUpControls.fname.errors" class="invalid-feedback">
-                                        <div *ngIf="signUpControls.fname.errors.required">First Name is required</div>
+                                    <div *ngIf="isSubmittedRegisterForm && signUpControls.title.errors" class="invalid-feedback">
+                                        <div *ngIf="signUpControls.title.errors.required">Required</div>
                                     </div>
                                 </div>
+                                <<<<<<< HEAD <div *ngIf="isSubmittedRegisterForm && signUpControls.title.errors" class="invalid-feedback">
+                                    <div *ngIf="signUpControls.title.errors.required">Required</div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 padding-mobile-20 p-0">
-                            <input type="text" formControlName="lname" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.lname.errors }">
-                            <div *ngIf="isSubmittedRegisterForm && signUpControls.lname.errors" class="invalid-feedback">
-                                <div *ngIf="signUpControls.lname.errors.required">Last Name is required</div>
+                            ======= >>>>>>> 899ef64c3c43f1436246c154995fbb9c9c4b6da3
+                            <div>
+                                <input type="text" formControlName="fname" class="form-control" placeholder="First Name" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.fname.errors }">
+                                <div *ngIf="isSubmittedRegisterForm && signUpControls.fname.errors" class="invalid-feedback">
+                                    <div *ngIf="signUpControls.fname.errors.required">First Name is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between padding-top-20 display-mobile-block">
-                        <div class="col-lg-6 p-0">
-                            <div class="padding-right-20">
-                                <input type="text" formControlName="clinicName" placeholder="Clinic Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.clinicName.errors }">
-                                <div *ngIf="isSubmittedRegisterForm && signUpControls.clinicName.errors" class="invalid-feedback">
-                                    <div *ngIf="signUpControls.clinicName.errors.required">Clinic Name is required</div>
-                                </div>
-                            </div>
-
+                    <div class="col-lg-6 col-sm-6 padding-mobile-20 p-0">
+                        <input type="text" formControlName="lname" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.lname.errors }">
+                        <div *ngIf="isSubmittedRegisterForm && signUpControls.lname.errors" class="invalid-feedback">
+                            <div *ngIf="signUpControls.lname.errors.required">Last Name is required</div>
                         </div>
-                        <div class="col-lg-6 padding-mobile-20 padding-mobile-20 p-0">
-                            <div class="d-flex ">
-                                <div class="dropdown-wrapper">
-                                    <select formControlName="code" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.code.errors }">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between padding-top-20 display-mobile-block">
+                    <div class="col-lg-6 p-0">
+                        <div class="padding-right-20">
+                            <input type="text" formControlName="clinicName" placeholder="Clinic Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.clinicName.errors }">
+                            <div *ngIf="isSubmittedRegisterForm && signUpControls.clinicName.errors" class="invalid-feedback">
+                                <div *ngIf="signUpControls.clinicName.errors.required">Clinic Name is required</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 padding-mobile-20 padding-mobile-20 p-0">
+                        <div class="d-flex ">
+                            <div class="dropdown-wrapper">
+                                <select formControlName="code" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.code.errors }">
                                         <option value="" >Country Code</option>
                                         <option value={{countryCode}} *ngFor="let countryCode of codes">{{countryCode}}
                                         </option>
                                     </select>
-
+                                <div *ngIf="isSubmittedRegisterForm && signUpControls.code.errors" class="invalid-feedback">
+                                    <div *ngIf="signUpControls.code.errors.required">Required</div>
                                 </div>
-                                <div>
-                                    <input type="number" formControlName="contactNo" placeholder="Mobile No." class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.contactNo.errors }">
-                                    <div *ngIf="isSubmittedRegisterForm && signUpControls.contactNo.errors" class="invalid-feedback">
-                                        <div *ngIf="signUpControls.contactNo.errors.required">Mobile No. is required
-                                        </div>
-                                        <div *ngIf="signUpControls.contactNo.errors.pattern">Mobile No. must be 10 digits
-                                        </div>
-
+                            </div>
+                            <div>
+                                <input type="number" formControlName="contactNo" placeholder="Mobile No." class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.contactNo.errors }">
+                                <div *ngIf="isSubmittedRegisterForm && signUpControls.contactNo.errors" class="invalid-feedback">
+                                    <div *ngIf="signUpControls.contactNo.errors.required">Mobile No. is required
                                     </div>
+                                    <div *ngIf="signUpControls.contactNo.errors.pattern">Mobile No. must be 10 digits
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between padding-top-20 display-mobile-block">
-                        <div class="col-lg-6 p-0">
-                            <div class="padding-right-20">
-                                <input type="text" formControlName="practiceType" placeholder="Practise Type" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.practiceType.errors }">
-                                <div *ngIf="isSubmittedRegisterForm && signUpControls.practiceType.errors" class="invalid-feedback">
-                                    <div *ngIf="signUpControls.practiceType.errors.required">Practice Type is required
-                                    </div>
+                </div>
+                <div class="d-flex justify-content-between padding-top-20 display-mobile-block">
+                    <div class="col-lg-6 p-0">
+                        <div class="padding-right-20">
+                            <input type="text" formControlName="practiceType" placeholder="Practise Type" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.practiceType.errors }">
+                            <div *ngIf="isSubmittedRegisterForm && signUpControls.practiceType.errors" class="invalid-feedback">
+                                <div *ngIf="signUpControls.practiceType.errors.required">Practice Type is required
                                 </div>
-                            </div>
-                        </div>
-                        <div class="full-width form-width-wrapper">
-                            <input type="text" formControlName="speciality" placeholder="Select Speciality" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.speciality.errors }">
-                            <div *ngIf="isSubmittedRegisterForm && signUpControls.speciality.errors" class="invalid-feedback">
-                                <div *ngIf="signUpControls.speciality.errors.required">Speciality is required</div>
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between padding-top-20 display-mobile-block">
-                        <div class="col-lg-6 p-0">
-                            <div class="padding-right-20">
-                                <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.password.errors }">
-                                <div *ngIf="isSubmittedRegisterForm && signUpControls.password.errors" class="invalid-feedback">
-                                    <div *ngIf="signUpControls.password.errors.required">Password is required</div>
-                                    <div *ngIf="signUpControls.password.errors.minLength">Password must be atleast 8 characters
-                                    </div>
-                                    <div *ngIf="signUpControls.password.errors.pattern">Follow password policies</div>
-                                    <div *ngIf="signUpControls.password.errors.maxLength">Password must be atmost 20 characters
-                                    </div>
-
+                    <div class="full-width form-width-wrapper">
+                        <input type="text" formControlName="speciality" placeholder="Select Speciality" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.speciality.errors }">
+                        <div *ngIf="isSubmittedRegisterForm && signUpControls.speciality.errors" class="invalid-feedback">
+                            <div *ngIf="signUpControls.speciality.errors.required">Speciality is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between padding-top-20 display-mobile-block">
+                    <div class="col-lg-6 p-0">
+                        <div class="padding-right-20">
+                            <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.password.errors }">
+                            <div *ngIf="isSubmittedRegisterForm && signUpControls.password.errors" class="invalid-feedback">
+                                <div *ngIf="signUpControls.password.errors.required">Password is required</div>
+                                <div *ngIf="signUpControls.password.errors.minLength">Password must be atleast 8 characters
                                 </div>
+                                <div *ngIf="signUpControls.password.errors.pattern">Follow password policies</div>
+                                <div *ngIf="signUpControls.password.errors.maxLength">Password must be atmost 20 characters
+                                </div>
+
                             </div>
                         </div>
+                    </div>
 
-                        <div class="full-width form-width-wrapper padding-mobile-20">
-                            <input type="password" formControlName="rePassword" placeholder="Repeat Password" class="form-control inp" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.rePassword.errors }" [type]="hide ? 'password':'text'">
-                            <mat-icon class="eye" matSuffix (click)="hide = !hide">
-                                {{hide ? 'visibility_off' : 'visibility'}}
-                            </mat-icon>
-
-
-                            <div *ngIf="isSubmittedRegisterForm && signUpControls.rePassword.errors" class="invalid-feedback">
-                                <div *ngIf="signUpControls.rePassword.errors.required">Confirm Password is required
-                                </div>
-                                <div *ngIf="signUpControls.rePassword.errors.mustMatch">Passwords must match</div>
+                    <div class="full-width form-width-wrapper padding-mobile-20">
+                        <input type="password" formControlName="rePassword" placeholder="Repeat Password" class="form-control inp" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.rePassword.errors }" [type]="hide ? 'password':'text'">
+                        <mat-icon class="eye" matSuffix (click)="hide = !hide">
+                            {{hide ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+                        <div *ngIf="isSubmittedRegisterForm && signUpControls.rePassword.errors" class="invalid-feedback">
+                            <div style="margin-top: 41px;" *ngIf="signUpControls.rePassword.errors.required">Confirm Password is required
                             </div>
+                            <div style="margin-top: 41px;" *ngIf="signUpControls.rePassword.errors.mustMatch">Passwords must match</div>
                         </div>
-
                     </div>
 
                 </div>
-                <div class="d-flex justify-content-between padding-top-20 display-mobile-block terms-block-wrapper">
-                    <mat-checkbox class="text-blue">I accept Terms of use</mat-checkbox>
-                    <mat-checkbox>Sign Up to the Newsletter</mat-checkbox>
-                </div>
-
-                <div class="text-center button-wrapper">
-                    <button type="submit" class="custom-button">Sign up</button>
-                </div>
-            </div>
-        </form>
-    </ng-container>
-    <ng-container *ngIf="otpFlag">
-        <div class="verify-email-wrapper">
-            <div class="heading-wrapper">
-                <h1>
-                    Verifying Email
-                </h1>
-            </div>
-            <div class="paragraph-wrapper">
-                <p>We have sent 6 digit OTP on your Email</p>
-            </div>
-            <div class="verify-mobile-input-wrapper padding-top-20">
-                <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:6}"></ng-otp-input>
-            </div>
-            <div class="padding-top-20 paddingRight cursor-pointer">
-                <p (click)="onChangeEmail()" class="text-blue dis">Change Email</p>
-                <button mat-button (click)="onResendOtp()" id="resendOtp" class="paddingLeft" [disabled]="isDisabled">Resend OTP in 30
-                    sec</button>
 
             </div>
-            <div class="text-center button-wrapper padding-top-20">
-                <button type="submit" class="custom-button verifyBtn" (click)="onSubmitOTP()">Verify</button>
+            <div class="d-flex justify-content-between padding-top-20 display-mobile-block terms-block-wrapper">
+                <mat-checkbox class="text-blue">I accept Terms of use</mat-checkbox>
+                <mat-checkbox>Sign Up to the Newsletter</mat-checkbox>
             </div>
+
+            <div class="text-center button-wrapper">
+                <button type="submit" class="custom-button">Sign up</button>
+            </div>
+</div>
+</form>
+</ng-container>
+<ng-container *ngIf="otpFlag">
+    <div class="verify-email-wrapper">
+        <div class="heading-wrapper">
+            <h1>
+                Verifying Email
+            </h1>
         </div>
-    </ng-container>
+        <div class="paragraph-wrapper">
+            <p>We have sent 6 digit OTP on your Email</p>
+        </div>
+        <div class="verify-mobile-input-wrapper padding-top-20">
+            <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:6}"></ng-otp-input>
+        </div>
+        <div class="padding-top-20 paddingRight">
+            <p (click)="onChangeEmail()" class="text-blue dis">Change Email</p>
+            <a (click)="onResendOtp()" id="resendOtp" class="paddingLeft"><span
+                    >Resend OTP in 30
+                    sec</span></a>
+
+        </div>
+        <div class="text-center button-wrapper padding-top-20">
+            <button type="submit" class="custom-button verifyBtn" (click)="onSubmitOTP()">Verify</button>
+        </div>
+    </div>
+</ng-container>
 </div>

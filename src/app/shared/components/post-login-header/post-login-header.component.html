@@ -8,10 +8,10 @@
                 </div>
                 <div class="media-body text-white">
                     <h4 class="media-heading">
-                        Swetank Sisodia
+                        {{profileDetails.firstName}} {{profileDetails.lastName}}
                     </h4>
                     <p>
-                        swetanksisodia@gmail.com
+                        {{profileDetails.Email}}
                     </p>
                 </div>
             </div>
@@ -30,25 +30,25 @@
             <div class="profile-links-wrapper">
                 <ul class="list-unstyled">
                     <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/dashboard'}">
-                        <a (click)="dashboard()" style="cursor: pointer;">Dashboard</a>
+                        <a (click)="dashboard()" style="cursor: pointer;">Dashboard</a> 
                     </li>
 
                     <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/profile'}">
-                        <a (click)="profile()" style="cursor: pointer;">Profile</a>
+                        <a (click)="profile()" style="cursor: pointer;">Profile</a> 
 
                     </li>
                     <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/orders'}">
-                        <a (click)="orders()" style="cursor: pointer;">Orders</a>
+                        <a (click)="orders()" style="cursor: pointer;">Orders</a> 
 
                     </li>
                     <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/wishlist'}">
-                        <a (click)="wishList()" style="cursor: pointer;">Wish List</a>
+                        <a (click)="wishList()" style="cursor: pointer;">Wish List</a> 
                     </li>
                     <li class="profile-text-wrapper">
-                        <a style="cursor: pointer;">Quotation</a>
+                        <a style="cursor: pointer;">Quotation</a> 
                     </li>
                     <li class="profile-text-wrapper">
-                        <a style="cursor: pointer;">Notification</a>
+                        <a style="cursor: pointer;">Notification</a> 
                     </li>
                 </ul>
             </div>

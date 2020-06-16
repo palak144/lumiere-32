@@ -21,6 +21,7 @@ export class VerifyOtpComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    debugger
   }
 
   onOtpChange(otp) {
@@ -42,10 +43,10 @@ export class VerifyOtpComponent implements OnInit {
   }
 
   onResendOtp() {
-    this.isDisabled = true;
+    document.getElementById('resendOtp').classList.add('disable')
     setTimeout(() => {
-      this.isDisabled = false;
-    }, 30000);
+      document.getElementById('resendOtp').classList.remove('disable')
+        }, 30000);
     this.authService.onResendOtpLogIn().subscribe(
       data => {
         this.toastr.success(data.data)
