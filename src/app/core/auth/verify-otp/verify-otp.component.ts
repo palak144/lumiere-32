@@ -21,7 +21,6 @@ export class VerifyOtpComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    debugger
   }
 
   onOtpChange(otp) {

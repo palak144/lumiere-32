@@ -1,7 +1,8 @@
-<app-post-login-header></app-post-login-header>
+<app-post-login-header ></app-post-login-header>
+<form [formGroup]="personalDetailForm" (ngSubmit)="onSubmit()">
 
 <div class="container">
-    <form [formGroup]="personalDetailForm">
+    <div class="buttonEdit"><button type="submit" class="btn editProfile">Edit Profile</button></div>
 
     <div class="row col-sm-12 pl padding-top-20 ml-0">
         <div class="col-sm-8 plb pb-3 box">
@@ -30,7 +31,7 @@
                         </div>                     </div>
                     <div class="col-sm-6 pl">
                         <label for="">Mobile No</label>
-                        <input type="text" formControlName="mobile" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.mobile.errors }">
+                        <input type="text" formControlName="mobile" placeholder="Mobile No" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.mobile.errors }">
                         <div *ngIf="isSubmitted && profileControls.mobile.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.mobile.errors.required">Last Name is required</div>
                         </div>                     </div>
@@ -38,13 +39,13 @@
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-6 ">
                         <label for="">Country</label>
-                        <input type="text" formControlName="country" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.country.errors }">
+                        <input type="text" formControlName="country" placeholder="Country" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.country.errors }">
                         <div *ngIf="isSubmitted && profileControls.country.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.country.errors.required">Last Name is required</div>
                         </div>                     </div>
                     <div class="col-sm-6 pl">
                         <label for="">Clinic Name</label>
-                        <input type="text" formControlName="clinicName" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.clinicName.errors }">
+                        <input type="text" formControlName="clinicName" placeholder="Clinic Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.clinicName.errors }">
                         <div *ngIf="isSubmitted && profileControls.clinicName.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.clinicName.errors.required">Last Name is required</div>
                         </div>                     </div>
@@ -52,13 +53,13 @@
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-6 ">
                         <label for="">Practice Type</label>
-                        <input type="text" formControlName="practiceType" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.practiceType.errors }">
+                        <input type="text" formControlName="practiceType" placeholder="Practice Type" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.practiceType.errors }">
                         <div *ngIf="isSubmitted && profileControls.practiceType.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.practiceType.errors.required">Last Name is required</div>
                         </div>                     </div>
                     <div class="col-sm-6 pl">
                         <label for="">Speciality</label>
-                        <input type="text" formControlName="speciality" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.speciality.errors }">
+                        <input type="text" formControlName="speciality" placeholder="Speciality" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.speciality.errors }">
                         <div *ngIf="isSubmitted && profileControls.speciality.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.speciality.errors.required">Last Name is required</div>
                         </div>                     </div>
@@ -87,19 +88,19 @@
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-4 ">
                         <label for="">Block No.</label>
-                        <input type="text" formControlName="blockNo" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.blockNo.errors }">
+                        <input type="text" formControlName="blockNo" placeholder="Block No." class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.blockNo.errors }">
                         <div *ngIf="isSubmitted && profileControls.blockNo.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.blockNo.errors.required">Last Name is required</div>
                         </div>                      </div>
                     <div class="col-sm-4 pl">
                         <label for="">Floor No.</label>
-                        <input type="text" formControlName="floorNo" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.floorNo.errors }">
+                        <input type="text" formControlName="floorNo" placeholder="Floor No." class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.floorNo.errors }">
                         <div *ngIf="isSubmitted && profileControls.floorNo.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.floorNo.errors.required">Last Name is required</div>
                         </div>                      </div>
                     <div class="col-sm-4 ">
                         <label for="">Unit No.</label>
-                        <input type="text" formControlName="unitNo" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.unitNo.errors }">
+                        <input type="text" formControlName="unitNo" placeholder="Unit No." class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.unitNo.errors }">
                         <div *ngIf="isSubmitted && profileControls.unitNo.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.unitNo.errors.required">Last Name is required</div>
                         </div>                      </div>
@@ -107,7 +108,7 @@
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-12 ">
                         <label for="">Building Name</label>
-                        <input type="text" formControlName="building" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.building.errors }">
+                        <input type="text" formControlName="building" placeholder="Building Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.building.errors }">
                         <div *ngIf="isSubmitted && profileControls.building.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.building.errors.required">Last Name is required</div>
                         </div>                      </div>
@@ -115,13 +116,13 @@
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-6 ">
                         <label for="">Street Name</label>
-                        <input type="text" formControlName="street" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.street.errors }">
-                        <div *ngIf="isSubmitted && profileControls.street.errors" class="invalid-feedback">
-                            <div *ngIf="profileControls.street.errors.required">Last Name is required</div>
+                        <input type="text" formControlName="streetName" placeholder="Street Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.streetName.errors }">
+                        <div *ngIf="isSubmitted && profileControls.streetName.errors" class="invalid-feedback">
+                            <div *ngIf="profileControls.streetName.errors.required">Last Name is required</div>
                         </div>                      </div>
                     <div class="col-sm-6 pl">
                         <label for="">Zip/Postal</label>
-                        <input type="text" formControlName="postal" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.postal.errors }">
+                        <input type="text" formControlName="postal" placeholder="Zip/Postal" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.postal.errors }">
                         <div *ngIf="isSubmitted && profileControls.postal.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.postal.errors.required">Last Name is required</div>
                         </div>                      </div>
@@ -133,30 +134,36 @@
 
     </div>
     <div class="row col-sm-12 pl padding-top-20 mb-5 ml-0">
-        <div class="col-sm-8 plb pb-3 box">
+        <div class="col-sm-8 plb pb-3 box"> 
             <h5 class="pl-3 headingName">Shipping Details</h5>
 
-                <div class="d-flex justify-content-between padding-top-20">
-                    <div class="col-sm-12 ">
-                        <button mat-stroked-button class="text-blue float-right brdr">
+                <div class="d-flex justify-content-between padding-top-20" >
+                    <div class="col-sm-12">
+                        <button mat-stroked-button class="text-blue float-right brdr" (click)="openDialog3()">
                         <i class="material-icons addIcon">add_circle_outline</i>Add Address</button>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between padding-top-20">
-                    <div class="col-sm-12 ">
-                        <textarea id="shippindAdd" class="form-control" rows="3"></textarea>
+                    <div class="container d-flex justify-content-between padding-top-20" *ngFor="let address of addressDetail">
+                        <div class="col-sm-12 ">
+                            <h2 class="card-title "></h2>
+                           <h6 class="card-subtitle pb-2">{{address.name}}</h6>
+                           <p class="card-subtitle pb-2">{{address.clinicName}}, {{address.blockNo}}, {{address.floorNo}}, {{address.unitNo}}, {{address.buildingName}}, {{address.streetName}}, {{address.zip}}</p>
+                           <h6 class="card-subtitle pb-2"><span><b>Phone number :- </b></span></h6>
+                         <div class="col-sm-12">
+                           <button mat-button class="text-blue col-sm-2 pl-0" (click)="editAddress(address.id)">
+                            Edit</button>
+                            <button mat-button class="text-blue col-sm-2 pl-0" (click)="removeAddress(address.id)">
+                                Remove</button>
+                                </div>
+                        </div>
+                        
                     </div>
-                </div>
-                <div class="d-flex justify-content-between padding-top-20">
-                    <div class="col-sm-12 ">
-                        <textarea id="shippindAdd" class="form-control" rows="3"></textarea>
-                    </div>
-                </div>
+               
         </div>
         <div class="col-sm-4 pl">
 
         </div>
 
     </div>
-</form>
 </div>
+</form>

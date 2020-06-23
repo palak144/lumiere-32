@@ -40,12 +40,10 @@ export class AuthService {
   }
 
   onVerifyOtpSignUp(otp:string){
-    debugger
     return this.baseService.post(this.verifyOtpUrl,{"Email":this.emailIdSignUp,"otp":otp})
   }
 
   onVerifyOtpLogIn(otp:string){
-    debugger
     return this.baseService.post(this.verifyOtpUrl,{"Email":this.emailIdLogIn ,"otp":otp})
   }
 
