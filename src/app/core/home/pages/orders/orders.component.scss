@@ -41,6 +41,12 @@ input.searchInp {
     border-radius: 0;
 
 }
+.btnPayAll{
+    background: #034995;
+    color: white;
+    border-radius: 0;
+
+}
 .orderType{
     border: 1px solid #AAB7C9;
     border-radius: 0;
@@ -57,6 +63,8 @@ input.searchInp {
     height: 60px;
     background: #63c7db26;
     padding: 20px 30px;
+    justify-content: space-around;
+
 }
 .orderList{
     padding: 20px 30px; 
@@ -74,7 +82,7 @@ input.searchInp {
     padding-right: 20px;
 }
 .lastDaysDropdown{
-    padding-right: 35px
+    padding-right: 20px
 }
 .dotYellow {
     height: 12px;
@@ -100,9 +108,10 @@ input.searchInp {
     display: inline-block;
     margin-right: 7px;
   }
-  .orderHeader{
-      justify-content: space-around;
-  }
+  .orderHeader1{
+    height: 60px;
+    background: #63c7db26;
+    padding: 20px 30px;  }
   .brder{
     border: 1px solid
     !important;

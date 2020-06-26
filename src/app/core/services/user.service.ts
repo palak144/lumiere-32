@@ -45,7 +45,6 @@ export class UserService {
       );
   }
   onAddressAdd(data){
-    debugger
     return this.http
       .post(this.baseUrl + 'address',data, { observe: 'response' })
       .pipe(
@@ -53,9 +52,15 @@ export class UserService {
       );
   }
   onUpdateAdd(data){
-    debugger
     return this.http
     .post(this.baseUrl + 'address/', data,{ observe: 'response' })
+    .pipe(
+      retry(3)
+    );
+  }
+  onUpdateAddDefault(data, id){
+    return this.http
+    .put(this.baseUrl + 'address/' + id, data[0],{ observe: 'response' })
     .pipe(
       retry(3)
     );
