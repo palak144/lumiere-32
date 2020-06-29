@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
+    
     this.loginForm = this.formBuilder.group({
       userId: new FormControl('', [
         Validators.required,
@@ -80,7 +81,6 @@ export class LoginComponent implements OnInit {
         error => {
           this.loading = false;
          if(error.error.message == "Email not verify"){
-           debugger
           this.router.navigate(["/auth/verify-otp"])
           this.toastr.info("Verify your email");
           }

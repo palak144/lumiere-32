@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
     
   }
   logout(){
-    // debugger
     // // document.getElementById('headerClr').classList.add('header2')
     // document.getElementById('headerClr').style.backgroundColor = 'black';
     // document.getElementById('searchBtnn').classList.add('sec')

@@ -22,12 +22,13 @@ export class AuthService {
   loggedInCustomerName = "Login / Signup";
   loginFlag: boolean =false;
   loginData: string;
+  baseUrlCountry: string;
 
   constructor(
     private http: HttpClient,
     private baseService: BaseService,  ) {
       this.baseUrl = this.baseService.baseUrl;
-
+      this.baseUrlCountry = this.baseService.baseUrlCountry
        }
     
   onRegisterScreen1(email:string){
@@ -40,12 +41,10 @@ export class AuthService {
   }
 
   onVerifyOtpSignUp(otp:string){
-    debugger
     return this.baseService.post(this.verifyOtpUrl,{"Email":this.emailIdSignUp,"otp":otp})
   }
 
   onVerifyOtpLogIn(otp:string){
-    debugger
     return this.baseService.post(this.verifyOtpUrl,{"Email":this.emailIdLogIn ,"otp":otp})
   }
 
@@ -74,7 +73,13 @@ export class AuthService {
         retry(3)
       );
   }
-
+ getCountry(){
+  return this.http
+  .get(this.baseUrlCountry + 'countries', { observe: 'response' })
+  .pipe(
+    retry(3)
+  );
+ }
 
 }
 

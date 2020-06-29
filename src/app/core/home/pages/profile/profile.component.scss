@@ -42,6 +42,30 @@
     padding-bottom: 2px;
     font-size: 23px;
 }
+.editProfile{
+    background-color: #63C7DB;
+    color: white;
+    border-radius: 0;
+}
+.buttonEdit{
+    padding-top: 20px;
+}
+.edit{
+    color: #506DB5;
+    // color: #007bff;
+    cursor: pointer;
+    padding-left: 20px;
+}
+.disable{
+    cursor: not-allowed !important;
+} 
+.text-grey{
+    color: #506DB5;
+}
+.blue{
+    background-color: rgba(99, 199, 219, 0.13);
+    border-color: #63C7DB
+}
 @media only screen and (max-width: 660px) {
     .pl{
         padding-bottom: 10px !important;

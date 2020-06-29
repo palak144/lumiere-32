@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, Output,EventEmitter, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/core/services/user.service';
 import { HttpResponse } from '@angular/common/http';
@@ -9,9 +9,9 @@ import { HttpResponse } from '@angular/common/http';
   styleUrls: ['./post-login-header.component.scss']
 })
 export class PostLoginHeaderComponent implements OnInit {
-
   routerUrl:string;
   profileDetails: any;
+  editProfile : boolean ;
 
   constructor(
     private router: Router,
@@ -26,7 +26,7 @@ export class PostLoginHeaderComponent implements OnInit {
     this.onProfileInfo()
   }
   onProfileInfo() {
-    this.userService.getProfileInfo().subscribe(
+    this.userService.getProfilePersonalInfo().subscribe(
       (response: HttpResponse<any>) => {
         this.profileDetails = response.body.data
         
@@ -37,19 +37,22 @@ export class PostLoginHeaderComponent implements OnInit {
     )
   }
   dashboard(){
-    
+    this.editProfile = false;
+
     this.router.navigate(['user/dashboard'] )
   }
   profile(){
-    
+    this.editProfile = true;
     this.router.navigate(['user/profile'] )
   }
   orders(){
-    
+    this.editProfile = false;
+
     this.router.navigate(['user/orders'] )
   }
   wishList(){
-    
+    this.editProfile = false;
+
     this.router.navigate(['user/wishlist'] )
   }
 }

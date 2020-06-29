@@ -18,11 +18,12 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 
 // import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { SavedPaymentDetailsComponent } from 'src/app/shared/components/saved-payment-details/saved-payment-details.component';
+import { AddAddressComponent } from './components/add-address/add-address.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, ForgotPasswordDialogComponent, FooterComponent, PostLoginHeaderComponent, ChangePasswordComponent, SavedPaymentDetailsComponent],
+  declarations: [HeaderComponent, ForgotPasswordDialogComponent, FooterComponent, PostLoginHeaderComponent, ChangePasswordComponent, SavedPaymentDetailsComponent, AddAddressComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

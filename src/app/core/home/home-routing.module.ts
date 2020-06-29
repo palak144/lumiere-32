@@ -5,6 +5,7 @@ import { MainHomeComponent } from './pages/main-home/main-home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { AddAddressComponent } from 'src/app/shared/components/add-address/add-address.component';
 
 
 const routes: Routes = [{
@@ -35,6 +36,10 @@ const routes: Routes = [{
         {
           path: 'wishlist',
           component: WishlistComponent,
+        },
+        {
+          path: ':id/edit',
+          component: AddAddressComponent,
         },
       ]
     }
