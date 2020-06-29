@@ -14,6 +14,8 @@ export class BaseService {
   // On Localhost
   // public base_url: string = '/api/';
   public baseUrl: string = 'http://18.141.13.208/api/v1/customer/';
+  public baseUrlCountry: string = 'http://18.141.13.208/api/v1/web/';
+
 
   // public base_url: string = 'http://localhost:8641/api/';
 

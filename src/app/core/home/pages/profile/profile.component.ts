@@ -7,6 +7,7 @@ import { HttpResponse } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AddAddressComponent } from 'src/app/shared/components/add-address/add-address.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -14,25 +15,38 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  
+  public toggleButton: boolean = true;
   profileDetails: any;
   personalDetailForm: FormGroup;
   isSubmitted : boolean= false;
   personalDetailFormDetails : any;
   profileBillingDetails: any;
   addressDetail: any;
+  default: boolean = true;
+  defaultAddressDetail: any;
+  public loading = false;
   constructor(
     private dialog: MatDialog,
     private userService: UserService,
     private router:Router,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private toastr: ToastrService,
+
 
   ) { }
 
   ngOnInit(): void {
+    this.getProfileAddressDetails();
+
     this.initForm()
 
   }
 
+  enable(){
+    
+    this.toggleButton = false
+ }
 get profileControls() {
     return this.personalDetailForm.controls;
   }
@@ -90,21 +104,41 @@ get profileControls() {
 
       }
     )
-   this.getProfileAddressDetails();
 
   }
   getProfileAddressDetails(){
-    debugger
+    
+    this.loading = true;
     this.userService.getProfileAddressDetails().subscribe(
       (response: HttpResponse<any>)=>{
-        debugger
+        
+        this.loading = false;
         this.addressDetail = response.body.data.result
       },
       (error)=>{
+        this.loading = false
       }
     )
   }
+  setDefault(id){
+
+document.getElementById('default').classList.add('blue')
+this.default=false;
+
+this.defaultAddressDetail = this.addressDetail.filter(item => item.id === id)
+
+this.userService.onUpdateAddDefault(this.defaultAddressDetail,id).subscribe(
+  (success)=>{
+    this.getProfileAddressDetails();
+    
+  },
+  (error)=>{
+    
+  }
+)
+  }
   onSubmit() {
+    this.loading = true
     this.isSubmitted = true;
     if (this.personalDetailForm.invalid) {
       return
@@ -130,28 +164,29 @@ get profileControls() {
 this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscribe(
 
   (success)=>{
- 
+    
+    this.loading = false;
+    this.toastr.success("Profile Details Updated")
+    this.toggleButton = true
+
   },
   (error)=>{
-    
+    this.loading = false;
   }
 )
 
   }
-
-  editAddress(id:number){
-    debugger
-    this.router.navigate(['../',id,'edit'],{relativeTo : this.route})
-
-  }
   removeAddress(id:number){
+    this.loading = true
     this.userService.onDeleteAddress(id).subscribe(
 
       (success)=>{
         this.getProfileAddressDetails();
+
       },
       (error)=>{
-        
+        this.loading = false;
+
       }
     )
   }
@@ -176,8 +211,17 @@ this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscri
   openDialog3() {
     const dialogRef = this.dialog.open(AddAddressComponent, {
     });
-
     dialogRef.afterClosed().subscribe(result => {
+      this.getProfileAddressDetails();
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openDialog4(id:number) {
+    const dialogRef = this.dialog.open(AddAddressComponent, {
+      data: {id: id}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getProfileAddressDetails();
       console.log(`Dialog result: ${result}`);
     });
   }

@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -29,29 +29,29 @@ id:number
       public userService:UserService,
       public toastr : ToastrService,
       private router:Router,
-      public dialog: MatDialog,
-      private activatedRoute:ActivatedRoute
+      public dialog: MatDialogRef<AddAddressComponent>,
+      private activatedRoute:ActivatedRoute,
+      @Inject(MAT_DIALOG_DATA) public data: any
     ) { }
 
   ngOnInit(): void {
- this.addressTitle = "Add New Customer Group"
+ this.addressTitle = "Add New Address"
 
-    this.activatedRoute.params.subscribe(
-      (id: Params) => {
-        this.id = +id['id']
-        this.editMode = id['id'] != null
+if(this.data){
+        this.id = this.data.id
+         this.editMode = this.id != null
         console.log(this.editMode)
-        
+}
         this.initForm()
-      }
-    )
+      
+    
   }
 
   get addressControls(){
     return this.addressForm.controls;
   }
   onSubmit(){
-    debugger
+    
     this.isSubmitted = true;
     this.loading = true;
 
@@ -76,13 +76,13 @@ id:number
     this.addressFormDetails.id = this.id;
   }
    if (this.editMode) {
-      debugger
-    this.addressTitle = "Edit Customer Group"
+      
+    this.addressTitle = "Edit Address"
     this.userService.onUpdateAdd(this.addressFormDetails).subscribe(
       data => {
         this.loading = false;
 this.toastr.success("Address Editted Successfully")
-this.router.navigate(['user/profile'])   
+this.dialog.close()
 },
       error => {
         this.loading = false;
@@ -94,12 +94,13 @@ this.router.navigate(['user/profile'])
 
   }
   else{
-    debugger
+    
     this.userService.onAddressAdd(this.addressFormDetails).subscribe(
       data => {   
         this.loading = false;
         this.toastr.success("Address Added Successfully")
-        this.router.navigate(['user/profile'])   
+        this.dialog.close()
+
      },
       error => {
         this.loading = false;
@@ -109,6 +110,7 @@ this.router.navigate(['user/profile'])
   }
   }
   initForm(){
+    
     let name = "";
     let clinicName = "";
     let blockNo = "";
@@ -118,9 +120,10 @@ this.router.navigate(['user/profile'])
     let building = "";
     let postal = "";
     if(this.editMode){
-      this.addressTitle = "Edit Customer Group"
+      this.addressTitle = "Edit Address"
       this.userService.getProfileAddressAdd().pipe(takeUntil(this._unsubscribe)).subscribe(
         (success:any)=>{
+          
           this.addresses = success.body.data.result;
           this.address = this.addresses.filter((item: any) => {
             return this.id === item.id
@@ -135,7 +138,7 @@ this.router.navigate(['user/profile'])
             "blockNo" : this.address[0].blockNo,
             "postal" : this.address[0].zip,
           })
-debugger
+
       },
         error=>{
           
@@ -147,11 +150,11 @@ debugger
         "country": new FormControl(1, Validators.required),
         "name": new FormControl(name, Validators.required),
         "clinicName": new FormControl(clinicName, Validators.required),
-        "blockNo": new FormControl(blockNo, Validators.required),
-        "floorNo": new FormControl(floorNo, Validators.required),
-        "unitNo": new FormControl(unitNo, Validators.required),
-        "streetName": new FormControl(streetName, Validators.required),
-        "building": new FormControl(building, Validators.required),
+        "blockNo": new FormControl(blockNo, ),
+        "floorNo": new FormControl(floorNo, ),
+        "unitNo": new FormControl(unitNo, ),
+        "streetName": new FormControl(streetName, ),
+        "building": new FormControl(building, ),
         "postal": new FormControl(postal, [ Validators.required,
           Validators.pattern('^[0-9\+\-]{6}$')])
       });
