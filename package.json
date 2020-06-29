@@ -25,6 +25,7 @@
     "@angular/router": "~9.1.4",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "@types/jquery": "^3.3.38",
+    "angular-bootstrap-md": "^9.3.1",
     "bootstrap": "^4.4.1",
     "bootstrap-sass": "^3.4.1",
     "font-awesome": "^4.7.0",
