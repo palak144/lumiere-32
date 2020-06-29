@@ -368,7 +368,7 @@ h3.underline-text-wrapper.small-pading {
 .freequot {
     background-color: #63c7db;
     padding: 60px 0 100px;
-    margin-top: 65px;
+    // margin-top: 65px;
 }
 .freequotes-hedng {
     font-size: 32px;
@@ -401,9 +401,9 @@ h3.underline-text-wrapper.small-pading {
         color: #63c7db;
     }
 }
-.freequote-card-inone {
-    margin-top: 50px;
-}
+// .freequote-card-inone {
+//     margin-top: 50px;
+// }
 .freequote-card.text-center.one {
     margin-top: 22px;
 }
@@ -413,7 +413,8 @@ h3.underline-text-wrapper.small-pading {
 .quote-form-card {
     padding: 40px 35px;
     width: 419px;
-    height: 402px;
+    // height: 402px;
+    height:100%;
     border-radius: 10px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
@@ -444,6 +445,56 @@ button.btn.btn-quote {
     color: #ffffff;
 }
 @media only screen and (max-width:660px) {
+
+    .display-mobile-none {
+        display: none;
+    }
+
+    .deliver-button-wrapper {
+        text-align: center;
+    }
+
+    .deliver-card-spacing {
+        padding-top:2em !important;
+    }
+
+    .freequote-card {
+        width: 68%;
+        margin: 0 auto 31px;
+    }
+
+    .customer-slide-card {
+        height: auto !important;
+    }
+
+    .customer-slider-width {
+        width:100% !important;
+    }
+
+    .customer-slide-wrapper .fa-long-arrow-right, .customer-slide-wrapper .fa-long-arrow-left {
+        display: none !important;
+    }
+
+    .freequote-card.text-center.one {
+        margin: 0 auto;
+    }
+
+    // .row {
+    //     margin:0;
+    // }
+
+    .feature-slide-wrapper .fa-chevron-right, .feature-slide-wrapper .fa-chevron-left {
+        display: none !important;
+    }
+
+    .quote-form-card {
+        width: 100%;
+    }
+
+    .freequote-card.text-center.two {
+        margin: 15px auto 25px auto;
+    }
+
     .custom-button {
         width: 100%;
         min-width: 100%;
