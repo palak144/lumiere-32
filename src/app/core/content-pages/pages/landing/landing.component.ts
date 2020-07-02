@@ -96,6 +96,7 @@ export class LandingComponent implements OnInit {
     "slidesToScroll": 1,
     "nextArrow": '<i class="fa fa-long-arrow-right"></i>',
     "prevArrow": '<i class="fa fa-long-arrow-left"></i>',
+    "infinite": false
   };
 
   featureSlideConfig = {
@@ -105,6 +106,7 @@ export class LandingComponent implements OnInit {
     "nextArrow": '<i class="fa fa-chevron-right"></i>',
     "prevArrow": '<i class="fa fa-chevron-left"></i>',
     "dots": true,
+    "infinite": false,
     // "nextArrow": '<i class="fa fa-chevron-right"></i>'
     responsive: [
       {

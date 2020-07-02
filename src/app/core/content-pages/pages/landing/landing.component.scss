@@ -89,6 +89,12 @@
         color: #000;
         padding: 10px 12px;
         box-shadow: 0px 3px 6px #c1c1c1;
+
+        &.slick-disabled {
+            pointer-events: none;
+            color: #bbbbbb;
+            opacity: 0.3;
+         }
     }
     .fa-chevron-right {
         right: -6%;
@@ -101,6 +107,12 @@
         color: #000;
         padding: 10px 12px;
         box-shadow: 0px 3px 6px #c1c1c1;
+
+        &.slick-disabled {
+            pointer-events: none;
+            color: #bbbbbb;
+            opacity: 0.3;
+         }
     }
 
     .slick-dots {
@@ -141,6 +153,12 @@
         background: transparent;
         color: #1B4791;
         padding: 10px 12px;
+
+        &.slick-disabled {
+            pointer-events: none;
+            color: #bbbbbb;
+            opacity: 0.3;
+         }
     }
     .fa-long-arrow-right {
         right: 6%;
@@ -153,7 +171,19 @@
         background: transparent;
         color: #1B4791;
         padding: 10px 12px;
+
+        &.slick-disabled {
+            pointer-events: none;
+            color: #bbbbbb;
+            opacity: 0.3;
+         }
+
+        
     }
+
+
+
+   
 }
 
 .customer-slide-card {
@@ -502,7 +532,7 @@
     .landing-dot-wrapper {
         position: absolute;
         top: 3px;
-        right: 17%;
+        right: 10%;
     }
 }
 
