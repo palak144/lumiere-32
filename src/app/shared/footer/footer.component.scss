@@ -69,3 +69,11 @@
         display: block !important;
     }
 }
+@media (max-width: 767px)
+	{
+    .footer-wrapper {
+        background: #1B4791;
+        padding: 3em 0 0em;
+        position: relative;
+    }
+}
