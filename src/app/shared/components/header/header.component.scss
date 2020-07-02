@@ -220,7 +220,7 @@ a.man-nav {
 }
 .sidnav-username {
     background: #63c7db;
-    padding: 21px 68px 21px 14px;
+    padding: 21px 40px 21px 14px;
 }
 .nav-username {
     color: #fff;
@@ -231,10 +231,12 @@ a.man-nav {
 .nav-username::after {
     content: "\f054";
     position: absolute;
-    right: 17px;
-    top: 31px;
+    right: 7px;
+    top: 30px;
     font-family: "FontAwesome";
     font-size: 14px;
 }
-
+a.mat-list-item.mat-focus-indicator.man-username {
+    text-decoration: none;
+}
 
