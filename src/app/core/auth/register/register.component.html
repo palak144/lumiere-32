@@ -91,7 +91,7 @@
                                 <div *ngIf="isSubmittedRegisterForm && signUpControls.contactNo.errors" class="invalid-feedback">
                                     <div *ngIf="signUpControls.contactNo.errors.required">Mobile No. is required
                                     </div>
-                                    <div *ngIf="signUpControls.contactNo.errors.pattern">Mobile No. must be 10 digits
+                                    <div *ngIf="signUpControls.contactNo.errors.pattern">Mobile No. must be between 5 to 15 digits
                                     </div>
 
                                 </div>
@@ -122,11 +122,7 @@
                             <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.password.errors }">
                             <div *ngIf="isSubmittedRegisterForm && signUpControls.password.errors" class="invalid-feedback">
                                 <div *ngIf="signUpControls.password.errors.required">Password is required</div>
-                                <div *ngIf="signUpControls.password.errors.minLength">Password must be atleast 8 characters
-                                </div>
-                                <div *ngIf="signUpControls.password.errors.pattern">Follow password policies</div>
-                                <div *ngIf="signUpControls.password.errors.maxLength">Password must be atmost 20 characters
-                                </div>
+                                <div *ngIf="signUpControls.password.errors.pattern">Password must be atleast 8 digits with one special character</div>
 
                             </div>
                         </div>

@@ -42,10 +42,8 @@ if(this.data){
          this.editMode = this.id != null
         console.log(this.editMode)
 }
-        this.initForm()
-      
-    
-  }
+        this.initForm()          
+}
 
   get addressControls(){
     return this.addressForm.controls;

@@ -45,6 +45,7 @@ export class ForgotPasswordDialogComponent implements OnInit {
     this.authService.onForgotPassword(this.loginForm.value.userId).subscribe(
       data => {   
         this.loading = false;
+        debugger
         this.toastr.success("OTP is successfully sent")
         this.dialog.closeAll()
         this.router.navigate(["/auth/verify-otp"])

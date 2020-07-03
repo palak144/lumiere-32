@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
       localStorage.clear();
     this.authService.loggedInCustomerName = "Login / Signup";
     this.authService.loginFlag = false;
-     this.router.navigate(['/auth/login'])
+     this.router.navigate([""])
     
   }
   dashboard(){
