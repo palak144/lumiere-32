@@ -33,11 +33,33 @@ export class VerifyOtpComponent implements OnInit {
   onSubmitOTP() {
     this.authService.onVerifyOtpLogIn(this.otp).subscribe(
       data => {
-        this.toastr.success(data.data)
-        this.router.navigate(["/auth/reset-password"])
+        debugger
+        if(this.authService.forgotPassPage ){
+          this.toastr.success("OTP Veriffied Successfully")
+          this.router.navigate(["/auth/reset-password"])
+        }
+        else{
+          this.toastr.success("OTP Veriffied Successfully")
+          this.router.navigate([""])
+
+        }
+        debugger
+
       },
       error => {
-        this.toastr.error(error.error.message);
+        debugger
+        if(this.authService.forgotPassPage ){
+          debugger
+          this.toastr.error(error.error.message);
+
+        }
+        else{
+          debugger
+          this.toastr.error(error.error.message);
+
+
+        }
+        debugger
       })
   }
 

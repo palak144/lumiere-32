@@ -64,7 +64,7 @@ get profileControls() {
       "clinicName": new FormControl('', Validators.required),
       "mobile": new FormControl('', [
         Validators.required,
-        Validators.pattern('^[0-9\+\-]{10}$')]),
+        Validators.pattern('^[0-9\+\-]{5,15}$')]),
       "speciality": new FormControl('', [
         Validators.required]),
       "practiceType": new FormControl('', Validators.required),

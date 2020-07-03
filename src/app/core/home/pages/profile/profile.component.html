@@ -47,6 +47,8 @@
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.mobile.errors }">
                         <div *ngIf="isSubmitted && profileControls.mobile.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.mobile.errors.required">Mobile No. is required</div>
+                            <div *ngIf="profileControls.mobile.errors.pattern">Mobile No. must be between 5-15 digits</div>
+
                         </div>
                     </div>
                 </div>

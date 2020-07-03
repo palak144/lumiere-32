@@ -75,15 +75,13 @@ this.authService.getCountry().subscribe(
       title: ['', Validators.required],
       contactNo: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[0-9]{10}$')]),
+        Validators.pattern('^[0-9]{5,15}$')]),
       practiceType: ['', Validators.required],
       //termCondition: [false, Validators.required],
       termCondition: new FormControl('', [Validators.required]),
       speciality: ['', Validators.required],
       password: ['', [Validators.required,
-      Validators.minLength(8),
-      Validators.pattern('^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'),
-      Validators.maxLength(20)]],
+      Validators.pattern('^(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$')]],
       rePassword: ['', Validators.required],
     }, {
       validator: MustMatch('password', 'rePassword')

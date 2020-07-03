@@ -23,12 +23,14 @@ export class AuthService {
   loginFlag: boolean =false;
   loginData: string;
   baseUrlCountry: string;
+  forgotPassPage: boolean = false;
 
   constructor(
     private http: HttpClient,
     private baseService: BaseService,  ) {
       this.baseUrl = this.baseService.baseUrl;
-      this.baseUrlCountry = this.baseService.baseUrlCountry
+      this.baseUrlCountry = this.baseService.baseUrlCountry;
+      this.forgotPassPage = false;
        }
     
   onRegisterScreen1(email:string){
@@ -57,6 +59,7 @@ export class AuthService {
   }
 
   onForgotPassword(emailId:string){
+    this.forgotPassPage = true
     this.emailIdLogIn = emailId;
     return this.baseService.post(this.forgotPassworsUrl,{"Email":emailId})
   }
