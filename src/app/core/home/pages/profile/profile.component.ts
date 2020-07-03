@@ -8,6 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AddAddressComponent } from 'src/app/shared/components/add-address/add-address.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -27,19 +28,42 @@ export class ProfileComponent implements OnInit {
   default: boolean = true;
   defaultAddressDetail: any;
   public loading = false;
+  codes:any= [];
+  countries:any= [];
+  selectedCountry = [];
+
   constructor(
     private dialog: MatDialog,
     private userService: UserService,
     private router:Router,
     private route:ActivatedRoute,
     private toastr: ToastrService,
-
-
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.getProfileAddressDetails();
-
+    this.authService.getCountry().subscribe(
+      (response: HttpResponse<any>)=>{
+        if (response.body.data != null) {
+        response.body.data.forEach(element => {
+          this.codes.push({
+            label: element.phoneCode,
+            value: element.phoneCode
+          });
+          this.countries.push({
+            label: element.country,
+            value: element.id
+          });
+        });
+      }
+        debugger
+        return this.codes
+      },
+      (error)=>{
+        debugger
+      }
+    )
     this.initForm()
 
   }
@@ -70,6 +94,7 @@ get profileControls() {
       "practiceType": new FormControl('', Validators.required),
       "blockNo": new FormControl('', Validators.required),
       "floorNo": new FormControl('', Validators.required),
+      "code":  new FormControl('', Validators.required),
       "unitNo": new FormControl('', Validators.required),
       "streetName": new FormControl('', Validators.required),
       "building": new FormControl('', Validators.required),
@@ -89,9 +114,10 @@ get profileControls() {
           "email": this.profileDetails.Email,
           "name": this.profileDetails.firstName,
           "lname": this.profileDetails.lastName,
-          "country" : this.profileDetails.customerId,
+          "country" : this.profileDetails.country,
           "clinicName": this.profileDetails.clinicName,
-          "mobile": this.profileDetails.teleNumber,
+          "code": this.profileDetails.countryCode,
+          "mobile": this.profileDetails.mobileNumber,
           "speciality" : this.profileDetails.speciality,
           "practiceType": this.profileDetails.practiceType,
           "blockNo": this.profileDetails.houseNo,
@@ -101,6 +127,7 @@ get profileControls() {
           "building": this.profileDetails.buildingName,
           "postal": this.profileDetails.pincode,
         })
+        this.selectedCountry=this.profileDetails.country
       },
       (error) => {
 
@@ -146,13 +173,15 @@ this.userService.onUpdateAddDefault(this.defaultAddressDetail,id).subscribe(
     if (this.personalDetailForm.invalid) {
       return
     }
+    debugger
     var json = JSON.parse(localStorage.UserData);
+    debugger
     this.personalDetailFormDetails = {
       "Email": this.personalDetailForm.get('email').value,
       "firstName": this.personalDetailForm.get('name').value,
       "lastName": this.personalDetailForm.get('lname').value,
       "clinicName": this.personalDetailForm.get('clinicName').value,
-      "countryCode": '+91',
+      "countryCode": this.personalDetailForm.get('code').value,
       "houseNo": this.personalDetailForm.get('blockNo').value,
       "floorNo": this.personalDetailForm.get('floorNo').value,
       "unitNo": this.personalDetailForm.get('unitNo').value,
@@ -163,6 +192,8 @@ this.userService.onUpdateAddDefault(this.defaultAddressDetail,id).subscribe(
       "mobileNumber": this.personalDetailForm.get('mobile').value,
       "customerId": json.body.data.customerId
     }
+debugger
+this.personalDetailFormDetails.countryId = this.personalDetailForm.get('country').value
 
 this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscribe(
 

@@ -1,6 +1,4 @@
-.pl{
-    padding-left: 0 !important;
-}
+
 .plb{
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -70,11 +68,15 @@
     .pl{
         padding-bottom: 10px !important;
         margin-left: 0px;
+        
     }
     .mright{
         padding-right: 0px;
     }
     .pt{
         padding-top: 20px;
+    }
+    .d-flex {
+        display: block !important;
     }
 }

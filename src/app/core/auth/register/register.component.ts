@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MustMatch } from '../../../_helpers/must-watch.validator';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { HttpResponse } from '@angular/common/http';
 
 
 @Component({
@@ -23,8 +24,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   emailForm: FormGroup;
   registerFormDetails: {};
-  countrycodeListFromAPI: string[];
-  codes: string[];
+  codes: any = [];
   hide = true;
   emailFormDetails: {};
   otp: string;
@@ -56,18 +56,27 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+debugger
 this.authService.getCountry().subscribe(
-  (success)=>{
+  (response: HttpResponse<any>)=>{
+    if (response.body.data != null) {
+
+    response.body.data.forEach(element => {
+      this.codes.push({
+        label: element.phoneCode,
+        value: element.phoneCode
+      });
+
+    });
+  }
+    debugger
+    return this.codes
   },
   (error)=>{
-    
+    debugger
   }
 )
     this.registerForm = this.formBuilder.group({
-      // email: new FormControl('', [
-      //   Validators.required,
-      //   Validators.pattern('^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}$')]),
       fname: ['', Validators.required],
       lname: ['', Validators.required],
       clinicName: ['', Validators.required],
@@ -77,13 +86,11 @@ this.authService.getCountry().subscribe(
         Validators.required,
         Validators.pattern('^[0-9]{5,15}$')]),
       practiceType: ['', Validators.required],
-      //termCondition: [false, Validators.required],
-      termCondition: new FormControl('', [Validators.required]),
-      speciality: ['', Validators.required],
-      acceptTerms :new FormControl('', [(control) => {    
+      termCondition: new FormControl('', [(control) => {    
         return !control.value ? { 'required': true } : null;
       }]
     ),
+      speciality: ['', Validators.required],
       newsLetter:[''],
       password: ['', [Validators.required,
       Validators.pattern('^(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$')]],
@@ -101,7 +108,6 @@ this.authService.getCountry().subscribe(
 
     this.titles = ['Mr.', 'Miss.', 'Mrs'];
     this.practises = ['Medical', 'Dental', 'Other'];
-    this.codes = ['+91', '+92'];
   }
 
   get emailControls() {
@@ -189,15 +195,14 @@ debugger
   onSubmitOTP() {
     this.loading = true;
     this.authService.onVerifyOtpSignUp(this.otp).subscribe(
-      data => {
+      (response: HttpResponse<any>) => {
         this.loading = false;
-        this.toastr.success("OTP Verified")
           this.authService.loginFlag = true;
-          this.authService.loggedInCustomerName = this.registerSecreen1Data.data.firstName
+          this.authService.loggedInCustomerName = response.body.data.firstName
           this.toastr.success("Login Successful")
-          debugger
-          localStorage.setItem('UserData', JSON.stringify(this.registerSecreen1Data.data));
-        this.router.navigate([''])
+          localStorage.setItem('token', response.headers.get('authtoken'));
+          localStorage.setItem('UserData', JSON.stringify(response));
+        this.router.navigate([""])
       },
       error => {
         this.loading = false;

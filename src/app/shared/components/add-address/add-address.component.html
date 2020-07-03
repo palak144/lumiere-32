@@ -10,13 +10,13 @@
     <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
         <div class="d-flex justify-content-between padding-top-20">
             <div class="col-sm-6">
-                <label for="">Name</label>
+                <label for="">Name</label><span class="asterick">*</span>
                 <input type="text" formControlName="name" placeholder="Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && addressControls.name.errors }">
                 <div *ngIf="isSubmitted && addressControls.name.errors" class="invalid-feedback">
                     <div *ngIf="addressControls.name.errors.required">Name is required</div>
                 </div>                      </div>
                 <div class="col-sm-6 ">
-                    <label for="">Clinic Name</label>
+                    <label for="">Clinic Name</label><span class="asterick">*</span>
                     <input type="text" formControlName="clinicName" placeholder="Clinic Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && addressControls.clinicName.errors }">
                     <div *ngIf="isSubmitted && addressControls.clinicName.errors" class="invalid-feedback">
                         <div *ngIf="addressControls.clinicName.errors.required">Clinic Name is required</div>
@@ -49,12 +49,14 @@
         <div class="d-flex justify-content-between padding-top-20">
             <div class="col-sm-6 ">
                 <label for="">Country</label>
-                <input type="text" formControlName="country" placeholder="Street Name" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && addressControls.country.errors }">
+                <p-dropdown [options]="countries" formControlName="country" filter="true" placeholder="Select Country" styleClass="form-control p-0 " [ngClass]="{ 'is-invalid': isSubmitted && addressControls.country.errors }">
+                </p-dropdown>
                 <div *ngIf="isSubmitted && addressControls.country.errors" class="invalid-feedback">
                     <div *ngIf="addressControls.country.errors.required">Country is required</div>
-                </div>                      </div>
+                </div>
+            </div>
             <div class="col-sm-6 pl">
-                <label for="">Zip/Postal</label>
+                <label for="">Zip/Postal</label><span class="asterick">*</span>
                 <input type="text" formControlName="postal" placeholder="Zip/Postal" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && addressControls.postal.errors }">
                 <div *ngIf="isSubmitted && addressControls.postal.errors" class="invalid-feedback">
                     <div *ngIf="addressControls.postal.errors.required">Zip/Postal is required</div>

@@ -43,6 +43,26 @@
                         </div>
                     </div>
                     <div class="col-sm-6 pl">
+                        <label for="">Speciality</label>
+                        <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="speciality"
+                            placeholder="Speciality" class="form-control"
+                            [ngClass]="{ 'is-invalid': isSubmitted && profileControls.speciality.errors }">
+                        <div *ngIf="isSubmitted && profileControls.speciality.errors" class="invalid-feedback">
+                            <div *ngIf="profileControls.speciality.errors.required">Speciality is required</div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="d-flex justify-content-between padding-top-20">
+
+                    <div class="col-sm-6">
+                        <label for="">Country Code</label>
+                        <p-dropdown [disabled]="toggleButton ? true : null" [options]="codes" formControlName="code" filter="true" placeholder="Country Code" styleClass="form-control p-0 code" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.code.errors }">
+                        </p-dropdown>
+                    <div *ngIf="isSubmitted && profileControls.code.errors" class="invalid-feedback">
+                        <div *ngIf="profileControls.code.errors.required">Required</div>
+                    </div>
+                    </div>
+                    <div class="col-sm-6 pl" >
                         <label for="">Mobile No</label>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="mobile"
                             placeholder="Mobile No" class="form-control"
@@ -53,14 +73,13 @@
                             </div>
 
                         </div>
-                    </div>
+                       </div>
                 </div>
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-6 ">
                         <label for="">Country</label>
-                        <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="country"
-                            placeholder="Country" class="form-control"
-                            [ngClass]="{ 'is-invalid': isSubmitted && profileControls.country.errors }">
+                        <p-dropdown [disabled]="toggleButton ? true : null" [options]="countries" [(ngModel)]="selectedCountry" formControlName="country" filter="true" placeholder="Select Country" styleClass="form-control p-0 " [ngClass]="{ 'is-invalid': isSubmitted && profileControls.country.errors }">
+                        </p-dropdown>
                         <div *ngIf="isSubmitted && profileControls.country.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.country.errors.required">Country is required</div>
                         </div>
@@ -81,6 +100,7 @@
                         <select [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="practiceType"
                             placeholder="Practice Type" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.practiceType.errors }">
+                            <option value="" >Practise Type</option>
                             <option value={{_practise}} *ngFor="let _practise of practises">{{_practise}}
                             </option>
                         </select>
@@ -88,15 +108,7 @@
                             <div *ngIf="profileControls.practiceType.errors.required">Practice Type is required</div>
                         </div>
                     </div>
-                    <div class="col-sm-6 pl">
-                        <label for="">Speciality</label>
-                        <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="speciality"
-                            placeholder="Speciality" class="form-control"
-                            [ngClass]="{ 'is-invalid': isSubmitted && profileControls.speciality.errors }">
-                        <div *ngIf="isSubmitted && profileControls.speciality.errors" class="invalid-feedback">
-                            <div *ngIf="profileControls.speciality.errors.required">Speciality is required</div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="col-sm-4 pt">
@@ -208,13 +220,10 @@
                                 *ngIf="address.buildingName">,</span>{{address.buildingName}}<span
                                 *ngIf="address.streetName">,</span> {{address.streetName}}, {{address.zip}}</p>
                         <div class="col-sm-12 pb-2 pl-0">
-                            <span class="text-blue cursor-pointer col-sm-2 pl-0" (click)="openDialog4(address.id)">
-                                Edit</span>
-                            <span class="text-blue cursor-pointer col-sm-2 pl-0" (click)="removeAddress(address.id)">
-                                Remove</span>
+                            <span class="text-blue cursor-pointer col-sm-2 pl-0" (click)="openDialog4(address.id)">Edit</span>
+                            <span class="text-blue cursor-pointer col-sm-2 pl-0" (click)="removeAddress(address.id)">Remove</span>
                             <span class="text-blue cursor-pointer col-sm-2 pl-0" *ngIf="address.isDefault == 'No'"
-                                (click)="setDefault(address.id)">
-                                Set as Default</span>
+                                (click)="setDefault(address.id)">Set as Default</span>
                         </div>
                     </div>
 
