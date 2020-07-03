@@ -154,3 +154,14 @@ input.searchInp {
         text-align: center;
     }
 }
+
+@media (max-width: 767px)
+{
+    .orderHeader1 {
+        height: 190px;
+        background: #63c7db26;
+        padding: 12px 10px;
+        justify-content: center;
+        padding-left: 29px;
+    }
+}

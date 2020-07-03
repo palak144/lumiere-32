@@ -16,6 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProfileComponent implements OnInit {
   
+  practises: string[];
   public toggleButton: boolean = true;
   profileDetails: any;
   personalDetailForm: FormGroup;
@@ -77,6 +78,7 @@ get profileControls() {
     });
     this.onProfileInfo()
 
+    this.practises = ['Medical', 'Dental', 'Other'];
 
   }
   onProfileInfo() {
