@@ -539,3 +539,75 @@ button.btn.btn-quote {
         padding: 0 0 !important;
     }
 }
+
+
+@media (max-width: 767px)
+	{
+    .menutoggl {
+        font-size: 36px;
+    }
+    mat-toolbar-row.header2 {
+        background-color: #63C7DB;
+        color: white;
+        height: 80px;
+    }
+    .card.deliver-card {
+        margin-bottom: 30px;
+    }
+    .view-link-wrapper .view-link {
+        color: #000 !important;
+        font-weight: 700;
+    }
+    .supplier-card.supplier-card-blue[_ngcontent-maa-c327] {
+        background-color: #1B4791;
+        margin-bottom: 30px;
+    }
+    .medical-mobile-equip {
+        margin-top: 60px;
+    }
+    .digital-solution-card {
+        margin-bottom: 30px;
+    }
+    .top-product {
+        margin-bottom: 30px;
+    }
+    .top-selling-product {
+        margin-bottom: 25px;
+    }
+    .digital-solution-wrapper {
+        padding: 3em 0 3em;
+        position: relative;
+    }
+    .other-services-one {
+        text-align: center !important;
+    }
+    .other-services-one p {
+        width: 100%;
+        font-size: 16px;
+        line-height: 1.43;
+        color: #506d85;
+        text-align: center;
+    }
+    .footer-blue-text.footer-divider {
+        font-weight: 600;
+        font-size: 20px;
+        padding-top: 20px;
+    }
+    .footer-input.padding-top-20 {
+        width: 70%;
+    }
+    .footer-wrapper {
+        background: #1B4791;
+        padding: 3em 0 0em;
+        position: relative;
+    }
+    .orderList {
+        margin-top: 109px;
+    }
+    .searchButton.payll-butt {
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+
+
+}

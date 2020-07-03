@@ -9,7 +9,7 @@
       </a>
     </span>
     <button mat-button fxShow="true" fxHide.gt-sm class="cartButton">
-      <mat-icon class="iconShopping" matBadgeColor="accent">add_shopping_cart</mat-icon>Cart
+     <img src="assets/images/headercart-icon.svg" alt="">Cart
     </button>
     <button mat-button [matMenuTriggerFor]="appMenu" fxShow="true" fxHide.gt-sm>
       <mat-icon class="iconDisplay">flag</mat-icon>
@@ -76,27 +76,97 @@
 
   </mat-toolbar-row>
 </mat-toolbar>
+
 <mat-toolbar class="second" id="searchBtnn">
-<!-- <mat-sidenav-container fxFlexFill>
-  <mat-sidenav #sidenav>
-    <mat-nav-list>
-      <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
-      <a href="#" mat-list-item>Menu Item 1</a>
-      <a href="#" mat-list-item>Menu Item 2</a>
-      <a href="#" mat-list-item>Menu Item 3</a>
-      <a href="#" mat-list-item>Menu Item 4</a>
-      <a href="#" mat-list-item>Menu Item 5</a>
-      <a href="#"mat-list-item>Menu Item 6</a>
-    </mat-nav-list>
-  </mat-sidenav>
- <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content> 
-</mat-sidenav-container> -->
+  <mat-sidenav-container fxFlexFill class="side-nav">
+    <mat-sidenav mode="side" #sidenav position="start">
+      <div class="sidnav-username">
+        <a class="man-username" href="javascript:void(0);" mat-list-item>
+          <img src="assets/images/nav-user.svg" alt="">
+          <span class="nav-username"> Swetank Sisodiya</span>
+        </a>
+          <div class="club-nav">
+            <a class="man-broung" href="javascript:void(0);" mat-list-item>
+              <img class="nav-club-img" src="assets/images/nav-club.svg" alt="">
+              <span class="nav-club"> Bronze Club</span>
+            </a>
+          </div>
+      </div>
+      
+      <mat-nav-list>
+        <span (click)="sidenav.toggle()">close</span>
+        <!-- <a (click)="sidenav.toggle()" href="javascript:void(0)" mat-list-item>Close</a> -->
+        <span class="sidnav-single">
+          <a class="man-nav" href="javascript:void(0);" mat-list-item>
+            <img src="assets/images/header-Rewards.svg" alt="">
+            Rewards
+          </a>
+        </span>
+        <span class="sidnav-single">
+          <a class="man-nav" href="javascript:void(0);" mat-list-item>
+            <img src="assets/images/supermarket.svg" alt="">
+            Order
+          </a>
+        </span>
+        <span class="sidnav-single">
+          <a class="man-nav" href="javascript:void(0);" mat-list-item>
+            <img src="assets/images/Category.svg" alt="">
+            Category
+          </a>
+        </span>
+        <span class="sidnav-single">
+          <a class="man-nav" href="javascript:void(0);" mat-list-item>
+            <img src="assets/images/Offers-nav.svg" alt="">
+            Offer
+          </a>
+        </span>
+        <span class="sidnav-single">
+          <a class="man-nav" href="javascript:void(0);" mat-list-item>
+            <img src="assets/images/wallet.svg" alt="">
+            Pay32
+          </a>
+        </span>
+        <span class="sidnav-single">
+          <a class="man-nav" href="javascript:void(0);" mat-list-item>
+            <img src="assets/images/Help.svg" alt="">
+            Help
+          </a>
+        </span>
+        <span class="sidnav-single">
+          <a class="man-nav" href="javascript:void(0);" mat-list-item>
+            <img src="assets/images/Privacy Policy.svg" alt="">
+            Privacy Policy
+          </a>
+        </span>
+        <span class="sidnav-single">
+          <a class="man-nav" href="javascript:void(0);" mat-list-item>
+            <img src="assets/images/Term and condition.svg" alt="">
+            Term and condition
+          </a>
+        </span>
+        <span class="sidnav-single">
+          <a class="man-nav" href="javascript:void(0);" mat-list-item>
+            <img src="assets/images/header-Logout.svg" alt="">
+            Logout
+          </a>
+        </span>
+        <div class="text-center">
+          <button  type="button" class="nav-custom-button"> Get Quotes </button>
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>  
+  </mat-sidenav-container>
+
+ 
+
 
 <mat-toolbar-row class="header2 container" id="headerClr">
   
   <a class="cate">
     <!-- <mat-icon class="iconCategorys">menu</mat-icon> -->
-    <i class="fa fa-bars"></i>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon class="menutoggl">menu</mat-icon>
+    </button>
     <h4 class="iconCategory" fxShow="false" fxShow.gt-sm>Categories</h4>
   </a>
   <div class="row col-md-7 searchDiv">

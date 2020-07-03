@@ -15,7 +15,8 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterComponent implements OnInit {
 
   titles: string[];
-  titleListFromAPI: string[];
+  practises: string[];
+  // titleListFromAPI: string[];
   isSubmittedEmailForm: boolean = false;
   isSubmittedRegisterForm: boolean = false;
   public loading = false;
@@ -92,6 +93,7 @@ this.authService.getCountry().subscribe(
     });
 
     this.titles = ['Mr.', 'Miss.', 'Mrs'];
+    this.practises = ['Medical', 'Dental', 'Other'];
     this.codes = ['+91', '+92'];
   }
 
