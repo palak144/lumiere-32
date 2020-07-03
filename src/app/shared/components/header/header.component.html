@@ -11,10 +11,11 @@
     <button mat-button fxShow="true" fxHide.gt-sm class="cartButton">
      <img src="assets/images/headercart-icon.svg" alt="">Cart
     </button>
-    <button mat-button [matMenuTriggerFor]="appMenu" fxShow="true" fxHide.gt-sm>
+    <!-- <button mat-button [matMenuTriggerFor]="appMenu" fxShow="true" fxHide.gt-sm>
       <mat-icon class="iconDisplay">flag</mat-icon>
       Sin<mat-icon class="iconDisplay">expand_more</mat-icon>
-    </button>
+    </button> -->
+   
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
       <button mat-button>Sell On Lumiere32</button>
       <mat-divider class="style-fix" [vertical]="true"></mat-divider>
@@ -51,9 +52,16 @@
     <button mat-button fxShow="true" fxHide.gt-sm class="cartButton">
       <mat-icon class="iconShopping" matBadgeColor="accent">add_shopping_cart</mat-icon>Cart
     </button>
-    <button mat-button [matMenuTriggerFor]="appMenu" fxShow="true" fxHide.gt-sm>
-      <mat-icon class="iconDisplay">flag</mat-icon>
-      Sin<mat-icon class="iconDisplay">expand_more</mat-icon>
+    <mat-menu #appMenu1="matMenu">
+      <button mat-menu-item><img src="assets/images/Malaysia Flag.svg" alt="truck image"
+          class="img-fluid " />Malaysia</button>
+      <button mat-menu-item><img src="assets/images/singapore  flag.svg" alt="truck image"
+          class="img-fluid " />Singapore</button>
+    </mat-menu>
+    <button mat-button fxShow="true" fxHide.gt-sm [matMenuTriggerFor]="appMenu1">
+      <img src="assets/images/singapore  flag.svg" alt="truck image" class="img-fluid " />
+
+      Sin <mat-icon class="iconDisplay">expand_more</mat-icon>
     </button>
 
 
@@ -78,7 +86,7 @@
 </mat-toolbar>
 
 <mat-toolbar class="second" id="searchBtnn">
-  <mat-sidenav-container fxFlexFill class="side-nav">
+  <!-- <mat-sidenav-container fxFlexFill class="side-nav">
     <mat-sidenav mode="side" #sidenav position="start">
       <div class="sidnav-username">
         <a class="man-username" href="javascript:void(0);" mat-list-item>
@@ -95,7 +103,7 @@
       
       <mat-nav-list>
         <span (click)="sidenav.toggle()">close</span>
-        <!-- <a (click)="sidenav.toggle()" href="javascript:void(0)" mat-list-item>Close</a> -->
+        <a (click)="sidenav.toggle()" href="javascript:void(0)" mat-list-item>Close</a>
         <span class="sidnav-single">
           <a class="man-nav" href="javascript:void(0);" mat-list-item>
             <img src="assets/images/header-Rewards.svg" alt="">
@@ -157,14 +165,15 @@
     </mat-sidenav>  
   </mat-sidenav-container>
 
- 
+  -->
 
 
 <mat-toolbar-row class="header2 container" id="headerClr">
   
   <a class="cate">
     <!-- <mat-icon class="iconCategorys">menu</mat-icon> -->
-    <button mat-icon-button (click)="sidenav.toggle()">
+    <!-- (click)="sidenav.toggle()" -->
+    <button mat-icon-button >
       <mat-icon class="menutoggl">menu</mat-icon>
     </button>
     <h4 class="iconCategory" fxShow="false" fxShow.gt-sm>Categories</h4>

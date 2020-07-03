@@ -1,8 +1,9 @@
 <app-post-login-header></app-post-login-header>
-<form [formGroup]="personalDetailForm" >
+<form [formGroup]="personalDetailForm">
 
     <div class="container">
-        <div class="buttonEdit" *ngIf="!toggleButton"><button type="submit" (click)="onSubmit()" class="btn editProfile">Save</button></div>
+        <div class="buttonEdit" *ngIf="!toggleButton"><button type="submit" (click)="onSubmit()"
+                class="btn editProfile">Save</button></div>
 
         <div class="row col-sm-12 pl padding-top-20 ml-0">
             <div class="col-sm-8 plb pb-3 box">
@@ -36,7 +37,8 @@
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.email.errors }">
                         <div *ngIf="isSubmitted && profileControls.email.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.email.errors.required">Email is required</div>
-                            <div *ngIf="profileControls.email.errors.pattern">Please enter valid email (xyz@abc.com)</div>
+                            <div *ngIf="profileControls.email.errors.pattern">Please enter valid email (xyz@abc.com)
+                            </div>
 
                         </div>
                     </div>
@@ -47,7 +49,8 @@
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.mobile.errors }">
                         <div *ngIf="isSubmitted && profileControls.mobile.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.mobile.errors.required">Mobile No. is required</div>
-                            <div *ngIf="profileControls.mobile.errors.pattern">Mobile No. must be between 5-15 digits</div>
+                            <div *ngIf="profileControls.mobile.errors.pattern">Mobile No. must be between 5-15 digits
+                            </div>
 
                         </div>
                     </div>
@@ -75,9 +78,12 @@
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-6 ">
                         <label for="">Practice Type</label>
-                        <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="practiceType"
+                        <select [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="practiceType"
                             placeholder="Practice Type" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.practiceType.errors }">
+                            <option value={{_practise}} *ngFor="let _practise of practises">{{_practise}}
+                            </option>
+                        </select>
                         <div *ngIf="isSubmitted && profileControls.practiceType.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.practiceType.errors.required">Practice Type is required</div>
                         </div>
@@ -193,18 +199,22 @@
                 </div>
                 <div class="container d-flex justify-content-between padding-top-20"
                     *ngFor="let address of addressDetail">
-                    <div class="col-sm-12 card " id="default" [ngClass]= "{'blue' : address.isDefault != 'No'}">
-                        <p class="card-subtitle pb-3 pt-2 text-grey"  *ngIf="address.isDefault != 'No'">Default</p>
+                    <div class="col-sm-12 card " id="default" [ngClass]="{'blue' : address.isDefault != 'No'}">
+                        <p class="card-subtitle pb-3 pt-2 text-grey" *ngIf="address.isDefault != 'No'">Default</p>
                         <h6 class="card-subtitle pb-3 pt-3"><span><b>{{address.name}}</b></span></h6>
-                        <p class="card-subtitle pb-2">{{address.clinicName}}<span *ngIf="address.blockNo">,</span> {{address.blockNo}}<span *ngIf="address.floorNo">,</span>{{address.floorNo}}
-                            <span *ngIf="address.unitNo">,</span> {{address.unitNo}} <span *ngIf="address.buildingName">,</span>{{address.buildingName}}<span *ngIf="address.streetName">,</span> {{address.streetName}}, {{address.zip}}</p>
+                        <p class="card-subtitle pb-2">{{address.clinicName}}<span *ngIf="address.blockNo">,</span>
+                            {{address.blockNo}}<span *ngIf="address.floorNo">,</span>{{address.floorNo}}
+                            <span *ngIf="address.unitNo">,</span> {{address.unitNo}} <span
+                                *ngIf="address.buildingName">,</span>{{address.buildingName}}<span
+                                *ngIf="address.streetName">,</span> {{address.streetName}}, {{address.zip}}</p>
                         <div class="col-sm-12 pb-2 pl-0">
                             <span class="text-blue cursor-pointer col-sm-2 pl-0" (click)="openDialog4(address.id)">
                                 Edit</span>
                             <span class="text-blue cursor-pointer col-sm-2 pl-0" (click)="removeAddress(address.id)">
                                 Remove</span>
-                                <span class="text-blue cursor-pointer col-sm-2 pl-0" *ngIf="address.isDefault == 'No'" (click)="setDefault(address.id)">
-                                    Set as Default</span>
+                            <span class="text-blue cursor-pointer col-sm-2 pl-0" *ngIf="address.isDefault == 'No'"
+                                (click)="setDefault(address.id)">
+                                Set as Default</span>
                         </div>
                     </div>
 

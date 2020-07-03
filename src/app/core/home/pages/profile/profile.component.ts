@@ -108,6 +108,7 @@ get profileControls() {
     )
 
   }
+  debugger
   getProfileAddressDetails(){
     
     this.loading = true;

@@ -78,6 +78,11 @@ this.authService.getCountry().subscribe(
         Validators.pattern('^[0-9]{5,15}$')]),
       practiceType: ['', Validators.required],
       speciality: ['', Validators.required],
+      acceptTerms :new FormControl('', [(control) => {    
+        return !control.value ? { 'required': true } : null;
+      }]
+    ),
+      newsLetter:[''],
       password: ['', [Validators.required,
       Validators.pattern('^(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$')]],
       rePassword: ['', Validators.required],
@@ -135,7 +140,7 @@ this.authService.getCountry().subscribe(
       });
   }
   onSubmitRegisterForm() {
-
+    debugger
     this.loading = true;
     this.isSubmittedRegisterForm = true;
     if (this.registerForm.invalid) {
@@ -152,9 +157,10 @@ this.authService.getCountry().subscribe(
       "countryCode": this.registerForm.get('code').value,
       "mobileNumber": this.registerForm.get('contactNo').value,
       "practiceType": this.registerForm.get('practiceType').value,
-      "speciality": this.registerForm.get('speciality').value
+      "speciality": this.registerForm.get('speciality').value,
+      // "signupNewsLetter":this.registerForm.get('newsLetter').value
     }
-
+debugger
     this.authService.onRegisterScreen2(this.registerFormDetails).subscribe(
       data => {
         this.registerSecreen1Data = data
@@ -185,9 +191,9 @@ this.authService.getCountry().subscribe(
         this.loading = false;
         this.toastr.success("OTP Verified")
           this.authService.loginFlag = true;
-          
           this.authService.loggedInCustomerName = this.registerSecreen1Data.data.firstName
           this.toastr.success("Login Successful")
+          debugger
           localStorage.setItem('UserData', JSON.stringify(this.registerSecreen1Data.data));
         this.router.navigate([''])
       },

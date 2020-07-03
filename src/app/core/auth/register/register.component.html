@@ -102,15 +102,8 @@
                 <div class="d-flex justify-content-between padding-top-20 display-mobile-block">
                     <div class="col-lg-6 p-0">
                         <div class="padding-right-20">
-                            <!-- <input type="text" formControlName="practiceType" placeholder="Practise Type" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.practiceType.errors }"> -->
-                            
+                        
                             <select formControlName="practiceType" placeholder="Practise Type" class="form-control p-0" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.practiceType.errors }">
-                                <!-- <option value="" ></option>
-                                <option value="">Medical</option>
-                                <option value="">Dental</option>
-                                <option value="">Other</option>
-                                <option value="" >Practise</option> -->
-                                <option value="" >Practise</option>
                                 <option value={{_practise}} *ngFor="let _practise of practises">{{_practise}}
                                 </option>
                             </select>
@@ -155,8 +148,14 @@
 
             </div>
             <div class="d-flex justify-content-between padding-top-20 display-mobile-block terms-block-wrapper">
-                <mat-checkbox class="text-blue">I accept Terms of use</mat-checkbox>
-                <mat-checkbox>Sign Up to the Newsletter</mat-checkbox>
+               <div>
+                <div *ngIf="isSubmittedRegisterForm && signUpControls.acceptTerms.errors" class="invalid-feedback">
+                    <div *ngIf="signUpControls.acceptTerms.errors.required">Please accept Terms of use
+                    </div>
+                </div>
+                 <mat-checkbox class="text-blue" formControlName="acceptTerms">I accept Terms of use</mat-checkbox>
+                </div>
+                <mat-checkbox formControlName="newsLetter">Sign Up to the Newsletter</mat-checkbox>
             </div>
 
             <div class="text-center button-wrapper">
