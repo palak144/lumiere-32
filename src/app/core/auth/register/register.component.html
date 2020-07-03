@@ -143,21 +143,16 @@
                             <div style="margin-top: 41px;" *ngIf="signUpControls.rePassword.errors.mustMatch">Passwords must match</div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
             <div class="d-flex justify-content-between padding-top-20 display-mobile-block terms-block-wrapper">
-               <div>
-                <div *ngIf="isSubmittedRegisterForm && signUpControls.acceptTerms.errors" class="invalid-feedback">
-                    <div *ngIf="signUpControls.acceptTerms.errors.required">Please accept Terms of use
-                    </div>
+                <mat-checkbox formControlName="termCondition" class=" text-blue" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.termCondition.errors }">I accept Terms of use</mat-checkbox>
+                <div *ngIf="isSubmittedRegisterForm && signUpControls.termCondition.errors" class="invalid-feedback trmsuse">
+                    <div class="termsconditnmessage" *ngIf="signUpControls.termCondition.errors.required">Term & condition should be checked</div>
                 </div>
-                 <mat-checkbox class="text-blue" formControlName="acceptTerms">I accept Terms of use</mat-checkbox>
-                </div>
-                <mat-checkbox formControlName="newsLetter">Sign Up to the Newsletter</mat-checkbox>
+                <mat-checkbox>Sign Up to the Newsletter</mat-checkbox>
             </div>
-
+            
             <div class="text-center button-wrapper">
                 <button type="submit" class="custom-button">Sign up</button>
             </div>

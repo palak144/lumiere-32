@@ -77,6 +77,8 @@ this.authService.getCountry().subscribe(
         Validators.required,
         Validators.pattern('^[0-9]{5,15}$')]),
       practiceType: ['', Validators.required],
+      //termCondition: [false, Validators.required],
+      termCondition: new FormControl('', [Validators.required]),
       speciality: ['', Validators.required],
       acceptTerms :new FormControl('', [(control) => {    
         return !control.value ? { 'required': true } : null;
