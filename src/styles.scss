@@ -445,6 +445,16 @@ button.btn.btn-quote {
     line-height: 1.5;
     color: #ffffff;
 }
+.wishlist-flex {
+    display: flex;
+}
+.wishlist-flex-inline {
+    display: flex;
+}
+.invalid-feedback.trmsuse.ng-star-inserted {
+    position: absolute;
+    bottom: 70px;
+}
 @media only screen and (max-width:660px) {
 
     .display-mobile-none {
@@ -601,13 +611,30 @@ button.btn.btn-quote {
         padding: 3em 0 0em;
         position: relative;
     }
-    .orderList {
-        margin-top: 109px;
-    }
+    // .orderList {
+    //     margin-top: 109px;
+    // }
     .searchButton.payll-butt {
         margin-top: 15px;
         margin-left: 20px;
     }
-
-
+    .wishlist-flex {
+        display: inline-block;
+        text-align: center !important;
+    }
+    .wishlist-flex-inline {
+        display: inline-block;
+    }
+    .card.dashboard-card {
+        margin-bottom: 25px;
+    }
+    .card.dashboard-balance-card {
+        margin-bottom: 25px;
+    }
+    input.inputSearch {  
+        font-size: 13px;
+    }
+    .profile-links-wrapper .profile-text-wrapper.underline-text-wrapper {
+        margin-bottom: 20px;
+    }
 }

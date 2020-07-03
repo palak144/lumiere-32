@@ -81,9 +81,9 @@
   <mat-sidenav-container fxFlexFill class="side-nav">
     <mat-sidenav mode="side" #sidenav position="start">
       <div class="sidnav-username">
-        <a class="man-username" href="javascript:void(0);" mat-list-item>
+        <a (click)="dashboard()" class="man-username" href="javascript:void(0);" *ngIf="authService.loginFlag" mat-list-item>
           <img src="assets/images/nav-user.svg" alt="">
-          <span class="nav-username"> Swetank Sisodiya</span>
+          <span class="nav-username"> {{authService.loggedInCustomerName}}</span>
         </a>
           <div class="club-nav">
             <a class="man-broung" href="javascript:void(0);" mat-list-item>
