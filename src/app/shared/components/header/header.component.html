@@ -85,9 +85,8 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-toolbar class="second" id="searchBtnn">
-  <!-- <mat-sidenav-container fxFlexFill class="side-nav">
-    <mat-sidenav mode="side" #sidenav position="start">
+<!-- <mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
       <div class="sidnav-username">
         <a (click)="dashboard()" class="man-username" href="javascript:void(0);" *ngIf="authService.loginFlag" mat-list-item>
           <img src="assets/images/nav-user.svg" alt="">
@@ -162,19 +161,20 @@
           <button  type="button" class="nav-custom-button"> Get Quotes </button>
         </div>
       </mat-nav-list>
-    </mat-sidenav>  
-  </mat-sidenav-container>
+    </mat-drawer>
+  </mat-drawer-container> -->
 
-  -->
+ 
 
+<mat-toolbar class="second" id="searchBtnn">
 
 <mat-toolbar-row class="header2 container" id="headerClr">
   
   <a class="cate">
     <!-- <mat-icon class="iconCategorys">menu</mat-icon> -->
-    <!-- (click)="sidenav.toggle()" -->
+    <!-- (click)="drawer.toggle()"-->
     <button mat-icon-button >
-      <mat-icon class="menutoggl">menu</mat-icon>
+      <mat-icon class="menutoggl"  >menu</mat-icon>
     </button>
     <h4 class="iconCategory" fxShow="false" fxShow.gt-sm>Categories</h4>
   </a>

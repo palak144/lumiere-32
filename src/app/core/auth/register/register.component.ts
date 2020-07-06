@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-debugger
+
 this.authService.getCountry().subscribe(
   (response: HttpResponse<any>)=>{
     if (response.body.data != null) {
@@ -69,11 +69,11 @@ this.authService.getCountry().subscribe(
 
     });
   }
-    debugger
+    
     return this.codes
   },
   (error)=>{
-    debugger
+    
   }
 )
     this.registerForm = this.formBuilder.group({
@@ -148,7 +148,7 @@ this.authService.getCountry().subscribe(
       });
   }
   onSubmitRegisterForm() {
-    debugger
+    
     this.loading = true;
     this.isSubmittedRegisterForm = true;
     if (this.registerForm.invalid) {
@@ -168,7 +168,7 @@ this.authService.getCountry().subscribe(
       "speciality": this.registerForm.get('speciality').value,
       // "signupNewsLetter":this.registerForm.get('newsLetter').value
     }
-debugger
+
     this.authService.onRegisterScreen2(this.registerFormDetails).subscribe(
       data => {
         this.registerSecreen1Data = data
@@ -197,6 +197,7 @@ debugger
     this.authService.onVerifyOtpSignUp(this.otp).subscribe(
       (response: HttpResponse<any>) => {
         this.loading = false;
+        
           this.authService.loginFlag = true;
           this.authService.loggedInCustomerName = response.body.data.firstName
           this.toastr.success("Login Successful")
@@ -212,7 +213,6 @@ debugger
     )
   }
   handleSuccess(data) {
-    console.log(data);
   }
   onChangeEmail() {
     window.location.reload()

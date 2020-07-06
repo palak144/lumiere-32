@@ -30,7 +30,10 @@ export class ProfileComponent implements OnInit {
   public loading = false;
   codes:any= [];
   countries:any= [];
-  selectedCountry = [];
+  selected_countryCode : any;
+  selected_country : any;
+  countryValue: any;
+  countryCodeValue: any;
 
   constructor(
     private dialog: MatDialog,
@@ -49,21 +52,23 @@ export class ProfileComponent implements OnInit {
         response.body.data.forEach(element => {
           this.codes.push({
             label: element.phoneCode,
-            value: element.phoneCode
+            value: element.id
           });
           this.countries.push({
             label: element.country,
             value: element.id
           });
         });
+        
       }
-        debugger
-        return this.codes
+        
       },
       (error)=>{
-        debugger
+        
       }
     )
+    this.selected_country = [];
+    this.selected_countryCode =[];
     this.initForm()
 
   }
@@ -107,16 +112,17 @@ get profileControls() {
 
   }
   onProfileInfo() {
+    
     this.userService.getProfilePersonalInfo().subscribe(
       (response: HttpResponse<any>) => {
+        
         this.profileDetails = response.body.data
         this.personalDetailForm.patchValue({
           "email": this.profileDetails.Email,
           "name": this.profileDetails.firstName,
           "lname": this.profileDetails.lastName,
-          "country" : this.profileDetails.country,
           "clinicName": this.profileDetails.clinicName,
-          "code": this.profileDetails.countryCode,
+          // "code": parseInt(this.profileDetails.countryCode),
           "mobile": this.profileDetails.mobileNumber,
           "speciality" : this.profileDetails.speciality,
           "practiceType": this.profileDetails.practiceType,
@@ -127,7 +133,11 @@ get profileControls() {
           "building": this.profileDetails.buildingName,
           "postal": this.profileDetails.pincode,
         })
-        this.selectedCountry=this.profileDetails.country
+        
+         this.selected_country = this.profileDetails.country.id
+         this.selected_countryCode = parseInt(this.profileDetails.countryCode)
+
+        
       },
       (error) => {
 
@@ -135,7 +145,7 @@ get profileControls() {
     )
 
   }
-  debugger
+  
   getProfileAddressDetails(){
     
     this.loading = true;
@@ -173,15 +183,13 @@ this.userService.onUpdateAddDefault(this.defaultAddressDetail,id).subscribe(
     if (this.personalDetailForm.invalid) {
       return
     }
-    debugger
     var json = JSON.parse(localStorage.UserData);
-    debugger
+    
     this.personalDetailFormDetails = {
       "Email": this.personalDetailForm.get('email').value,
       "firstName": this.personalDetailForm.get('name').value,
       "lastName": this.personalDetailForm.get('lname').value,
       "clinicName": this.personalDetailForm.get('clinicName').value,
-      "countryCode": this.personalDetailForm.get('code').value,
       "houseNo": this.personalDetailForm.get('blockNo').value,
       "floorNo": this.personalDetailForm.get('floorNo').value,
       "unitNo": this.personalDetailForm.get('unitNo').value,
@@ -190,10 +198,11 @@ this.userService.onUpdateAddDefault(this.defaultAddressDetail,id).subscribe(
       "practiceType": this.personalDetailForm.get('practiceType').value,
       "pincode": this.personalDetailForm.get('postal').value,
       "mobileNumber": this.personalDetailForm.get('mobile').value,
-      "customerId": json.body.data.customerId
+      "customerId": json.body.data.customerId,
+      "countryId" : this.personalDetailForm.get('country').value,
+      "countryCode" : this.personalDetailForm.get('code').value,
+
     }
-debugger
-this.personalDetailFormDetails.countryId = this.personalDetailForm.get('country').value
 
 this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscribe(
 
@@ -230,7 +239,6 @@ this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscri
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
   openDialog2() {
@@ -239,7 +247,6 @@ this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscri
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
   openDialog3() {
@@ -247,7 +254,6 @@ this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscri
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getProfileAddressDetails();
-      console.log(`Dialog result: ${result}`);
     });
   }
   openDialog4(id:number) {
@@ -256,7 +262,6 @@ this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscri
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getProfileAddressDetails();
-      console.log(`Dialog result: ${result}`);
     });
   }
 }

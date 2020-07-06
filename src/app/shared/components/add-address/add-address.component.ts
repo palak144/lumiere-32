@@ -45,7 +45,6 @@ countries:any= [];
 if(this.data){
         this.id = this.data.id
          this.editMode = this.id != null
-        console.log(this.editMode)
 }
 this.authService.getCountry().subscribe(
   (response: HttpResponse<any>)=>{
@@ -59,7 +58,7 @@ this.authService.getCountry().subscribe(
   }
   },
   (error)=>{
-    debugger
+    
   }
 )
         this.initForm()          
@@ -90,6 +89,7 @@ this.authService.getCountry().subscribe(
     "country":this.addressForm.get('country').value,
     "zip":this.addressForm.get('postal').value,
    }
+   
    if (this.id ) {
     this.addressFormDetails.id = this.id;
   }
@@ -156,6 +156,8 @@ this.dialog.close()
             "unitNo" : this.address[0].unitNo,
             "blockNo" : this.address[0].blockNo,
             "postal" : this.address[0].zip,
+            "country" : parseInt(this.address[0].country)
+
           })
 
       },

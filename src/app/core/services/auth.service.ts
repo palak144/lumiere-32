@@ -43,7 +43,8 @@ export class AuthService {
   }
 
   onVerifyOtpSignUp(otp:string){
-    return this.baseService.post(this.verifyOtpUrl,{"Email":this.emailIdSignUp,"otp":otp})
+    
+    return this.http.post(this.baseUrl + this.verifyOtpUrl,{"Email":this.emailIdSignUp,"otp":otp},{ observe: 'response' })
   }
 
   onVerifyOtpLogIn(otp:string){

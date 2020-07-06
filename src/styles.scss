@@ -619,8 +619,11 @@ button.btn.btn-quote {
         margin-left: 20px;
     }
     .wishlist-flex {
-        display: inline-block;
         text-align: center !important;
+    }
+    .price{
+        visibility: hidden;
+
     }
     .wishlist-flex-inline {
         display: inline-block;

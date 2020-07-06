@@ -1,7 +1,13 @@
 <app-header></app-header>
 <div class="profile-wrapper">
-    <div class="container">
+    
+      <div class="container">
+        <div class="dashboard-svg">
+            <img src="assets/images/Dashbord.svg" alt="post login image wrapper" />
+        </div>  
+         
         <div class="profile-user-wrapper">
+            
             <div class="media align-items-center">
                 <div class="media-left profile-user-image">
                     <img src="assets/images/post-login-user.svg" alt="post login image wrapper" />
@@ -14,19 +20,20 @@
                         {{profileDetails.Email}}
                     </p>
                 </div>
+                <div class="row breadcrum-container">
+                    <ul class="d-flex container">
+                        <li>
+                            <a style="color: #D1D1D1;">Home</a>
+                        </li>
+                        <li style="margin : 2px 9px 0 9px" class="fa fa-angle-right">
+                        </li>
+                        <li>
+                            <a (click)="navigateFromBreadcrum()" style="cursor: pointer;">{{breadcrum | titlecase}}</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <!-- <div class="row breadcrum-container">
-                <ul class="col-sm-12">
-                    <li>
-                        <a href="https://www.wipo.int/portal/en/" target="_blank">Home</a>
-                    </li>
-                    <li style="margin : 2px 9px 0 9px" class="fa fa-angle-right">
-                    </li>
-                    <li>
-                        <a href="https://www.wipo.int/cooperation/en/" target="_blank">a</a>
-                    </li>
-                </ul>
-            </div> -->
+           
             <div class="profile-links-wrapper">
                 <ul class="list-unstyled">
                     <li class="profile-text-wrapper" [ngClass]="{'underline-text-wrapper' : routerUrl === '/user/dashboard'}">

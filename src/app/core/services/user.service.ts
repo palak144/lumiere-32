@@ -30,6 +30,7 @@ export class UserService {
   }
 
   postProfilePersonalInfo(data){
+    
     return this.http
       .put(this.baseUrl + 'update', data,{ observe: 'response' })
       .pipe(
