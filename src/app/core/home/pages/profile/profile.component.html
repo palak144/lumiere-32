@@ -44,9 +44,8 @@
                     </div>
                     <div class="col-sm-6 pl">
                         <label for="">Speciality</label><span class="asterick">*</span>
-                        <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="speciality"
-                            placeholder="Speciality" class="form-control"
-                            [ngClass]="{ 'is-invalid': isSubmitted && profileControls.speciality.errors }">
+                        <p-dropdown [disabled]="toggleButton ? true : null" [options]="specialities" [(ngModel)]="selected_speciality" formControlName="speciality" filter="true" placeholder="Select Speciality" styleClass="form-control p-0" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.speciality.errors }">
+                        </p-dropdown>
                         <div *ngIf="isSubmitted && profileControls.speciality.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.speciality.errors.required">Speciality is required</div>
                         </div>
@@ -54,7 +53,7 @@
                 </div>
                     <div class="d-flex justify-content-between padding-top-20">
 
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" *ngIf="dataLoaded">
                         <label for="">Country Code</label><span class="asterick">*</span>
                         <p-dropdown [disabled]="toggleButton ? true : null" [options]="codes"  [(ngModel)]="selected_countryCode" formControlName="code" filter="true" placeholder="Country Code" styleClass="form-control p-0 code" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.code.errors }">
                         </p-dropdown>
@@ -76,7 +75,7 @@
                        </div>
                 </div>
                 <div class="d-flex justify-content-between padding-top-20">
-                    <div class="col-sm-6 ">
+                    <div class="col-sm-6 " *ngIf="dataLoaded">
                         <label for="">Country</label><span class="asterick">*</span>
                         <p-dropdown [disabled]="toggleButton ? true : null" [options]="countries" [(ngModel)]="selected_country"  formControlName="country" filter="true" placeholder="Select Country" styleClass="form-control p-0 " [ngClass]="{ 'is-invalid': isSubmitted && profileControls.country.errors }">
                         </p-dropdown>

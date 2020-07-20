@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
   emailForm: FormGroup;
   registerFormDetails: {};
   codes: any = [];
+  specialities : any = [];
   hide = true;
   emailFormDetails: {};
   otp: string;
@@ -56,26 +57,8 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-this.authService.getCountry().subscribe(
-  (response: HttpResponse<any>)=>{
-    if (response.body.data != null) {
-
-    response.body.data.forEach(element => {
-      this.codes.push({
-        label: element.phoneCode,
-        value: element.phoneCode
-      });
-
-    });
-  }
-    
-    return this.codes
-  },
-  (error)=>{
-    
-  }
-)
+    this.getCountries();
+    this.getSpecialities();
     this.registerForm = this.formBuilder.group({
       fname: ['', Validators.required],
       lname: ['', Validators.required],
@@ -106,10 +89,55 @@ this.authService.getCountry().subscribe(
 
     });
 
-    this.titles = ['Mr.', 'Miss.', 'Mrs'];
+    this.titles = ['Dr.', 'Ms.', 'Mr', 'Prof.'];
     this.practises = ['Medical', 'Dental', 'Other'];
   }
 
+  getCountries(){
+    this.authService.getCountry().subscribe(
+      (response: HttpResponse<any>)=>{
+        if (response.body.data != null) {
+    
+        response.body.data.forEach(element => {
+          this.codes.push({
+            label: element.phoneCode,
+            value: element.id
+          });
+    
+        });
+      }
+        
+        return this.codes
+      },
+      (error)=>{
+        
+      }
+    )
+  }
+
+  getSpecialities(){
+
+    this.authService.getSpeciality().subscribe(
+      (response: HttpResponse<any>)=>{
+        if (response.body.data.result != null) {
+    debugger
+        response.body.data.result.forEach(element => {
+          this.specialities.push({
+            label: element.specialityName,
+            value: element.specialityName
+          });
+    
+        });
+      }
+        debugger
+        return this.specialities
+        
+      },
+      (error)=>{
+        
+      }
+    )
+  }
   get emailControls() {
     return this.emailForm.controls;
   }

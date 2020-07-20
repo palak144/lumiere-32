@@ -84,7 +84,13 @@ export class AuthService {
     retry(3)
   );
  }
-
+ getSpeciality(){
+  return this.http
+  .get(this.baseUrl + 'speciality', { observe: 'response' })
+  .pipe(
+    retry(3)
+  );
+ }
 }
 
 
