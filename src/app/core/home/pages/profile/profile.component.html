@@ -1,16 +1,17 @@
 <app-post-login-header></app-post-login-header>
-<form [formGroup]="personalDetailForm" >
+<form [formGroup]="personalDetailForm">
 
     <div class="container">
-        <div class="buttonEdit" *ngIf="!toggleButton"><button type="submit" (click)="onSubmit()" class="btn editProfile">Save</button></div>
+        <div class="buttonEdit" *ngIf="!toggleButton"><button type="submit" (click)="onSubmit()"
+                class="btn editProfile">Save</button></div>
 
-        <div class="row col-sm-12 pl padding-top-20 ml-0">
+        <div class="d-flex pl padding-top-20 ml-0">
             <div class="col-sm-8 plb pb-3 box">
                 <h5 class="pl-3 headingName">Personal Details<span (click)="enable()" class="edit"><i
                             class="fa fa-edit"></i><span>Edit</span></span></h5>
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-6 ">
-                        <label for="">Name{{toggleButton}}</label>
+                        <label for="">Name{{toggleButton}}</label><span class="asterick">*</span>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="name"
                             placeholder="Name" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.name.errors }">
@@ -19,7 +20,7 @@
                         </div>
                     </div>
                     <div class="col-sm-6 pl">
-                        <label for="">Last Name</label>
+                        <label for="">Last Name</label><span class="asterick">*</span>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="lname"
                             placeholder="Last Name" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.lname.errors }">
@@ -30,40 +31,61 @@
                 </div>
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-6 ">
-                        <label for="">E-mail</label>
+                        <label for="">E-mail</label><span class="asterick">*</span>
                         <input [attr.disabled]="toggleButton ? '' : null" type="email" formControlName="email"
                             placeholder="Email" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.email.errors }">
                         <div *ngIf="isSubmitted && profileControls.email.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.email.errors.required">Email is required</div>
-                            <div *ngIf="profileControls.email.errors.pattern">Please enter valid email (xyz@abc.com)</div>
+                            <div *ngIf="profileControls.email.errors.pattern">Please enter valid email (xyz@abc.com)
+                            </div>
 
                         </div>
                     </div>
                     <div class="col-sm-6 pl">
-                        <label for="">Mobile No</label>
+                        <label for="">Speciality</label><span class="asterick">*</span>
+                        <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="speciality"
+                            placeholder="Speciality" class="form-control"
+                            [ngClass]="{ 'is-invalid': isSubmitted && profileControls.speciality.errors }">
+                        <div *ngIf="isSubmitted && profileControls.speciality.errors" class="invalid-feedback">
+                            <div *ngIf="profileControls.speciality.errors.required">Speciality is required</div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="d-flex justify-content-between padding-top-20">
+
+                    <div class="col-sm-6">
+                        <label for="">Country Code</label><span class="asterick">*</span>
+                        <p-dropdown [disabled]="toggleButton ? true : null" [options]="codes"  [(ngModel)]="selected_countryCode" formControlName="code" filter="true" placeholder="Country Code" styleClass="form-control p-0 code" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.code.errors }">
+                        </p-dropdown>
+                    <div *ngIf="isSubmitted && profileControls.code.errors" class="invalid-feedback">
+                        <div *ngIf="profileControls.code.errors.required">Required</div>
+                    </div>
+                    </div>
+                    <div class="col-sm-6 pl" >
+                        <label for="">Mobile No</label><span class="asterick">*</span>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="mobile"
                             placeholder="Mobile No" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.mobile.errors }">
                         <div *ngIf="isSubmitted && profileControls.mobile.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.mobile.errors.required">Mobile No. is required</div>
-                            <div *ngIf="profileControls.mobile.errors.pattern">Mobile No. must be between 5-15 digits</div>
+                            <div *ngIf="profileControls.mobile.errors.pattern">Mobile No. must be between 5-15 digits
+                            </div>
 
                         </div>
-                    </div>
+                       </div>
                 </div>
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-6 ">
-                        <label for="">Country</label>
-                        <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="country"
-                            placeholder="Country" class="form-control"
-                            [ngClass]="{ 'is-invalid': isSubmitted && profileControls.country.errors }">
+                        <label for="">Country</label><span class="asterick">*</span>
+                        <p-dropdown [disabled]="toggleButton ? true : null" [options]="countries" [(ngModel)]="selected_country"  formControlName="country" filter="true" placeholder="Select Country" styleClass="form-control p-0 " [ngClass]="{ 'is-invalid': isSubmitted && profileControls.country.errors }">
+                        </p-dropdown>
                         <div *ngIf="isSubmitted && profileControls.country.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.country.errors.required">Country is required</div>
                         </div>
                     </div>
                     <div class="col-sm-6 pl">
-                        <label for="">Clinic Name</label>
+                        <label for="">Clinic Name</label><span class="asterick">*</span>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="clinicName"
                             placeholder="Clinic Name" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.clinicName.errors }">
@@ -74,23 +96,19 @@
                 </div>
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-6 ">
-                        <label for="">Practice Type</label>
-                        <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="practiceType"
+                        <label for="">Practice Type</label><span class="asterick">*</span>
+                        <select [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="practiceType"
                             placeholder="Practice Type" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.practiceType.errors }">
+                            <option value="" >Practise Type</option>
+                            <option value={{_practise}} *ngFor="let _practise of practises">{{_practise}}
+                            </option>
+                        </select>
                         <div *ngIf="isSubmitted && profileControls.practiceType.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.practiceType.errors.required">Practice Type is required</div>
                         </div>
                     </div>
-                    <div class="col-sm-6 pl">
-                        <label for="">Speciality</label>
-                        <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="speciality"
-                            placeholder="Speciality" class="form-control"
-                            [ngClass]="{ 'is-invalid': isSubmitted && profileControls.speciality.errors }">
-                        <div *ngIf="isSubmitted && profileControls.speciality.errors" class="invalid-feedback">
-                            <div *ngIf="profileControls.speciality.errors.required">Speciality is required</div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             
@@ -113,12 +131,12 @@
             </div>
 
         </div>
-        <div class="row col-sm-12 pl padding-top-20 ml-0">
+        <div class="d-flex pl padding-top-20 ml-0">
             <div class="col-sm-8 plb pb pb-3 box">
                 <h5 class="pl-3 headingName">Billing Address</h5>
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-4 ">
-                        <label for="">Block No.</label>
+                        <label for="">Block No.</label><span class="asterick">*</span>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="blockNo"
                             placeholder="Block No." class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.blockNo.errors }">
@@ -127,7 +145,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4 pl">
-                        <label for="">Floor No.</label>
+                        <label for="">Floor No.</label><span class="asterick">*</span>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="floorNo"
                             placeholder="Floor No." class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.floorNo.errors }">
@@ -136,7 +154,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4 ">
-                        <label for="">Unit No.</label>
+                        <label for="">Unit No.</label><span class="asterick">*</span>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="unitNo"
                             placeholder="Unit No." class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.unitNo.errors }">
@@ -147,7 +165,7 @@
                 </div>
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-12 ">
-                        <label for="">Building Name</label>
+                        <label for="">Building Name</label><span class="asterick">*</span>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="building"
                             placeholder="Building Name" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.building.errors }">
@@ -158,21 +176,23 @@
                 </div>
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-6 ">
-                        <label for="">Street Name</label>
+                        <label for="">Street Name</label><span class="asterick">*</span>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="streetName"
                             placeholder="Street Name" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.streetName.errors }">
                         <div *ngIf="isSubmitted && profileControls.streetName.errors" class="invalid-feedback">
-                            <div *ngIf="profileControls.streetName.errors.required">Last Name is required</div>
+                            <div *ngIf="profileControls.streetName.errors.required">Street Name is required</div>
                         </div>
                     </div>
                     <div class="col-sm-6 pl">
-                        <label for="">Zip/Postal</label>
+                        <label for="">Zip/Postal</label><span class="asterick">*</span>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="postal"
                             placeholder="Zip/Postal" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.postal.errors }">
                         <div *ngIf="isSubmitted && profileControls.postal.errors" class="invalid-feedback">
-                            <div *ngIf="profileControls.postal.errors.required">Street Name is required</div>
+                            <div *ngIf="profileControls.postal.errors.required">Zip/Postal is required</div>
+                            <div *ngIf="profileControls.postal.errors.pattern">Zip/Postal must be 6 digits</div>
+
                         </div>
                     </div>
                 </div>
@@ -182,13 +202,13 @@
             </div>
 
         </div>
-        <div class="row col-sm-12 pl padding-top-20 mb-5 ml-0">
+        <div class="d-flex pl padding-top-20 mb-5 ml-0">
 
             <div class="col-sm-8 plb pb-3 box">
                 <h5 class="pl-3 headingName">Shipping Details</h5>
                 <ngx-loading [show]="loading"></ngx-loading>
 
-                <div class="d-flex justify-content-between padding-top-20">
+                <div class="d-flex justify-content-between padding-top-20 pb">
                     <div class="col-sm-12">
                         <button mat-stroked-button class="text-blue float-right brdr" (click)="openDialog3()">
                             <i class="material-icons addIcon">add_circle_outline</i>Add Address</button>
@@ -196,18 +216,19 @@
                 </div>
                 <div class="container d-flex justify-content-between padding-top-20"
                     *ngFor="let address of addressDetail">
-                    <div class="col-sm-12 card " id="default" [ngClass]= "{'blue' : address.isDefault != 'No'}">
-                        <p class="card-subtitle pb-3 pt-2 text-grey"  *ngIf="address.isDefault != 'No'">Default</p>
+                    <div class="col-sm-12 card " id="default" [ngClass]="{'blue' : address.isDefault != 'No'}">
+                        <p class="card-subtitle pb-3 pt-2 text-grey" *ngIf="address.isDefault != 'No'">Default</p>
                         <h6 class="card-subtitle pb-3 pt-3"><span><b>{{address.name}}</b></span></h6>
-                        <p class="card-subtitle pb-2">{{address.clinicName}}<span *ngIf="address.blockNo">,</span> {{address.blockNo}}<span *ngIf="address.floorNo">,</span>{{address.floorNo}}
-                            <span *ngIf="address.unitNo">,</span> {{address.unitNo}} <span *ngIf="address.buildingName">,</span>{{address.buildingName}}<span *ngIf="address.streetName">,</span> {{address.streetName}}, {{address.zip}}</p>
+                        <p class="card-subtitle pb-2">{{address.clinicName}}<span *ngIf="address.blockNo">,</span>
+                            {{address.blockNo}}<span *ngIf="address.floorNo">,</span>{{address.floorNo}}
+                            <span *ngIf="address.unitNo">,</span> {{address.unitNo}} <span
+                                *ngIf="address.buildingName">,</span>{{address.buildingName}}<span
+                                *ngIf="address.streetName">,</span> {{address.streetName}}, {{address.zip}}</p>
                         <div class="col-sm-12 pb-2 pl-0">
-                            <span class="text-blue cursor-pointer col-sm-2 pl-0" (click)="openDialog4(address.id)">
-                                Edit</span>
-                            <span class="text-blue cursor-pointer col-sm-2 pl-0" (click)="removeAddress(address.id)">
-                                Remove</span>
-                                <span class="text-blue cursor-pointer col-sm-2 pl-0" *ngIf="address.isDefault == 'No'" (click)="setDefault(address.id)">
-                                    Set as Default</span>
+                            <span class="text-blue cursor-pointer col-sm-2 pl-0" (click)="openDialog4(address.id)">Edit</span>
+                            <span class="text-blue cursor-pointer col-sm-2 pl-0" (click)="removeAddress(address.id)">Remove</span>
+                            <span class="text-blue cursor-pointer col-sm-2 pl-0" *ngIf="address.isDefault == 'No'"
+                                (click)="setDefault(address.id)">Set as Default</span>
                         </div>
                     </div>
 

@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 
@@ -72,9 +71,9 @@ export class LoginComponent implements OnInit {
           this.loginResponseObj = response;
           this.authService.loginFlag = true;
           
-          localStorage.setItem('token', response.headers.get('authtoken'));
            this.authService.loggedInCustomerName = response.body.data.firstName
           this.toastr.success("Login Successful")
+          localStorage.setItem('token', response.headers.get('authtoken'));
           localStorage.setItem('UserData', JSON.stringify(response));
           this.router.navigate([""])
         },

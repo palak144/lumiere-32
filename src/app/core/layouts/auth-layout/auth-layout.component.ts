@@ -45,7 +45,6 @@ export class AuthLayoutComponent implements OnInit {
     public router: Router
   ) {
     this.routerUrl = this.router.url;
-    console.log('router url::', this.routerUrl);
    }
 
   ngOnInit(): void {
@@ -53,7 +52,6 @@ export class AuthLayoutComponent implements OnInit {
   }
 
   slickInit(e) {
-    console.log(e);
   }
 
 }

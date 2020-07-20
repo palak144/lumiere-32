@@ -77,11 +77,8 @@
                     <div class="col-lg-6 padding-mobile-20 padding-mobile-20 p-0">
                         <div class="d-flex ">
                             <div class="dropdown-wrapper">
-                                <select formControlName="code" class="form-control p-0" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.code.errors }">
-                                        <option value="" >Country Code</option>
-                                        <option value={{countryCode}} *ngFor="let countryCode of codes">{{countryCode}}
-                                        </option>
-                                    </select>
+                                <p-dropdown [options]="codes" formControlName="code" filter="true" placeholder="Country Code" clstyleClassass="form-control p-0 code" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.code.errors }">
+                                </p-dropdown>
                                 <div *ngIf="isSubmittedRegisterForm && signUpControls.code.errors" class="invalid-feedback">
                                     <div *ngIf="signUpControls.code.errors.required">Required</div>
                                 </div>
@@ -102,15 +99,9 @@
                 <div class="d-flex justify-content-between padding-top-20 display-mobile-block">
                     <div class="col-lg-6 p-0">
                         <div class="padding-right-20">
-                            <!-- <input type="text" formControlName="practiceType" placeholder="Practise Type" class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.practiceType.errors }"> -->
-                            
+                        
                             <select formControlName="practiceType" placeholder="Practise Type" class="form-control p-0" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.practiceType.errors }">
-                                <!-- <option value="" ></option>
-                                <option value="">Medical</option>
-                                <option value="">Dental</option>
-                                <option value="">Other</option>
-                                <option value="" >Practise</option> -->
-                                <option value="" >Practise</option>
+                                <option value="" >Practise Type</option>
                                 <option value={{_practise}} *ngFor="let _practise of practises">{{_practise}}
                                 </option>
                             </select>
@@ -155,7 +146,7 @@
             <div class="d-flex justify-content-between padding-top-20 display-mobile-block terms-block-wrapper">
                 <mat-checkbox formControlName="termCondition" class=" text-blue" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.termCondition.errors }">I accept Terms of use</mat-checkbox>
                 <div *ngIf="isSubmittedRegisterForm && signUpControls.termCondition.errors" class="invalid-feedback trmsuse">
-                    <div class="termsconditnmessage" *ngIf="signUpControls.termCondition.errors.required">Term & condition should be checked</div>
+                    <div class="termsconditnmessage" *ngIf="signUpControls.termCondition.errors.required">Please accept Terms of use</div>
                 </div>
                 <mat-checkbox>Sign Up to the Newsletter</mat-checkbox>
             </div>

@@ -121,9 +121,15 @@ input.searchInp {
 .itemsBtn{
     padding-top: 10px;
 }
+.pr{
+    padding-right: 1.5rem!important;
+}
+.alignMent{
+    padding-left: 20px;
+
+}
 @media only screen and (max-width: 660px) {
     .searchInputdiv{
-        padding-right: 15px;
         padding-left: 20px;
     }
     .searchButton{
@@ -139,7 +145,7 @@ input.searchInp {
         padding-top: 10px;
     }
     .orderHeader{
-        height: 150px;
+        height: 190px;
         background: #63c7db26;
         padding: 10px;
         justify-content: center;
@@ -152,6 +158,13 @@ input.searchInp {
     }
     .orderImg{
         text-align: center;
+    }
+    .pr{
+        padding-right: 0!important;
+    }
+    .alignMent{
+        padding-left: 0;
+
     }
 }
 

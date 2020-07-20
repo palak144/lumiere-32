@@ -8,6 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AddAddressComponent } from 'src/app/shared/components/add-address/add-address.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -27,19 +28,47 @@ export class ProfileComponent implements OnInit {
   default: boolean = true;
   defaultAddressDetail: any;
   public loading = false;
+  codes:any= [];
+  countries:any= [];
+  selected_countryCode : any;
+  selected_country : any;
+  countryValue: any;
+  countryCodeValue: any;
+
   constructor(
     private dialog: MatDialog,
     private userService: UserService,
     private router:Router,
     private route:ActivatedRoute,
     private toastr: ToastrService,
-
-
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.getProfileAddressDetails();
-
+    this.authService.getCountry().subscribe(
+      (response: HttpResponse<any>)=>{
+        if (response.body.data != null) {
+        response.body.data.forEach(element => {
+          this.codes.push({
+            label: element.phoneCode,
+            value: element.id
+          });
+          this.countries.push({
+            label: element.country,
+            value: element.id
+          });
+        });
+        
+      }
+        
+      },
+      (error)=>{
+        
+      }
+    )
+    this.selected_country = [];
+    this.selected_countryCode =[];
     this.initForm()
 
   }
@@ -70,6 +99,7 @@ get profileControls() {
       "practiceType": new FormControl('', Validators.required),
       "blockNo": new FormControl('', Validators.required),
       "floorNo": new FormControl('', Validators.required),
+      "code":  new FormControl('', Validators.required),
       "unitNo": new FormControl('', Validators.required),
       "streetName": new FormControl('', Validators.required),
       "building": new FormControl('', Validators.required),
@@ -82,16 +112,18 @@ get profileControls() {
 
   }
   onProfileInfo() {
+    
     this.userService.getProfilePersonalInfo().subscribe(
       (response: HttpResponse<any>) => {
+        
         this.profileDetails = response.body.data
         this.personalDetailForm.patchValue({
           "email": this.profileDetails.Email,
           "name": this.profileDetails.firstName,
           "lname": this.profileDetails.lastName,
-          "country" : this.profileDetails.customerId,
           "clinicName": this.profileDetails.clinicName,
-          "mobile": this.profileDetails.teleNumber,
+          // "code": parseInt(this.profileDetails.countryCode),
+          "mobile": this.profileDetails.mobileNumber,
           "speciality" : this.profileDetails.speciality,
           "practiceType": this.profileDetails.practiceType,
           "blockNo": this.profileDetails.houseNo,
@@ -101,6 +133,11 @@ get profileControls() {
           "building": this.profileDetails.buildingName,
           "postal": this.profileDetails.pincode,
         })
+        
+         this.selected_country = this.profileDetails.country.id
+         this.selected_countryCode = parseInt(this.profileDetails.countryCode)
+
+        
       },
       (error) => {
 
@@ -108,6 +145,7 @@ get profileControls() {
     )
 
   }
+  
   getProfileAddressDetails(){
     
     this.loading = true;
@@ -146,12 +184,12 @@ this.userService.onUpdateAddDefault(this.defaultAddressDetail,id).subscribe(
       return
     }
     var json = JSON.parse(localStorage.UserData);
+    
     this.personalDetailFormDetails = {
       "Email": this.personalDetailForm.get('email').value,
       "firstName": this.personalDetailForm.get('name').value,
       "lastName": this.personalDetailForm.get('lname').value,
       "clinicName": this.personalDetailForm.get('clinicName').value,
-      "countryCode": '+91',
       "houseNo": this.personalDetailForm.get('blockNo').value,
       "floorNo": this.personalDetailForm.get('floorNo').value,
       "unitNo": this.personalDetailForm.get('unitNo').value,
@@ -160,7 +198,10 @@ this.userService.onUpdateAddDefault(this.defaultAddressDetail,id).subscribe(
       "practiceType": this.personalDetailForm.get('practiceType').value,
       "pincode": this.personalDetailForm.get('postal').value,
       "mobileNumber": this.personalDetailForm.get('mobile').value,
-      "customerId": json.body.data.customerId
+      "customerId": json.body.data.customerId,
+      "countryId" : this.personalDetailForm.get('country').value,
+      "countryCode" : this.personalDetailForm.get('code').value,
+
     }
 
 this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscribe(
@@ -198,7 +239,6 @@ this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscri
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
   openDialog2() {
@@ -207,7 +247,6 @@ this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscri
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
   openDialog3() {
@@ -215,7 +254,6 @@ this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscri
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getProfileAddressDetails();
-      console.log(`Dialog result: ${result}`);
     });
   }
   openDialog4(id:number) {
@@ -224,7 +262,6 @@ this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscri
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getProfileAddressDetails();
-      console.log(`Dialog result: ${result}`);
     });
   }
 }

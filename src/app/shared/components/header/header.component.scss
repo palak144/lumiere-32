@@ -35,6 +35,12 @@ mat-toolbar-row.header2 {
     position: relative;
     justify-content: flex-end;
 }
+// @media only screen and (max-width: 768px){
+//     .searchDiv{
+//         max-width: 55.333333% !important;
+    
+//     }
+// }
 .mat-card {
     padding-block-end: inherit;
     padding-block-start: inherit;
@@ -145,6 +151,8 @@ div.iconUserDiv{
 .iconDivPay{
     padding-top: 18px;
     cursor: pointer;
+    padding-right: 27px;
+
 }
 .quotes{
     background-color: #63C7DB;
@@ -254,8 +262,15 @@ a.man-broung {
 img.nav-club-img {
     padding-left: 10px;
 }
-
-
+.example-container {
+    width: 500px;
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
 @media (max-width: 767px)
 {
     .searchBtn {

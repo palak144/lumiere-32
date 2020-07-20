@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MustMatch } from '../../../_helpers/must-watch.validator';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { HttpResponse } from '@angular/common/http';
 
 
 @Component({
@@ -23,8 +24,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   emailForm: FormGroup;
   registerFormDetails: {};
-  countrycodeListFromAPI: string[];
-  codes: string[];
+  codes: any = [];
   hide = true;
   emailFormDetails: {};
   otp: string;
@@ -58,16 +58,25 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
 
 this.authService.getCountry().subscribe(
-  (success)=>{
+  (response: HttpResponse<any>)=>{
+    if (response.body.data != null) {
+
+    response.body.data.forEach(element => {
+      this.codes.push({
+        label: element.phoneCode,
+        value: element.phoneCode
+      });
+
+    });
+  }
+    
+    return this.codes
   },
   (error)=>{
     
   }
 )
     this.registerForm = this.formBuilder.group({
-      // email: new FormControl('', [
-      //   Validators.required,
-      //   Validators.pattern('^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}$')]),
       fname: ['', Validators.required],
       lname: ['', Validators.required],
       clinicName: ['', Validators.required],
@@ -77,9 +86,12 @@ this.authService.getCountry().subscribe(
         Validators.required,
         Validators.pattern('^[0-9]{5,15}$')]),
       practiceType: ['', Validators.required],
-      //termCondition: [false, Validators.required],
-      termCondition: new FormControl('', [Validators.required]),
+      termCondition: new FormControl('', [(control) => {    
+        return !control.value ? { 'required': true } : null;
+      }]
+    ),
       speciality: ['', Validators.required],
+      newsLetter:[''],
       password: ['', [Validators.required,
       Validators.pattern('^(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$')]],
       rePassword: ['', Validators.required],
@@ -96,7 +108,6 @@ this.authService.getCountry().subscribe(
 
     this.titles = ['Mr.', 'Miss.', 'Mrs'];
     this.practises = ['Medical', 'Dental', 'Other'];
-    this.codes = ['+91', '+92'];
   }
 
   get emailControls() {
@@ -137,7 +148,7 @@ this.authService.getCountry().subscribe(
       });
   }
   onSubmitRegisterForm() {
-
+    
     this.loading = true;
     this.isSubmittedRegisterForm = true;
     if (this.registerForm.invalid) {
@@ -154,7 +165,8 @@ this.authService.getCountry().subscribe(
       "countryCode": this.registerForm.get('code').value,
       "mobileNumber": this.registerForm.get('contactNo').value,
       "practiceType": this.registerForm.get('practiceType').value,
-      "speciality": this.registerForm.get('speciality').value
+      "speciality": this.registerForm.get('speciality').value,
+      // "signupNewsLetter":this.registerForm.get('newsLetter').value
     }
 
     this.authService.onRegisterScreen2(this.registerFormDetails).subscribe(
@@ -183,15 +195,15 @@ this.authService.getCountry().subscribe(
   onSubmitOTP() {
     this.loading = true;
     this.authService.onVerifyOtpSignUp(this.otp).subscribe(
-      data => {
+      (response: HttpResponse<any>) => {
         this.loading = false;
-        this.toastr.success("OTP Verified")
+        
           this.authService.loginFlag = true;
-          
-          this.authService.loggedInCustomerName = this.registerSecreen1Data.data.firstName
+          this.authService.loggedInCustomerName = response.body.data.firstName
           this.toastr.success("Login Successful")
-          localStorage.setItem('UserData', JSON.stringify(this.registerSecreen1Data.data));
-        this.router.navigate([''])
+          localStorage.setItem('token', response.headers.get('authtoken'));
+          localStorage.setItem('UserData', JSON.stringify(response));
+        this.router.navigate([""])
       },
       error => {
         this.loading = false;
@@ -201,7 +213,6 @@ this.authService.getCountry().subscribe(
     )
   }
   handleSuccess(data) {
-    console.log(data);
   }
   onChangeEmail() {
     window.location.reload()

@@ -176,7 +176,6 @@ export class LandingComponent implements OnInit {
   }
 
   slickInit(e) {
-    console.log(e);
     }
 
 }

@@ -13,7 +13,6 @@ export class BackendInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // add authorization header with jwt token if available
     const token = localStorage.getItem('token');
-    console.log('local storage token::', token);
 
 
     if (token) {
