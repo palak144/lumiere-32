@@ -455,6 +455,27 @@ button.btn.btn-quote {
     position: absolute;
     bottom: 70px;
 }
+.account-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+.card.dashboard-product-card {
+    max-height: 300px;
+    overflow-y: auto;
+}
+.biling-address.box {
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+.personal-detail.box {
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+.shiping-details.box {
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
 @media only screen and (max-width:660px) {
 
     .display-mobile-none {
