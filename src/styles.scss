@@ -469,13 +469,33 @@ button.btn.btn-quote {
     padding-bottom: 30px;
 }
 .personal-detail.box {
-    margin-top: 30px;
     padding-bottom: 30px;
 }
 .shiping-details.box {
     margin-top: 30px;
     padding-bottom: 30px;
 }
+.edit-between {
+    display: flex;
+    justify-content: space-between;
+}
+span.edit.edit-clr {
+    color: #fff;
+}
+.mobile-code {
+    display: flex;
+}
+.code-country {
+    margin-right: 10px;
+}
+.codewdt.ui-dropdown {
+    min-width: 65px;
+    height: 39px;
+}
+// .box.pb-3.scroll-account {
+//     max-height: 150px;
+//     overflow-y: auto;
+// }
 @media only screen and (max-width:660px) {
 
     .display-mobile-none {

@@ -8,11 +8,12 @@
         <div class="d-flex pl padding-top-20 ml-0">
             <div class="col-sm-8 plb pb-3">
                 <div class="personal-detail box">
-                <h5 class="pl-3 headingName">Personal Details<span (click)="enable()" class="edit"><i
+                <h5 class="pl-3 headingName edit-between">Personal Details<span (click)="enable()" class="edit edit-clr"><i
                             class="fa fa-edit"></i><span>Edit</span></span></h5>
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-6 ">
-                        <label for="">Name{{toggleButton}}</label><span class="asterick">*</span>
+                        <!-- {{toggleButton}} -->
+                        <label for="">Name</label><span class="asterick">*</span>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="name"
                             placeholder="Name" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.name.errors }">
@@ -44,27 +45,16 @@
                         </div>
                     </div>
                     <div class="col-sm-6 pl">
-                        <label for="">Speciality</label><span class="asterick">*</span>
-                        <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="speciality"
-                            placeholder="Speciality" class="form-control"
-                            [ngClass]="{ 'is-invalid': isSubmitted && profileControls.speciality.errors }">
-                        <div *ngIf="isSubmitted && profileControls.speciality.errors" class="invalid-feedback">
-                            <div *ngIf="profileControls.speciality.errors.required">Speciality is required</div>
-                        </div>
-                    </div>
-                </div>
-                    <div class="d-flex justify-content-between padding-top-20">
-
-                    <div class="col-sm-6">
-                        <label for="">Country Code</label><span class="asterick">*</span>
-                        <p-dropdown [disabled]="toggleButton ? true : null" [options]="codes"  [(ngModel)]="selected_countryCode" formControlName="code" filter="true" placeholder="Country Code" styleClass="form-control p-0 code" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.code.errors }">
-                        </p-dropdown>
-                    <div *ngIf="isSubmitted && profileControls.code.errors" class="invalid-feedback">
-                        <div *ngIf="profileControls.code.errors.required">Required</div>
-                    </div>
-                    </div>
-                    <div class="col-sm-6 pl" >
                         <label for="">Mobile No</label><span class="asterick">*</span>
+                        <!-- <label for="">Country Code</label><span class="asterick">*</span> -->
+                     <div class="mobile-code">
+                        <div class="code-country">
+                            <p-dropdown [disabled]="toggleButton ? true : null" [options]="codes"  [(ngModel)]="selected_countryCode" formControlName="code" filter="true" placeholder="+64" styleClass="form-control p-0 code codewdt" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.code.errors }">
+                            </p-dropdown>
+                            <div *ngIf="isSubmitted && profileControls.code.errors" class="invalid-feedback">
+                                <div *ngIf="profileControls.code.errors.required">Required</div>
+                            </div>
+                        </div>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="mobile"
                             placeholder="Mobile No" class="form-control"
                             [ngClass]="{ 'is-invalid': isSubmitted && profileControls.mobile.errors }">
@@ -72,10 +62,12 @@
                             <div *ngIf="profileControls.mobile.errors.required">Mobile No. is required</div>
                             <div *ngIf="profileControls.mobile.errors.pattern">Mobile No. must be between 5-15 digits
                             </div>
-
                         </div>
-                       </div>
+                      </div>
+
+                    </div>
                 </div>
+            
                 <div class="d-flex justify-content-between padding-top-20">
                     <div class="col-sm-6 ">
                         <label for="">Country</label><span class="asterick">*</span>
@@ -107,6 +99,17 @@
                         </select>
                         <div *ngIf="isSubmitted && profileControls.practiceType.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.practiceType.errors.required">Practice Type is required</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 pl" >
+                        
+
+                        <label for="">Speciality</label><span class="asterick">*</span>
+                        <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="speciality"
+                            placeholder="Speciality" class="form-control"
+                            [ngClass]="{ 'is-invalid': isSubmitted && profileControls.speciality.errors }">
+                        <div *ngIf="isSubmitted && profileControls.speciality.errors" class="invalid-feedback">
+                            <div *ngIf="profileControls.speciality.errors.required">Speciality is required</div>
                         </div>
                     </div>
                     
@@ -214,7 +217,7 @@
             
             <div class="col-sm-4 pt">
                 <div class="account-sticky">
-                    <div class="box pb-3">
+                    <div class="box pb-3 scroll-account">
                         <h5 class="pl-3 headingName">Account Settings</h5>
                         <div class="padding-top-20">
                             <div class="col-sm-12 ptb" (click)="openDialog()">
