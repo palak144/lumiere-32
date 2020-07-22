@@ -33,8 +33,9 @@ export class ProfileComponent implements OnInit {
   selected_countryCode : any;
   selected_country : any;
   countryValue: any;
-  countryCodeValue: any;
-
+  selected_speciality: any;
+  dataLoaded : boolean = true;
+  specialities: any = [];
   constructor(
     private dialog: MatDialog,
     private userService: UserService,
@@ -42,9 +43,10 @@ export class ProfileComponent implements OnInit {
     private route:ActivatedRoute,
     private toastr: ToastrService,
     private authService: AuthService
-  ) { }
+  ) { this.ngOnInit()}
 
   ngOnInit(): void {
+    this.getSpecialities();
     this.getProfileAddressDetails();
     this.authService.getCountry().subscribe(
       (response: HttpResponse<any>)=>{
@@ -64,15 +66,39 @@ export class ProfileComponent implements OnInit {
         
       },
       (error)=>{
-        
+        this.loading = false
+
       }
     )
     this.selected_country = [];
-    this.selected_countryCode =[];
+    this.selected_countryCode ="";
+    this.selected_speciality = "";
     this.initForm()
 
   }
+  getSpecialities(){
 
+    this.authService.getSpeciality().subscribe(
+      (response: HttpResponse<any>)=>{
+        if (response.body.data.result != null) {
+          debugger
+
+        response.body.data.result.forEach(element => {
+          this.specialities.push({
+            label: element.specialityName,
+            value: element.specialityName
+          });
+    
+        });
+      }
+        return this.specialities
+        
+      },
+      (error)=>{
+        
+      }
+    )
+  }
   enable(){
     
     this.toggleButton = false
@@ -124,7 +150,7 @@ get profileControls() {
           "clinicName": this.profileDetails.clinicName,
           // "code": parseInt(this.profileDetails.countryCode),
           "mobile": this.profileDetails.mobileNumber,
-          "speciality" : this.profileDetails.speciality,
+          //"speciality" : this.profileDetails.speciality,
           "practiceType": this.profileDetails.practiceType,
           "blockNo": this.profileDetails.houseNo,
           "floorNo": this.profileDetails.floorNo,
@@ -134,12 +160,18 @@ get profileControls() {
           "postal": this.profileDetails.pincode,
         })
         
+        if(this.profileDetails.country != null){
          this.selected_country = this.profileDetails.country.id
+        }
          this.selected_countryCode = parseInt(this.profileDetails.countryCode)
+         debugger
+         this.selected_speciality = this.profileDetails.speciality
+
 
         
       },
       (error) => {
+        this.loading = false
 
       }
     )
@@ -173,7 +205,8 @@ this.userService.onUpdateAddDefault(this.defaultAddressDetail,id).subscribe(
     
   },
   (error)=>{
-    
+    this.loading = false
+
   }
 )
   }
@@ -181,6 +214,8 @@ this.userService.onUpdateAddDefault(this.defaultAddressDetail,id).subscribe(
     this.loading = true
     this.isSubmitted = true;
     if (this.personalDetailForm.invalid) {
+      this.loading = false
+
       return
     }
     var json = JSON.parse(localStorage.UserData);
@@ -201,9 +236,9 @@ this.userService.onUpdateAddDefault(this.defaultAddressDetail,id).subscribe(
       "customerId": json.body.data.customerId,
       "countryId" : this.personalDetailForm.get('country').value,
       "countryCode" : this.personalDetailForm.get('code').value,
-
+      "speciality" : this.personalDetailForm.get('speciality').value,
     }
-
+debugger
 this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscribe(
 
   (success)=>{
