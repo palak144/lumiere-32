@@ -150,6 +150,7 @@ input.searchInp {
         padding: 10px;
         justify-content: center;
         padding-left: 29px;
+        align-items: center;
     }
     .mP{
         margin-left: -9px;
@@ -190,5 +191,26 @@ input.searchInp {
     .itemsBtn {
         justify-content: center;
         display: flex;
+    }
+    .orderHeader{
+        align-items: center;
+        height: 190px;
+        background: #63c7db26;
+        padding: 10px;
+        justify-content: center;
+        padding-left: 29px;
+    }
+}
+
+
+@media (max-width: 991px)
+{
+    .orderHeader{
+        align-items: center;
+        height: 190px;
+        background: #63c7db26;
+        padding: 10px;
+        justify-content: center;
+        padding-left: 29px;
     }
 }

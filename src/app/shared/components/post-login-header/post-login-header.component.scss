@@ -91,3 +91,10 @@ li.fa.fa-angle-right {
 .row.breadcrum-container ul li {
     display: inline-block;
 }
+
+@media (max-width: 767px)
+{
+    .profile-user-wrapper .profile-user-image {
+        padding-right: 10px ;
+    }
+}

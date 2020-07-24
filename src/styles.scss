@@ -492,6 +492,16 @@ span.edit.edit-clr {
     min-width: 65px;
     height: 38px;
 }
+.asterick {
+    color: red;
+}
+.ng-tns-c128-5.ui-dropdown.ui-widget.ui-state-default.ui-corner-all {
+    min-width: 0 !important;
+    min-height: 38px !important;
+}
+.ui-dropdown .ui-dropdown-trigger {
+    min-width: 0 !important;
+}
 // .box.pb-3.scroll-account {
 //     max-height: 150px;
 //     overflow-y: auto;
@@ -621,6 +631,7 @@ span.edit.edit-clr {
     }
     .top-product {
         margin-bottom: 30px;
+        text-align: center;
     }
     .top-selling-product {
         margin-bottom: 25px;
@@ -646,6 +657,7 @@ span.edit.edit-clr {
     }
     .footer-input.padding-top-20 {
         width: 70%;
+        margin: auto;
     }
     .footer-wrapper {
         background: #1B4791;
@@ -661,10 +673,10 @@ span.edit.edit-clr {
     }
     .wishlist-flex {
         text-align: center !important;
+        display: block;
     }
     .price{
-        visibility: hidden;
-
+        display: none;
     }
     .wishlist-flex-inline {
         display: inline-block;
@@ -681,15 +693,22 @@ span.edit.edit-clr {
     .profile-links-wrapper .profile-text-wrapper.underline-text-wrapper {
         margin-bottom: 20px;
     }
+    .profile-user-wrapper .profile-user-image img {
+        width:40px;
+    }
 }
 
-.asterick {
-    color: red;
+
+@media (max-width: 991px)
+{
+    .card.dashboard-balance-card {
+        margin-bottom: 25px;
+    }
+    .card.dashboard-card {
+        margin-bottom: 25px;
+    }
+    .card.dashboard-product-card.full-height {
+        margin-top: 20px;
+    }
 }
-.ng-tns-c128-5.ui-dropdown.ui-widget.ui-state-default.ui-corner-all {
-    min-width: 0 !important;
-    min-height: 38px !important;
-}
-.ui-dropdown .ui-dropdown-trigger {
-    min-width: 0 !important;
-}
+

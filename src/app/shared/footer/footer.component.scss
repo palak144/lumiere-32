@@ -75,5 +75,11 @@
         background: #1B4791;
         padding: 3em 0 0em;
         position: relative;
+         text-align: center;
+    }
+    .footer-divider:before {
+        content: "";
+        left: auto;
+        text-align: center;
     }
 }
