@@ -141,7 +141,7 @@ get profileControls() {
     
     this.userService.getProfilePersonalInfo().subscribe(
       (response: HttpResponse<any>) => {
-        
+        debugger
         this.profileDetails = response.body.data
         this.personalDetailForm.patchValue({
           "email": this.profileDetails.Email,

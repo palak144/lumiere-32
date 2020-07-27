@@ -86,3 +86,14 @@
 body .pi {
     font-size: 10px;
 }
+::ng-deep .assign-group-dropdown {
+    .ui-dropdown {
+        &.form-control {
+            padding: 0 !important;
+        }
+        .ui-inputtext {
+            text-transform: capitalize;
+            letter-spacing: 0px;
+        }
+    }
+}
