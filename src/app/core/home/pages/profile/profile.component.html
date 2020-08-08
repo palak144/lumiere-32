@@ -101,13 +101,16 @@
                             <div *ngIf="profileControls.practiceType.errors.required">Practice Type is required</div>
                         </div>
                     </div>
-                    <div class="col-sm-6 pl" >
+                    <div class="col-sm-6 pl assign-group-dropdown" >
                         
 
                         <label for="">Speciality</label><span class="asterick">*</span>
-                        <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="speciality"
-                            placeholder="Speciality" class="form-control"
-                            [ngClass]="{ 'is-invalid': isSubmitted && profileControls.speciality.errors }">
+                            <p-dropdown [disabled]="toggleButton ? true : null" [options]="specialities" 
+                             [(ngModel)]="selected_speciality" formControlName="speciality" filter="true"
+                              placeholder="Speciality"
+                              styleClass="form-control " 
+                              [ngClass]="{ 'is-invalid': isSubmitted && profileControls.speciality.errors }">
+                            </p-dropdown>
                         <div *ngIf="isSubmitted && profileControls.speciality.errors" class="invalid-feedback">
                             <div *ngIf="profileControls.speciality.errors.required">Speciality is required</div>
                         </div>
