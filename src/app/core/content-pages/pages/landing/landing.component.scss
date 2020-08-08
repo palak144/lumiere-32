@@ -586,7 +586,24 @@
     padding: 16px;
 }
 
+@media (max-width: 767px)
+	{
+    .digital-solution-wrapper {
+        padding: 3em 0 3em;
+        position: relative;
+    }
+    .dot-absolute-wrapper {
+        display: none;
+    }
+    .supplier-triangle-card {
+        position: relative;
+        height: 225px; 
+    }
+    .landing-wrapper .card-absolute-wrapper {
+        position: relative;
+    }
 
+}
 @media only screen and (max-width: 600px) {
     .landing-wrapper .card-absolute-wrapper {
         position: relative;
@@ -629,21 +646,3 @@
 }
 
 
-@media (max-width: 767px)
-	{
-    .digital-solution-wrapper {
-        padding: 3em 0 3em;
-        position: relative;
-    }
-    .dot-absolute-wrapper {
-        display: none;
-    }
-    .supplier-triangle-card {
-        position: relative;
-        height: 225px; 
-    }
-    .landing-wrapper .card-absolute-wrapper {
-        position: relative;
-    }
-
-}

@@ -176,7 +176,12 @@
     <button mat-icon-button >
       <mat-icon class="menutoggl"  >menu</mat-icon>
     </button>
-    <h4 class="iconCategory" fxShow="false" fxShow.gt-sm>Categories</h4>
+    <h4 class="iconCategory" fxShow="false" fxShow.gt-sm mat-flat-button [matMenuTriggerFor]="categoryMenu">Categories</h4>
+    <!-- <button class="iconCategory" fxShow="false" fxShow.gt-sm mat-flat-button [matMenuTriggerFor]="categoryMenu">Category</button> -->
+    <mat-menu #categoryMenu="matMenu">
+      <button mat-menu-item>Medical</button>
+      <button mat-menu-item>Dental</button>
+    </mat-menu>
   </a>
   <div class="row col-md-7 searchDiv">
     <input type="text" class="inputSearch" placeholder="Search for products and Categories">
