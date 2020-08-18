@@ -44,11 +44,11 @@ const routes: Routes = [{
           component: AddAddressComponent,
         },
         {
-          path: 'medical-equipment',
+          path: 'medical',
           component: MedicalEquipmentComponent,
         },
         {
-          path: 'get-equipment',
+          path: 'product-listing',
           component: GetEquipmentComponent,
         },
       ]

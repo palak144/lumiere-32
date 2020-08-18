@@ -291,18 +291,8 @@ export class MedicalEquipmentComponent implements OnInit {
       discountpercent:'Flat 30% off'
     },
     {
-      img: "assets/images/medical-product/shop-one.png",
-      logo: 'assets/images/medical-product/shop-logo-one.png',
-      discountpercent:'Flat 30% off'
-    },
-    {
-      img: "assets/images/medical-product/shop-two.png", 
-      logo: 'assets/images/medical-product/shop-logo-two.png',
-      discountpercent:'Flat 30% off'
-    },
-    {
-      img: "assets/images/medical-product/shop-three.png",
-      logo: 'assets/images/medical-product/shop-logo-three.png',
+      img: "assets/images/medical-product/shop.png",
+      logo: 'assets/images/medical-product/shop-logo.png',
       discountpercent:'Flat 30% off'
     },
     {
@@ -311,8 +301,18 @@ export class MedicalEquipmentComponent implements OnInit {
       discountpercent:'Flat 30% off'
     },
     {
-      img: "assets/images/medical-product/shop-two.png",
-      logo: 'assets/images/medical-product/shop-logo-two.png',
+      img: "assets/images/medical-product/shop.png",
+      logo: 'assets/images/medical-product/shop-logo.png',
+      discountpercent:'Flat 30% off'
+    },
+    {
+      img: "assets/images/medical-product/shop.png",
+      logo: 'assets/images/medical-product/shop-logo.png',
+      discountpercent:'Flat 30% off'
+    },
+    {
+      img: "assets/images/medical-product/shop.png",
+      logo: 'assets/images/medical-product/shop-logo.png',
       discountpercent:'Flat 30% off'
     },
   ];
