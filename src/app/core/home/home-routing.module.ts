@@ -9,6 +9,8 @@ import { AddAddressComponent } from 'src/app/shared/components/add-address/add-a
 import { MedicalEquipmentComponent } from './pages/medical-equipment/medical-equipment.component';
 import { GetEquipmentComponent } from './pages/get-equipment/get-equipment.component';
 
+import { DentalEquipmentComponent } from './pages/dental-equipment/dental-equipment.component';
+
 
 const routes: Routes = [{
 
@@ -46,6 +48,10 @@ const routes: Routes = [{
         {
           path: 'medical-equipment',
           component: MedicalEquipmentComponent,
+        },
+        {
+          path: 'dental-equipment',
+          component: DentalEquipmentComponent,
         },
         {
           path: 'get-equipment',

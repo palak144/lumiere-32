@@ -11,10 +11,11 @@ import { OrdersComponent } from './pages/orders/orders.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { MedicalEquipmentComponent } from './pages/medical-equipment/medical-equipment.component';
 import { GetEquipmentComponent } from './pages/get-equipment/get-equipment.component';
+import { DentalEquipmentComponent } from './pages/dental-equipment/dental-equipment.component';
 
  
 @NgModule({
-  declarations: [MainHomeComponent, HomeLayoutComponent, ProfileComponent, WishlistComponent, OrdersComponent, MedicalEquipmentComponent, GetEquipmentComponent],
+  declarations: [MainHomeComponent, HomeLayoutComponent, ProfileComponent, WishlistComponent, OrdersComponent, MedicalEquipmentComponent, GetEquipmentComponent, DentalEquipmentComponent],
   imports: [
     CommonModule,
     NgbModule,
