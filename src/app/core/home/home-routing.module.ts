@@ -46,7 +46,7 @@ const routes: Routes = [{
           component: AddAddressComponent,
         },
         {
-          path: 'medical-equipment',
+          path: 'medical',
           component: MedicalEquipmentComponent,
         },
         {
@@ -55,6 +55,10 @@ const routes: Routes = [{
         },
         {
           path: 'get-equipment',
+          component: GetEquipmentComponent,
+        },
+        {
+          path: 'product-listing',
           component: GetEquipmentComponent,
         },
       ]
