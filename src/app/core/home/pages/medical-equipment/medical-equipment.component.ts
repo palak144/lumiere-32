@@ -308,7 +308,7 @@ export class MedicalEquipmentComponent implements OnInit {
     {
       img: "assets/images/medical-product/shop.png",
       logo: 'assets/images/medical-product/shop-logo.png',
-      discountpercent:'Flat 30% off'
+      discountpercent:'Flat 30% off' 
     },
     {
       img: "assets/images/medical-product/shop.png",
