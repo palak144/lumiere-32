@@ -412,39 +412,39 @@ export class DentalEquipmentComponent implements OnInit {
 
   sellerSlides = [ 
     {
-      img: "assets/images/medical-product/seller.png",
+      img: "assets/images/medical-product/global_pharmacy.jpg",
       image: "assets/images/medical-product/seller-one.png",
-      name: 'surgery scissors',
+      name: 'Global Pharmacy',
       discountpercent:'Flat 30% off'
     },
     {
-      img: "assets/images/medical-product/seller-one.png",
+      img: "assets/images/medical-product/global_pharmacy.jpg",
       image: "assets/images/medical-product/seller.png",
-      name: 'Obstetrics & Gynecology',
+      name: 'Global Pharmacy',
       discountpercent:'Flat 30% off'
     },
     {
-      img: "assets/images/medical-product/seller-two.png",
+      img: "assets/images/medical-product/global_pharmacy.png",
       image: "assets/images/medical-product/seller-three.png",
-      name: 'Spirometers',
+      name: 'Global Pharmacy',
       discountpercent:'Flat 30% off'
     },
     {
-      img: "assets/images/medical-product/seller-three.png",
+      img: "assets/images/medical-product/global_pharmacy.png",
       image: "assets/images/medical-product/seller.png",
-      name: 'glaves and mask',
+      name: 'Global Pharmacy',
       discountpercent:'Flat 30% off'
     },
     {
-      img: "assets/images/medical-product/seller.png",
+      img: "assets/images/medical-product/global_pharmacy.png",
       image: "assets/images/medical-product/seller-two.png",
-      name: 'Obstetrics & Gynecology',
+      name: 'Global Pharmacy',
       discountpercent:'Flat 30% off'
     },
     {
-      img: "assets/images/medical-product/seller-two.png",
+      img: "assets/images/medical-product/global_pharmacy.png",
       image: "assets/images/medical-product/seller-three.png",
-      name: 'Spirometers',
+      name: 'Global Pharmacy',
       discountpercent:'Flat 30% off'
     },
   ];
