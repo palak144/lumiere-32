@@ -10,16 +10,16 @@ export class DentalEquipmentComponent implements OnInit {
 
   slides = [
     {
-      img: "assets/images/home-slider-image.png",
+      img: "assets/images/dentalbanner.png",
     },
     {
-      img: "assets/images/home-slider-image.png",
+      img: "assets/images/dentalbanner.png",
     },
     {
-      img: "assets/images/home-slider-image.png",
+      img: "assets/images/dentalbanner.png",
     }, 
     {
-      img: "assets/images/home-slider-image.png",
+      img: "assets/images/dentalbanner.png",
     }
   ];
   slideConfig = {
