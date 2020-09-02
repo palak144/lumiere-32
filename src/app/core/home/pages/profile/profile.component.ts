@@ -9,7 +9,7 @@ import { AddAddressComponent } from 'src/app/shared/components/add-address/add-a
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/services/auth.service';
-
+declare var $: any;
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -18,6 +18,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class ProfileComponent implements OnInit {
   
   practises: string[];
+  postal:any;
   public toggleButton: boolean = true;
   profileDetails: any;
   personalDetailForm: FormGroup;
@@ -36,6 +37,11 @@ export class ProfileComponent implements OnInit {
   selected_speciality: any;
   dataLoaded : boolean = true;
   specialities: any = [];
+  pincode: { countryname: string; pincode: number; mobile: number; }[];
+  errorMessage: string;
+  errorMessages:string;
+ButtonDisbaled:boolean =true;
+  postalcode: any;
   constructor(
     private dialog: MatDialog,
     private userService: UserService,
@@ -46,6 +52,16 @@ export class ProfileComponent implements OnInit {
   ) { this.ngOnInit()}
 
   ngOnInit(): void {
+    this.pincode = [
+      {'countryname':'usa',
+      'pincode':5,
+      'mobile':+41
+    },
+    {"countryname":"malaysia"
+    ,"pincode":5,
+    "mobile":+41}
+          ]
+
     this.getSpecialities();
     this.getProfileAddressDetails();
     this.authService.getCountry().subscribe(
@@ -54,7 +70,7 @@ export class ProfileComponent implements OnInit {
         response.body.data.forEach(element => {
           this.codes.push({
             label: element.phoneCode,
-            value: element.id
+            value: element.phoneCode
           });
           this.countries.push({
             label: element.country,
@@ -299,4 +315,50 @@ this.userService.postProfilePersonalInfo(this.personalDetailFormDetails).subscri
       this.getProfileAddressDetails();
     });
   }
+  onChange(event) {
+    console.log('event :' + event);
+    console.log(event.value);
+    console.log(this.pincode);
+    for(var i=0; i<=this.pincode.length; i++)
+    {
+if(event.value!=this.pincode[i].mobile)
+{
+  console.log(event.value);
+  console.log(this.pincode[i].mobile);
+this.errorMessage="Country code is not correct";
+this.ButtonDisbaled = true;
+console.log(this.errorMessage);
+}
+else
+{
+  this.errorMessage='';
+  this.ButtonDisbaled = false;
+}
+    }
+}
+onKeyUp(event : HTMLInputElement){
+  console.log(event);
+  // var myLength = $("#mytextbox").val();
+  // console.log(myLength);
+  console.log(this.postal);
+    console.log(this.postal.length);
+    for(var i=0; i<=this.pincode.length; i++)
+    {
+if(this.postal.length==this.pincode[i].pincode)
+{
+  this.errorMessages='';
+  this.ButtonDisbaled = false;
+}
+else
+{
+
+  console.log(this.postal.length);
+  console.log(this.pincode[i].pincode);
+this.errorMessages="Pincode is not correct";
+this.ButtonDisbaled = true;
+console.log(this.errorMessages);
+}
+    }
+
+}
 }

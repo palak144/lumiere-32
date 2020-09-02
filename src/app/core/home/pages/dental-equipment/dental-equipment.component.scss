@@ -521,6 +521,7 @@ h5
 }
 .deals-slide-block {
     margin-top: 1em;
+    margin: 10px;
     padding: 20px 0 1px;
     border-radius: 8px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -563,6 +564,7 @@ span.sold {
 .popular-slide-block {
     margin-top: 2em;
     padding: 20px 0 1px;
+    margin:10px;
     border-radius: 8px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
@@ -580,6 +582,7 @@ span.sold {
 .shop-slide-block {
     // margin-top: 2em;
     // padding: 20px 0 1px;
+    margin:10px;
     border-radius: 8px;
 }
 .discountpercent h3 {
@@ -709,6 +712,7 @@ span.sold {
 .group-slide-block{
     margin-top: 2em;
     padding: 35px 0px 1px;
+    margin:10px;
     border-radius: 8px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
@@ -828,6 +832,7 @@ span.sold {
 .seller-slide-block{
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
+    margin:10px;
 }
 .seller-img {
     width: 220px;
@@ -1005,7 +1010,17 @@ span.sold {
     }
 
 }
-@media(max-width:420px){
-    
+@media(max-width:575px){
+ .textcenter
+ {
+    text-align: center;
+ }   
 }
+
+@media(max-width:575px){
+    .buttoncenter
+    {
+       margin-left: 88px;
+    }   
+   }
 

@@ -2,7 +2,7 @@
 <form [formGroup]="personalDetailForm">
 
     <div class="container">
-        <div class="buttonEdit" *ngIf="!toggleButton"><button type="submit" (click)="onSubmit()"
+        <div class="buttonEdit" *ngIf="!toggleButton"><button type="submit"  [disabled]="ButtonDisbaled" (click)="onSubmit()"
                 class="btn editProfile">Save</button></div>
 
         <div class="d-flex pl padding-top-20 ml-0">
@@ -49,11 +49,12 @@
                         <!-- <label for="">Country Code</label><span class="asterick">*</span> -->
                      <div class="mobile-code">
                         <div class="code-country">
-                            <p-dropdown [disabled]="toggleButton ? true : null" [options]="codes"  [(ngModel)]="selected_countryCode" formControlName="code" filter="true" placeholder="+64" styleClass="form-control p-0 code codewdt" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.code.errors }">
+                            <p-dropdown [disabled]="toggleButton ? true : null" [options]="codes"  (onChange)="onChange($event)"   [(ngModel)]="selected_countryCode" formControlName="code" filter="true" placeholder="+64" styleClass="form-control p-0 code codewdt" [ngClass]="{ 'is-invalid': isSubmitted && profileControls.code.errors }">
                             </p-dropdown>
                             <div *ngIf="isSubmitted && profileControls.code.errors" class="invalid-feedback">
                                 <div *ngIf="profileControls.code.errors.required">Required</div>
                             </div>
+                            <p style="color:red">{{errorMessage}}</p>
                         </div>
                         <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="mobile"
                             placeholder="Mobile No" class="form-control"
@@ -173,7 +174,7 @@
                         </div>
                         <div class="col-sm-6 pl">
                             <label for="">Zip/Postal</label><span class="asterick">*</span>
-                            <input [attr.disabled]="toggleButton ? '' : null" type="text" formControlName="postal"
+                            <input [attr.disabled]="toggleButton ? '' : null" type="text" id="myTextbox" [(ngModel)]="postal"  formControlName="postal" (keyup)="onKeyUp($event)"
                                 placeholder="Zip/Postal" class="form-control"
                                 [ngClass]="{ 'is-invalid': isSubmitted && profileControls.postal.errors }">
                             <div *ngIf="isSubmitted && profileControls.postal.errors" class="invalid-feedback">
@@ -181,6 +182,7 @@
                                 <div *ngIf="profileControls.postal.errors.pattern">Zip/Postal must be 6 digits</div>
 
                             </div>
+                            <p style="color:red">{{errorMessages}}</p>
                         </div>
                     </div>
                 </div>

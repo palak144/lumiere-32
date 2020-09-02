@@ -35,7 +35,9 @@ export class RegisterComponent implements OnInit {
   registerSecreen1Data: any;
   isDisabled: boolean = false;
   mySubscription: any;
-
+  pincode: { countryname: string; pincode: number; mobile: number; }[];
+  errorMessage: string;
+ButtonDisbaled:boolean =true;
   constructor(
     private utilityService: UtilityService,
     private formBuilder: FormBuilder,
@@ -58,6 +60,39 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCountries();
+    const jsonObject: object = {
+      'City': [
+        {
+          'id': 1,
+          'name': 'Basel',
+          'founded': -200,
+          'beautiful': true,
+          'data': 123,
+          'keywords': ['Rhine', 'River']
+        },
+        {
+          'id': 1,
+          'name': 'Zurich',
+          'founded': 0,
+          'beautiful': false,
+          'data': 'no',
+          'keywords': ['Limmat', 'Lake']
+        }
+      ]
+    };
+     this.pincode = [
+      {'countryname':'usa',
+      'pincode':5,
+      'mobile':+41
+    },
+    {"countryname":"malaysia"
+    ,"pincode":5,
+    "mobile":+41}
+          ]
+     
+
+     
+    
     this.getSpecialities();
     this.registerForm = this.formBuilder.group({
       fname: ['', Validators.required],
@@ -101,10 +136,11 @@ export class RegisterComponent implements OnInit {
         response.body.data.forEach(element => {
           this.codes.push({
             label: element.phoneCode,
-            value: element.id
+            value: element.phoneCode
           });
     
         });
+        console.log(this.codes);
       }
         
         return this.codes
@@ -267,4 +303,25 @@ export class RegisterComponent implements OnInit {
       this.mySubscription.unsubscribe();
     }
   }
+  onChange(event) {
+    console.log('event :' + event);
+    console.log(event.value);
+    console.log(this.pincode);
+    for(var i=0; i<=this.pincode.length; i++)
+    {
+if(event.value!=this.pincode[i].mobile)
+{
+  console.log(event.value);
+  console.log(this.pincode[i].mobile);
+this.errorMessage="Country code is not correct";
+this.ButtonDisbaled = true;
+console.log(this.errorMessage);
+}
+else
+{
+  this.errorMessage='';
+  this.ButtonDisbaled = false;
+}
+    }
+}
 }
