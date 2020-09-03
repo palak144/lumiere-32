@@ -73,6 +73,7 @@ export class LoginComponent implements OnInit {
           
            this.authService.loggedInCustomerName = response.body.data.firstName
           this.toastr.success("Login Successful")
+          //encypted token logic
           localStorage.setItem('token', response.headers.get('authtoken'));
           localStorage.setItem('UserData', JSON.stringify(response));
           this.router.navigate([""])
