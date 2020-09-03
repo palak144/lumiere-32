@@ -14,7 +14,7 @@
         max-width: 1094px;
         margin: 0 auto;
         .card-blue {
-            background-color:  #63C7DB;
+            background-color:  #1b4791;
             min-height: 373px;
             padding: 25px 25px 0;
         }
@@ -41,10 +41,61 @@
 }
 
 .header-button-wrapper {
-    padding-top: 28px;
+    padding-top: 81px;
     .custom-button {
         min-width: auto;
     }
+}
+.header-button-wrapper_new {
+    padding-top: 5px;
+    .custom-button {
+        min-width: auto;
+    }
+}
+.product
+{
+    width: 189px;
+    height: 62px;
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    margin-top: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.7px;
+    text-align: left;
+    color: #faf9fa;
+}
+.off
+{
+    width: 189px;
+    height: 62px;
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+   margin-top: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.7px;
+    text-align: left;
+    color: #63C7DB;  
+}
+.discount
+{
+    width: 189px;
+    height: 62px;
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+  
+    line-height: 1.5;
+    letter-spacing: 0.7px;
+    text-align: left;
+    color: #faf9fa;  
 }
 ::ng-deep .custom-home-carousel {
     .slick-slide {
@@ -116,7 +167,7 @@
 }
 .medical-heading{
     font-family: Poppins;
-    font-size: 23px;
+    font-size: 32px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -135,9 +186,10 @@
 }
 .medical-eq-header-text {
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.5;
     text-align: left;
+    margin-top: 15px;
     color: #ffffff;
 }
 .medical-eq-header-text-bold {
@@ -150,7 +202,7 @@
 }
 .medical-button {
     padding: 8px 10px;
-    background-color: #1b4791;
+    background-color: #63c7db;
     border: none;
     color: #fff;
     border-radius: 4px;
@@ -190,6 +242,15 @@
 .surgical-card {
     margin: 30px 0;
 }
+.buy_premium
+{
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    color: black!important;  
+}
 .surgical-eq-card {
     // background-image: url(assets/images/supplier-card-one.png);
     background-color: #63d6c7;
@@ -197,31 +258,61 @@
     border-radius: 5px;
     background-size: cover;
     padding: 20px;
-h2 {
+
+h2
+{
     font-family: Poppins;
     font-size: 22px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.5;
     text-align: left;
-    color: #ffffff;
+    color: black!important; 
+
 }
+
 p {
     width: 189px;
     height: 62px;
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 25px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.5;
+    margin-top: 5px;
     letter-spacing: 0.7px;
     text-align: left;
     color: #ffffff;
 }
+h1 {
+    width: 189px;
+    height: 62px;
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    margin-top: 10px;
+    letter-spacing: 0.7px;
+    text-align: left;
+    color: #ffffff;
+}
+h5
+{
+    font-family: Poppins;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.21;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #278fa4;
+ 
+}
 .shop-button {
     font-family: Poppins;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
     line-height: 1.21;
     text-align: left;
     color: #278fa4;
@@ -430,6 +521,7 @@ p {
 }
 .deals-slide-block {
     margin-top: 1em;
+    margin: 10px;
     padding: 20px 0 1px;
     border-radius: 8px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -472,6 +564,7 @@ span.sold {
 .popular-slide-block {
     margin-top: 2em;
     padding: 20px 0 1px;
+    margin:10px;
     border-radius: 8px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
@@ -489,6 +582,7 @@ span.sold {
 .shop-slide-block {
     // margin-top: 2em;
     // padding: 20px 0 1px;
+    margin:10px;
     border-radius: 8px;
 }
 .discountpercent h3 {
@@ -618,6 +712,7 @@ span.sold {
 .group-slide-block{
     margin-top: 2em;
     padding: 35px 0px 1px;
+    margin:10px;
     border-radius: 8px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
@@ -737,6 +832,7 @@ span.sold {
 .seller-slide-block{
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
+    margin:10px;
 }
 .seller-img {
     width: 220px;
@@ -914,7 +1010,17 @@ span.sold {
     }
 
 }
-@media(max-width:420px){
-    
+@media(max-width:575px){
+ .textcenter
+ {
+    text-align: center;
+ }   
 }
+
+@media(max-width:575px){
+    .buttoncenter
+    {
+       margin-left: 88px;
+    }   
+   }
 

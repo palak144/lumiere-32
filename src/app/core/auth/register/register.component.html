@@ -77,11 +77,12 @@
                     <div class="col-lg-6 padding-mobile-20 padding-mobile-20 p-0">
                         <div class="d-flex ">
                             <div class="dropdown-wrapper">
-                                <p-dropdown [options]="codes" formControlName="code" filter="true" placeholder="+64" styleClass="form-control p-0 code" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.code.errors }">
+                                <p-dropdown [options]="codes" formControlName="code" filter="true" (onChange)="onChange($event)" placeholder="+64" styleClass="form-control p-0 code" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.code.errors }">
                                 </p-dropdown>
                                 <div *ngIf="isSubmittedRegisterForm && signUpControls.code.errors" class="invalid-feedback">
                                     <div *ngIf="signUpControls.code.errors.required">Required</div>
                                 </div>
+                                <p style="color:red">{{errorMessage}}</p>
                             </div>
                             <div>
                                 <input type="number" formControlName="contactNo" placeholder="Mobile No." class="form-control" [ngClass]="{ 'is-invalid': isSubmittedRegisterForm && signUpControls.contactNo.errors }">
@@ -153,7 +154,7 @@
             </div>
             
             <div class="text-center button-wrapper">
-                <button type="submit" class="custom-button">Sign up</button>
+                <button type="submit" class="custom-button"  [disabled]="ButtonDisbaled">Sign up</button>
             </div>
 </div>
 </form>
