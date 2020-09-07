@@ -67,7 +67,24 @@
 
     <div fxLayout="row" fxShow="false" fxShow.gt-sm >
       <!-- <a >Help<i class="fa fa-chevron-down"></i></a>-->
-      <div class="buttonHelp"><button class="btn">Help<i class="fa fa-chevron-down down"></i></button></div>
+      <!-- <div class="buttonHelp"><button class="btn">Help <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#" data-toggle="modal" data-target="#modal1">Open modal 1</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#modal2">Open modal 2</a></li>
+      </ul></button></div> -->
+      <div class="buttonHelp">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Help<span class="caret"></span></button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="padding: 25px;  border-radius: 15px; border: 5px solid skyblue;">
+          <li class="help_box"><h1>Find answers to your queries</h1></li>
+          <li  class="help_box"><img src="assets/images/icon/Buying.svg" alt="image">
+         <span style="color:gray">For</span>  Buying
+           <span style="margin: 101px"><img src="assets/images/icon/For Selling.svg" alt="image">  <span style="color:gray">For</span>  Selling</span>
+          </li>
+          <li  class="help_box"><img src="assets/images/icon/Feedback.svg" alt="image">  <span style="color:gray">Share your</span> Feedback</li>
+          <li  class="help_box"><img src="assets/images/icon/Complaint.svg" alt="image"><span style="color:gray">Raise a</span>  Complaint</li>
+          <li  class="help_box"><img src="assets/images/icon/Email.svg" alt="image"> <span style="color:gray">Email us on </span> <span>Coustmercare@lumiere32.com</span></li>
+          <li  class="help_box"><img src="assets/images/icon/Call.svg" alt="image"><span style="color:gray"> Call us at </span> 64+585625148</li>
+        </ul>
+      </div>
       <div class="buttonQ"><button class="btn quotes">Get Quotes</button></div>
       <mat-menu #appMenu="matMenu">
         <button mat-menu-item><img src="assets/images/Malaysia Flag.svg" alt="truck image"
@@ -261,3 +278,14 @@
   </button>
 </div>
 </mat-toolbar-row>  -->
+<!-- <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1-label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" >
+      <div class="modal-header" style="border: 4px solid #63C7DB;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <h2 class="modal-title">Modal 1</h2> -->
+<!-- 
+      </div>
+    </div>
+  </div>
+</div>  -->
