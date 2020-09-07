@@ -51,12 +51,8 @@ const routes: Routes = [{
           component: MedicalEquipmentComponent,
         },
         {
-          path: 'dental-equipment',
+          path: 'dental',
           component: DentalEquipmentComponent,
-        },
-        {
-          path: 'get-equipment',
-          component: GetEquipmentComponent,
         },
         {
           path: 'product-listing',
