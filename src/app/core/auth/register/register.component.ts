@@ -323,11 +323,17 @@ this.errorMessage="Country code is not correct";
 this.ButtonDisbaled = true;
 console.log(this.errorMessage);
 }
-else
+else 
 {
   this.errorMessage='';
   this.ButtonDisbaled = false;
 }
+// else{
+//   this.registerForm.controls.code.patchValue("+91");
+//   this.registerForm.controls.mobileNumber.patchValue("7772804044");
+//   this.errorMessage='';
+//   this.ButtonDisbaled = false;
+// }
     }
 }
 }
