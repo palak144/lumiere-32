@@ -6,6 +6,7 @@ import { MustMatch } from '../../../_helpers/must-watch.validator';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { HttpResponse } from '@angular/common/http';
+import * as CryptoJS from 'crypto-js';
 
 
 @Component({
@@ -265,8 +266,13 @@ ButtonDisbaled:boolean =true;
           this.authService.loginFlag = true;
           this.authService.loggedInCustomerName = response.body.data.firstName
           this.toastr.success("Login Successful")
-          localStorage.setItem('token', response.headers.get('authtoken'));
-          localStorage.setItem('UserData', JSON.stringify(response));
+//   encypted token logic
+    console.log(response.headers.get('authtoken'))
+    var en= CryptoJS.AES.encrypt(response.headers.get('authtoken'),'secret key palak!@123').toString();
+    console.log(en)
+    debugger 
+    localStorage.setItem('token', en);      
+    localStorage.setItem('UserData', JSON.stringify(response));
         this.router.navigate([""])
       },
       error => {

@@ -14,12 +14,15 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BackendInterceptor } from './core/services/intercepter.service';
 import { ContentLayoutComponent } from './core/content-pages/content-layout/content-layout.component';
 import { ContentPagesModule } from './core/content-pages/content-pages.module';
-
-
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './core/home/home.module';
 import { HomeLayoutComponent } from './core/home/home-layout/home-layout.component';
 import { ProjectLayoutComponent } from './core/layouts/project-layout/project-layout.component';
+import { TokenAuthentication } from './core/services/token.authentication.service';
+import { AuthGuardService } from './core/services/auth-guard.service';
+import { JwtModuleOptions } from '@auth0/angular-jwt';
+
+
 
 @NgModule({
   declarations: [
@@ -37,13 +40,15 @@ import { ProjectLayoutComponent } from './core/layouts/project-layout/project-la
     BrowserAnimationsModule,
     NgbModule,
     HttpClientModule,
+
    ],
   exports: [
     NgbModule
   ],
   
   providers: [
-    
+    TokenAuthentication,
+    AuthGuardService,
     {
        provide: HTTP_INTERCEPTORS, useClass: BackendInterceptor, multi: true 
   },

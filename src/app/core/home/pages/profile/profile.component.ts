@@ -209,20 +209,15 @@ get profileControls() {
     )
   }
   setDefault(id){
-
 document.getElementById('default').classList.add('blue')
 this.default=false;
-
 this.defaultAddressDetail = this.addressDetail.filter(item => item.id === id)
-
 this.userService.onUpdateAddDefault(this.defaultAddressDetail,id).subscribe(
   (success)=>{
     this.getProfileAddressDetails();
-    
   },
   (error)=>{
     this.loading = false
-
   }
 )
   }

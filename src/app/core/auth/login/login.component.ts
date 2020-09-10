@@ -7,6 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ForgotPasswordDialogComponent } from '../../../shared/components/forgot-password-dialog/forgot-password-dialog.component';
 import { Router } from '@angular/router';
 import { HttpResponse } from '@angular/common/http';
+import * as CryptoJS from 'crypto-js';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -67,24 +69,32 @@ export class LoginComponent implements OnInit {
     if (navigator.onLine) {
       this.authService.onLogin(this.loginForm.value.userId, this.loginForm.value.password).subscribe(
         (response: HttpResponse<any>) => {
+          debugger
           this.loading = false;
           this.loginResponseObj = response;
           this.authService.loginFlag = true;
           
            this.authService.loggedInCustomerName = response.body.data.firstName
           this.toastr.success("Login Successful")
-          //encypted token logic
+       //   encypted token logic
+          // console.log(response.headers.get('authtoken'))
+          //   var en= CryptoJS.AES.encrypt(response.headers.get('authtoken'),'secret key palak!@123').toString();
+          // console.log(en)
+          // debugger 
           localStorage.setItem('token', response.headers.get('authtoken'));
+          
           localStorage.setItem('UserData', JSON.stringify(response));
           this.router.navigate([""])
         },
         error => {
+          debugger
           this.loading = false;
          if(error.error.message == "Email not verify"){
           this.router.navigate(["/auth/verify-otp"])
           this.toastr.info("Verify your email");
           }
           else{
+            debugger
             this.toastr.error(error.error.message);
           }
           ;
