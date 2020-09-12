@@ -30,6 +30,7 @@ import { ProjectLayoutComponent } from './core/layouts/project-layout/project-la
   imports: [
     BrowserModule,
     AppRoutingModule,
+    //  AccordionModule,
     AuthModule,
     HomeModule,
     ContentPagesModule,
