@@ -30,6 +30,7 @@ import {EncrDecrServiceService} from './core/services/encr-decr-service.service'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    //  AccordionModule,
     AuthModule,
     HomeModule,
     ContentPagesModule,
