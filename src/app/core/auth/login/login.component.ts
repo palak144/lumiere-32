@@ -8,6 +8,7 @@ import { ForgotPasswordDialogComponent } from '../../../shared/components/forgot
 import { Router } from '@angular/router';
 import { HttpResponse } from '@angular/common/http';
 import * as CryptoJS from 'crypto-js';
+import { EncrDecrServiceService } from '../../services/encr-decr-service.service';
 
 @Component({
   selector: 'app-login',
@@ -22,13 +23,17 @@ export class LoginComponent implements OnInit {
   submitted: boolean = false;
   dialogFlag: boolean = false;
   loginResponseObj: any;
+  public encrypted: string;
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private dialog: MatDialog,
     private toastr: ToastrService,
     public router:Router,
-  ) { }
+    private EncrDecr: EncrDecrServiceService
+  ) {
+    debugger
+    this.EncrDecr.myMethodToStoreToken(this.encrypted);}
 
   ngOnInit(): void {
 
@@ -81,8 +86,10 @@ export class LoginComponent implements OnInit {
           //   var en= CryptoJS.AES.encrypt(response.headers.get('authtoken'),'secret key palak!@123').toString();
           // console.log(en)
           // debugger 
-          localStorage.setItem('token', response.headers.get('authtoken'));
-          
+          this.encrypted = this.EncrDecr.set('123456$#@$^@1ERF', response.headers.get('authtoken'));
+          console.log('Encrypted :' + this.encrypted);
+
+          localStorage.setItem('token', this.encrypted);
           localStorage.setItem('UserData', JSON.stringify(response));
           this.router.navigate([""])
         },

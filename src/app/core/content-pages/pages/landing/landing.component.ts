@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -170,11 +171,17 @@ export class LandingComponent implements OnInit {
     ]
   };
 
-  constructor() { }
+  constructor(    private router: Router,
+    ) { }
 
   ngOnInit(): void {
   }
-
+dental(){
+    this.router.navigate(['dental'] )
+}
+medical(){
+  this.router.navigate(['medical'] )
+}
   slickInit(e) {
     }
 

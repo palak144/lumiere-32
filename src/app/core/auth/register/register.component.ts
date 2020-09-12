@@ -7,6 +7,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { HttpResponse } from '@angular/common/http';
 import * as CryptoJS from 'crypto-js';
+import { EncrDecrServiceService } from '../../services/encr-decr-service.service';
 
 
 @Component({
@@ -39,6 +40,7 @@ export class RegisterComponent implements OnInit {
   pincode: { countryname: string; pincode: number; mobile: number; }[];
   errorMessage: string;
 ButtonDisbaled:boolean =true;
+  encrypted: string;
   constructor(
     private utilityService: UtilityService,
     private formBuilder: FormBuilder,
@@ -46,6 +48,8 @@ ButtonDisbaled:boolean =true;
     private toastr: ToastrService,
     private authService: AuthService,
     private route: ActivatedRoute,
+    private EncrDecr: EncrDecrServiceService
+
   ) {
     // this.router.routeReuseStrategy.shouldReuseRoute = function () {
     //   return false;
@@ -267,11 +271,12 @@ ButtonDisbaled:boolean =true;
           this.authService.loggedInCustomerName = response.body.data.firstName
           this.toastr.success("Login Successful")
 //   encypted token logic
-    console.log(response.headers.get('authtoken'))
-    var en= CryptoJS.AES.encrypt(response.headers.get('authtoken'),'secret key palak!@123').toString();
-    console.log(en)
+    // console.log(response.headers.get('authtoken'))
+    // var en= CryptoJS.AES.encrypt(response.headers.get('authtoken'),'secret key palak!@123').toString();
+    // console.log(en)
     debugger 
-    localStorage.setItem('token', en);      
+    this.encrypted = this.EncrDecr.set('123456$#@$^@1ERF', response.headers.get('authtoken'));
+    localStorage.setItem('token', this.encrypted);      
     localStorage.setItem('UserData', JSON.stringify(response));
         this.router.navigate([""])
       },
@@ -283,6 +288,7 @@ ButtonDisbaled:boolean =true;
     )
   }
   handleSuccess(data) {
+    
   }
   onChangeEmail() {
     window.location.reload()

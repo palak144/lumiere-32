@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
 if(!localStorage.getItem('token')){
+  debugger
   this.router.navigate([""])
 }  }
 

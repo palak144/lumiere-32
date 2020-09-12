@@ -4,11 +4,8 @@ import { AuthLayoutComponent } from './core/layouts/auth-layout/auth-layout.comp
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './core/auth/auth.module';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-
 import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BackendInterceptor } from './core/services/intercepter.service';
@@ -20,7 +17,7 @@ import { HomeLayoutComponent } from './core/home/home-layout/home-layout.compone
 import { ProjectLayoutComponent } from './core/layouts/project-layout/project-layout.component';
 import { TokenAuthentication } from './core/services/token.authentication.service';
 import { AuthGuardService } from './core/services/auth-guard.service';
-import { JwtModuleOptions } from '@auth0/angular-jwt';
+import {EncrDecrServiceService} from './core/services/encr-decr-service.service';
 
 
 
@@ -47,6 +44,7 @@ import { JwtModuleOptions } from '@auth0/angular-jwt';
   ],
   
   providers: [
+    EncrDecrServiceService,
     TokenAuthentication,
     AuthGuardService,
     {

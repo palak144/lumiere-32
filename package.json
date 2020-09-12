@@ -25,6 +25,7 @@
     "@angular/router": "~9.1.4",
     "@auth0/angular-jwt": "^5.0.1",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
+    "@types/crypto-js": "^3.1.47",
     "@types/jquery": "^3.5.1",
     "angular-bootstrap-md": "^9.3.1",
     "bootstrap": "^4.4.1",

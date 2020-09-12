@@ -3,6 +3,7 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 import * as CryptoJS from 'crypto-js';
+import { EncrDecrServiceService } from './encr-decr-service.service';
 
 
 @Injectable({
@@ -10,7 +11,13 @@ import * as CryptoJS from 'crypto-js';
 })
 
 export class BackendInterceptor implements HttpInterceptor {
-  constructor() { }
+  public dataEncrypted: string;
+  constructor(      private EncrDecr: EncrDecrServiceService
+    ) {  this.EncrDecr.myMethod$.subscribe((data) => {
+      data
+      this.dataEncrypted = data; // And he have data here too!
+  }
+);}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // add authorization header with jwt token if available
@@ -20,8 +27,9 @@ export class BackendInterceptor implements HttpInterceptor {
  //  var decryptText  = CryptoJS.AES.decrypt(text, 'secret key 123');
    //   var originalText = decryptText.toString(CryptoJS.enc.Utf8);
       console.log("enterceptor",localStorage.getItem('token'))
-
-    const token = localStorage.getItem('token');
+      var decrypted = this.EncrDecr.get('123456$#@$^@1ERF', this.dataEncrypted);
+      debugger
+    const token = decrypted;
  
     if (token) {
       request = request.clone({
