@@ -29,7 +29,7 @@ export class BackendInterceptor implements HttpInterceptor {
       console.log("enterceptor",localStorage.getItem('token'))
       var decrypted = this.EncrDecr.get('123456$#@$^@1ERF', this.dataEncrypted);
       debugger
-    const token = decrypted;
+    const token = localStorage.getItem('token');
  
     if (token) {
       request = request.clone({

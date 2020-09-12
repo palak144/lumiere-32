@@ -276,7 +276,7 @@ ButtonDisbaled:boolean =true;
     // console.log(en)
     debugger 
     this.encrypted = this.EncrDecr.set('123456$#@$^@1ERF', response.headers.get('authtoken'));
-    localStorage.setItem('token', this.encrypted);      
+    localStorage.setItem('token',response.headers.get('authtoken'));      
     localStorage.setItem('UserData', JSON.stringify(response));
         this.router.navigate([""])
       },
@@ -288,7 +288,7 @@ ButtonDisbaled:boolean =true;
     )
   }
   handleSuccess(data) {
-    
+
   }
   onChangeEmail() {
     window.location.reload()

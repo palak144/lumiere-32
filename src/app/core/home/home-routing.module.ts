@@ -51,7 +51,7 @@ const routes: Routes = [{
           component: MedicalEquipmentComponent,
         },
         {
-          path: 'dental',
+          path: 'dental', 
           component: DentalEquipmentComponent,
         },
         {
