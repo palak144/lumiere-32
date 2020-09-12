@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
-import { MainHomeComponent } from './pages/main-home/main-home.component';
+import { MainHomeComponent } from './pages/User-dashboard/main-home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { AddAddressComponent } from 'src/app/shared/components/add-address/add-address.component';
-import { MedicalEquipmentComponent } from './pages/medical-equipment/medical-equipment.component';
-import { GetEquipmentComponent } from './pages/get-equipment/get-equipment.component';
+import { MedicalEquipmentComponent } from './pages/Medical/medical-equipment.component';
+import { GetEquipmentComponent } from './pages/Product-listing/get-equipment.component';
 
-import { DentalEquipmentComponent } from './pages/dental-equipment/dental-equipment.component';
+import { DentalEquipmentComponent } from './pages/Dental/dental-equipment.component';
 
 
 const routes: Routes = [{
