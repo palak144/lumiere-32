@@ -103,8 +103,7 @@ export class LoginComponent implements OnInit {
           else{
             debugger
             this.toastr.error(error.error.message);
-          }
-          ;
+          };
         });
     } else {
       this.loading = false;

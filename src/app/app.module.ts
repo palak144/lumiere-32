@@ -48,9 +48,9 @@ import {EncrDecrServiceService} from './core/services/encr-decr-service.service'
     EncrDecrServiceService,
     TokenAuthentication,
     AuthGuardService,
-    {
-       provide: HTTP_INTERCEPTORS, useClass: BackendInterceptor, multi: true 
-  },
+  //   {
+  //      provide: HTTP_INTERCEPTORS, useClass: BackendInterceptor, multi: true 
+  // },
   ],
   bootstrap: [AppComponent]
 })

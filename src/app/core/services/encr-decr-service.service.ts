@@ -24,8 +24,6 @@ export class EncrDecrServiceService {
       return encrypted.toString();
     }
     myMethodToStoreToken(data) {
-      debugger
-      console.log(data); 
       this.myMethodSubject.next(data);
   }
     //The get method is use for decrypt the value.

@@ -28,7 +28,7 @@ export class BackendInterceptor implements HttpInterceptor {
    //   var originalText = decryptText.toString(CryptoJS.enc.Utf8);
       console.log("enterceptor",localStorage.getItem('token'))
       var decrypted = this.EncrDecr.get('123456$#@$^@1ERF', this.dataEncrypted);
-      debugger
+      // debugger
     const token = localStorage.getItem('token');
  
     if (token) {
