@@ -9,13 +9,10 @@ import { SharedModule } from '../../shared/shared.module';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
-import { MedicalEquipmentComponent } from './pages/Medical/medical-equipment.component';
-import { GetEquipmentComponent } from './pages/Product-listing/get-equipment.component';
-import { DentalEquipmentComponent } from './pages/Dental/dental-equipment.component';
 
  
 @NgModule({
-  declarations: [MainHomeComponent, HomeLayoutComponent, ProfileComponent, WishlistComponent, OrdersComponent, MedicalEquipmentComponent, GetEquipmentComponent, DentalEquipmentComponent],
+  declarations: [MainHomeComponent, HomeLayoutComponent, ProfileComponent, WishlistComponent, OrdersComponent],
   imports: [
     CommonModule,
     NgbModule,

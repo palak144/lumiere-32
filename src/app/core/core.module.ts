@@ -14,7 +14,6 @@ import {MenuItem} from 'primeng/primeng';
     SharedModule,
     AppModule,
     AccordionModule
-   
   ]
 })
 export class CoreModule { }

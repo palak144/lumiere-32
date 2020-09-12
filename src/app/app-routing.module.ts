@@ -16,25 +16,20 @@ const routes: Routes = [
     // loadChildren: './core/content-pages/content-pages.module#ContentPagesModule',
     loadChildren: () => import('./core/content-pages/content-pages.module').then(m => m.ContentPagesModule),
     component: ContentLayoutComponent,
-     canActivate: [AuthGuard] 
   },
   {
     path: 'auth',
     // loadChildren: './core/auth/auth.module#AuthModule',
     loadChildren: () => import('./core/auth/auth.module').then(m => m.AuthModule),
     component: AuthLayoutComponent,
-    
   },
   {
     path: 'user',
     // loadChildren: './core/home/home.module#HomeModule',
     loadChildren: () => import('./core/home/home.module').then(m => m.HomeModule),
     component: HomeLayoutComponent,
-     canActivate: [AuthGuard] 
-    
+    canActivate: [AuthGuard] 
   }
-
- 
 ];
 
 @NgModule({
