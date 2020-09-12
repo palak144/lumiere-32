@@ -89,7 +89,7 @@ export class LoginComponent implements OnInit {
           this.encrypted = this.EncrDecr.set('123456$#@$^@1ERF', response.headers.get('authtoken'));
           console.log('Encrypted :' + this.encrypted);
 
-          localStorage.setItem('token', this.encrypted);
+          localStorage.setItem('token', response.headers.get('authtoken'));
           localStorage.setItem('UserData', JSON.stringify(response));
           this.router.navigate([""])
         },
