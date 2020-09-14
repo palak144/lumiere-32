@@ -7,8 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
-
-
   slides = [
     {
       img: "assets/images/home-slider-image.png",
@@ -177,10 +175,10 @@ export class LandingComponent implements OnInit {
   ngOnInit(): void {
   }
 dental(){
-    this.router.navigate(['dental'] )
+    this.router.navigate(['/dental'] )
 }
 medical(){
-  this.router.navigate(['medical'] )
+  this.router.navigate(['/medical'] )
 }
   slickInit(e) {
     }

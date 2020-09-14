@@ -90,6 +90,13 @@
 }
 .product-detail {
     margin: 40px 0 0;
+    position: relative;
+    i{
+        position: absolute;
+        top: 0;
+        right: 0px;
+        color: #DEE3EA;
+    }
 }
 img.wishlist-image {
     position: absolute;
@@ -101,9 +108,6 @@ img.wishlist-image {
     background: #faf9fa;
 }
 .equipment {
-    background: #fff;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    background-color: #ffffff;
     padding-bottom: 30px;
 }
 .main
@@ -111,10 +115,7 @@ img.wishlist-image {
     display: flex;
     padding:10px;
 }
-.clearr_all
-{
-    padding-left: 102px;
-}
+
 .filter
 {
     font-weight:600;

@@ -7,8 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth-layout.component.scss']
 })
 export class AuthLayoutComponent implements OnInit {
-
-
   slides = [
     {
       img: "assets/images/slider-image.svg",

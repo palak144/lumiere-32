@@ -34,7 +34,7 @@ import { AddAddressComponent } from './components/add-address/add-address.compon
     SlickCarouselModule,
     ToastrModule.forRoot(),
     NgxLoadingModule.forRoot({}),
-    NgOtpInputModule,
+    NgOtpInputModule
   ],
   exports: [
     HeaderComponent,

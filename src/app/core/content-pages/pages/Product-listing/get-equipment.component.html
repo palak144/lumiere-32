@@ -2,17 +2,19 @@
 <div class="banner-image">
     <img class="discount-image" src="assets\images\medical-product/equipment-banner.png" alt="Banner image"/> 
 </div>  
-
 <section class="get-equipment">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 equipment">
+            <div class="col-md-3 equipment filter">
+              <div class="equipment-inner">
                 <div class="product-list-header">
-                <div class="main">
+                  <div class="main">
                     <p class="Show-product filter"> FILTER </p>
                     <p class="listing-name clearr_all"> Clear All</p>
+                  </div>
                 </div>
-                </div>
+                <app-vertical-filter-bar [filters]="verticalBarFilters"></app-vertical-filter-bar>
+              </div>
                 <!-- <p-accordion styleClass="order-filter" expandIcon="pi pi-fw pi-plus" collapseIcon="pi pi-fw pi-minus">
                     <p-accordionTab header="Order Type" >
                       <form action="#">
@@ -34,7 +36,7 @@
                         </p>
                       </form>
                     </p-accordionTab>
-                     < <p-accordionTab header="Sort by" >
+                     <p-accordionTab header="Sort by" >
                         <ng-template pTemplate="content">
                           <form action="#">
                             <p>
@@ -63,8 +65,8 @@
                             </p>
                           </form>
                         </ng-template>
-                    </p-accordionTab> -->
-                    <!-- <p-accordionTab header="Price Per Person">
+                    </p-accordionTab>
+                    <p-accordionTab header="Price Per Person">
                         <ng-template pTemplate="content">
                           <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" ></ng5-slider>
                           <div class="price-minmax">
@@ -82,21 +84,15 @@
                             </div>
                           </div>
                         </ng-template>
-                    </p-accordionTab> -->
-                 
-                
-    
-         
-                    
-              
-           
-                  <!-- </p-accordion>  --> 
+                    </p-accordionTab>
+                </p-accordion>   -->
             </div>
             <div class="col-md-9 equipment">
+              <div class="equipment-inner">
                 <div class="product-list-header">
                     <div class="breadcrumb-medical">
                         <p class="Page-name">Medical <span class="arrow">></span></p>
-                        <p class="listing-name">Get An Equipment</p>        
+                        <p class="listing-name">Products List</p>        
                     </div>
                     <div class="Show-product">
                         <p>Showing 1-10 of 21000 results for "Get An Equipment"</p>
@@ -104,212 +100,29 @@
                 </div>
                 <div class="all-product">
                     <div class="row">
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="product-detail">
-                                <img class="wishlist-image" src="assets/images/WISHLIST.png" alt="landing dot wrapper">
-                                <img src="assets/images/medical-product/autoclave.png" alt="landing dot wrapper">
-                                <div class="product-material">
-                                    <h3>Life Steriware Dental</h3>
-                                    <div class="product-price">
-                                        <p  class="discount-price">$ 100.00</p><p class="original-price"><del>$ 200.00</del></p>
-                                    </div>
-                                    <div class="wallet-price">
-                                        <p>
-                                            <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ 80.00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="product-detail">
-                                <img class="wishlist-image" src="assets/images/WISHLIST.png" alt="landing dot wrapper">
-                                <img src="assets/images/medical-product/autoclave.png" alt="landing dot wrapper">
-                                <div class="product-material">
-                                    <h3>Life Steriware Dental</h3>
-                                    <div class="product-price">
-                                        <p  class="discount-price">$ 100.00</p><p class="original-price"><del>$ 200.00</del></p>
-                                    </div>
-                                    <div class="wallet-price">
-                                        <p>
-                                            <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ 80.00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="product-detail">
-                                <img class="wishlist-image" src="assets/images/WISHLIST.png" alt="landing dot wrapper">
-                                <img src="assets/images/medical-product/autoclave.png" alt="landing dot wrapper">
-                                <div class="product-material">
-                                    <h3>Life Steriware Dental</h3>
-                                    <div class="product-price">
-                                        <p  class="discount-price">$ 100.00</p><p class="original-price"><del>$ 200.00</del></p>
-                                    </div>
-                                    <div class="wallet-price">
-                                        <p>
-                                            <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ 80.00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="product-detail">
-                                <img class="wishlist-image" src="assets/images/WISHLIST.png" alt="landing dot wrapper">
-                                <img src="assets/images/medical-product/autoclave.png" alt="landing dot wrapper">
-                                <div class="product-material">
-                                    <h3>Life Steriware Dental</h3>
-                                    <div class="product-price">
-                                        <p  class="discount-price">$ 100.00</p><p class="original-price"><del>$ 200.00</del></p>
-                                    </div>
-                                    <div class="wallet-price">
-                                        <p>
-                                            <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ 80.00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="product-detail">
-                                <img class="wishlist-image" src="assets/images/WISHLIST.png" alt="landing dot wrapper">
-                                <img src="assets/images/medical-product/autoclave.png" alt="landing dot wrapper">
-                                <div class="product-material">
-                                    <h3>Life Steriware Dental</h3>
-                                    <div class="product-price">
-                                        <p  class="discount-price">$ 100.00</p><p class="original-price"><del>$ 200.00</del></p>
-                                    </div>
-                                    <div class="wallet-price">
-                                        <p>
-                                            <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ 80.00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="product-detail">
-                                <img class="wishlist-image" src="assets/images/WISHLIST.png" alt="landing dot wrapper">
-                                <img src="assets/images/medical-product/autoclave.png" alt="landing dot wrapper">
-                                <div class="product-material">
-                                    <h3>Life Steriware Dental</h3>
-                                    <div class="product-price">
-                                        <p  class="discount-price">$ 100.00</p><p class="original-price"><del>$ 200.00</del></p>
-                                    </div>
-                                    <div class="wallet-price">
-                                        <p>
-                                            <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ 80.00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="product-detail">
-                                <img class="wishlist-image" src="assets/images/WISHLIST.png" alt="landing dot wrapper">
-                                <img src="assets/images/medical-product/autoclave.png" alt="landing dot wrapper">
-                                <div class="product-material">
-                                    <h3>Life Steriware Dental</h3>
-                                    <div class="product-price">
-                                        <p  class="discount-price">$ 100.00</p><p class="original-price"><del>$ 200.00</del></p>
-                                    </div>
-                                    <div class="wallet-price">
-                                        <p>
-                                            <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ 80.00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="product-detail">
-                                <img class="wishlist-image" src="assets/images/WISHLIST.png" alt="landing dot wrapper">
-                                <img src="assets/images/medical-product/autoclave.png" alt="landing dot wrapper">
-                                <div class="product-material">
-                                    <h3>Life Steriware Dental</h3>
-                                    <div class="product-price">
-                                        <p  class="discount-price">$ 100.00</p><p class="original-price"><del>$ 200.00</del></p>
-                                    </div>
-                                    <div class="wallet-price">
-                                        <p>
-                                            <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ 80.00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="product-detail">
-                                <img class="wishlist-image" src="assets/images/WISHLIST.png" alt="landing dot wrapper">
-                                <img src="assets/images/medical-product/autoclave.png" alt="landing dot wrapper">
-                                <div class="product-material">
-                                    <h3>Life Steriware Dental</h3>
-                                    <div class="product-price">
-                                        <p  class="discount-price">$ 100.00</p><p class="original-price"><del>$ 200.00</del></p>
-                                    </div>
-                                    <div class="wallet-price">
-                                        <p>
-                                            <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ 80.00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="product-detail">
-                                <img class="wishlist-image" src="assets/images/WISHLIST.png" alt="landing dot wrapper">
-                                <img src="assets/images/medical-product/autoclave.png" alt="landing dot wrapper">
-                                <div class="product-material">
-                                    <h3>Life Steriware Dental</h3>
-                                    <div class="product-price">
-                                        <p  class="discount-price">$ 100.00</p><p class="original-price"><del>$ 200.00</del></p>
-                                    </div>
-                                    <div class="wallet-price">
-                                        <p>
-                                            <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ 80.00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="product-detail">
-                                <img class="wishlist-image" src="assets/images/WISHLIST.png" alt="landing dot wrapper">
-                                <img src="assets/images/medical-product/autoclave.png" alt="landing dot wrapper">
-                                <div class="product-material">
-                                    <h3>Life Steriware Dental</h3>
-                                    <div class="product-price">
-                                        <p  class="discount-price">$ 100.00</p><p class="original-price"><del>$ 200.00</del></p>
-                                    </div>
-                                    <div class="wallet-price">
-                                        <p>
-                                            <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ 80.00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="product-detail">
-                                <img class="wishlist-image" src="assets/images/WISHLIST.png" alt="landing dot wrapper">
-                                <img src="assets/images/medical-product/autoclave.png" alt="landing dot wrapper">
-                                <div class="product-material">
-                                    <h3>Life Steriware Dental</h3>
-                                    <div class="product-price">
-                                        <p  class="discount-price">$ 100.00</p><p class="original-price"><del>$ 200.00</del></p>
-                                    </div>
-                                    <div class="wallet-price">
-                                        <p>
-                                            <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ 80.00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      <div class="col-lg-3 col-sm-4 col-6" *ngFor="let item of itemsList">
+                          <div class="product-detail">
+                              <i class="fa fa-bookmark" aria-hidden="true"></i>
+                              <img [src]="item?.img" alt="product image">
+                              <div class="product-material">
+                                  <h3>{{item?.name}}</h3>
+                                  <div class="product-price">
+                                      <p  class="discount-price">$ {{item?.disPrice}}</p><p class="original-price"><del>$ {{item?.price}}</del></p>
+                                  </div>
+                                  <div class="wallet-price">
+                                      <p>
+                                          <img  src="assets/images/medical-product/wallet.png" alt="carousel image">$ {{item?.walletPrice}}
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
                     </div>
                 </div>
+              </div>
+              <div class="paginator paginator-product">
+                <p-paginator [rows]="10" pageLinkSize="10" [alwaysShow]="false" [showCurrentPageReport]="true" [totalRecords]="105" (onPageChange)="onPageChange($event)"></p-paginator>
+              </div>
             </div>
         </div>
     </div>

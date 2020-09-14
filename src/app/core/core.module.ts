@@ -7,8 +7,10 @@ import { ProjectLayoutComponent } from './layouts/project-layout/project-layout.
 
 import {AccordionModule} from 'primeng/accordion';
 import {MenuItem} from 'primeng/primeng';
+import { VerticalFilterBarComponent } from './vertical-filter-bar/vertical-filter-bar.component';
+import { HelloComponent } from './hello/hello.component';
 @NgModule({
-  declarations: [AuthLayoutComponent, ProjectLayoutComponent],
+  declarations: [AuthLayoutComponent, ProjectLayoutComponent, VerticalFilterBarComponent],
   imports: [
     CommonModule,
     SharedModule,
