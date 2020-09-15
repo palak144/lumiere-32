@@ -19,8 +19,6 @@ import { TokenAuthentication } from './core/services/token.authentication.servic
 import { AuthGuardService } from './core/services/auth-guard.service';
 import {EncrDecrServiceService} from './core/services/encr-decr-service.service';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -28,7 +28,6 @@ const routes: Routes = [
     // loadChildren: './core/home/home.module#HomeModule',
     loadChildren: () => import('./core/home/home.module').then(m => m.HomeModule),
     component: HomeLayoutComponent,
-    canActivate: [AuthGuard] 
   }
 ];
 
